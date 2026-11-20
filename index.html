@@ -213,6 +213,34 @@ textarea{min-height:110px;resize:vertical}
 footer{margin-top:48px;text-align:center;font-family:var(--f-display);font-style:italic;color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:center}
 footer .cross{color:var(--rubric);font-style:normal}
 @media (prefers-reduced-motion:no-preference){.view:not([hidden]){animation:fade .3s ease}@keyframes fade{from{opacity:.5}to{opacity:1}}}
+
+/* Barra inferior (celular e tablet): 4 botões fixos + "Mais", que abre a lista das outras seções */
+.bottombar{display:none}
+@media (max-width:899px){
+  nav.tabs{display:none}
+  .wrap{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  .bottombar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:20;
+    background:rgba(10,9,8,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-top:1px solid var(--line-gold);box-shadow:0 -1px 0 var(--bg),0 -2px 0 var(--line);
+    padding:0 max(6px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(6px,env(safe-area-inset-left,0px))}
+  .bottombar a,.bottombar button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:62px;padding:8px 2px 7px;
+    background:none;border:0;border-top:1px solid transparent;margin-top:-1px;color:var(--muted);text-decoration:none;cursor:pointer;
+    font-family:var(--f-caps);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;-webkit-tap-highlight-color:transparent}
+  .bottombar svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+  .bottombar [aria-current="page"]{color:var(--gold-hi);border-top-color:var(--gold)}
+}
+dialog.sheet{position:fixed;inset:auto 0 0 0;margin:0;width:100%;max-width:100%;max-height:80vh;overflow:auto;
+  background:var(--surface);color:var(--ink);border:0;border-top:1px solid var(--line-gold);
+  padding:18px max(20px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
+dialog.sheet::backdrop{background:rgba(0,0,0,.65)}
+dialog.sheet .sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+dialog.sheet ul{list-style:none;margin:0;padding:0}
+dialog.sheet li a{display:grid;grid-template-columns:1fr auto;column-gap:12px;row-gap:2px;align-items:center;padding:15px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink);font-family:var(--f-caps);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase}
+dialog.sheet li:last-child a{border-bottom:0}
+dialog.sheet li a span{grid-column:1;font-family:var(--f-display);font-style:italic;text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--muted)}
+dialog.sheet li a[aria-current="page"]{color:var(--gold-hi)}
+dialog.sheet li a::after{content:"✠";color:var(--rubric);font-size:.7rem;grid-column:2;grid-row:1/span 2}
 </style>
 </head>
 <body>
@@ -295,6 +323,25 @@ footer .cross{color:var(--rubric);font-style:normal}
 
   <footer><span class="cross" aria-hidden="true">✠</span><span>Sancta Maria, Mater Dei, ora pro nobis.</span></footer>
 </div>
+
+<nav class="bottombar" aria-label="Seções principais">
+  <a href="#hoje"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>Hoje</a>
+  <a href="#missa"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="2.2"/><path d="M6.5 8.5h11c0 4-2.5 6.5-5.5 6.5s-5.5-2.5-5.5-6.5zM12 15v4.5M8 21h8M9.5 19.5h5"/></svg>Missa</a>
+  <a href="#rosario"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12.0" cy="2.6" r="1.1"/><circle cx="15.3" cy="3.7" r="1.1"/><circle cx="17.3" cy="6.5" r="1.1"/><circle cx="17.3" cy="9.9" r="1.1"/><circle cx="15.3" cy="12.7" r="1.1"/><circle cx="8.7" cy="12.7" r="1.1"/><circle cx="6.7" cy="9.9" r="1.1"/><circle cx="6.7" cy="6.5" r="1.1"/><circle cx="8.7" cy="3.7" r="1.1"/><path d="M12 13.8v8.2M9.6 17.4h4.8"/></svg>Rosário</a>
+  <a href="#oracoes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/></svg>Orações</a>
+  <button type="button" id="maisBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>Mais</button>
+</nav>
+
+<dialog class="sheet" id="maisSheet" aria-label="Outras seções">
+  <div class="sheet-head"><span class="rubrica">Outras seções</span><button type="button" class="linkbtn" id="maisFechar">Fechar</button></div>
+  <ul>
+    <li><a href="#calendario">Calendário <span>tempos e festas de 1962</span></a></li>
+    <li><a href="#jejum">Jejum <span>jejum, abstinência e penitência</span></a></li>
+    <li><a href="#devocoes">Devoções <span>consagração, primeiras sextas e sábados</span></a></li>
+    <li><a href="#caderno">Caderno <span>notas para o confessor</span></a></li>
+    <li><a href="#mestres">Mestres <span>Dom Lefebvre e outros</span></a></li>
+  </ul>
+</dialog>
 
 <script>
 /* =====================================================================
@@ -1519,14 +1566,29 @@ function renderMestres() {
 
 /* === 8. ROTEADOR ===================================================== */
 const VIEWS = { hoje: renderHoje, missa: renderMissa, rosario: renderRosario, calendario: renderCalendario, jejum: renderJejum, oracoes: renderOracoes, devocoes: renderDevocoes, caderno: renderCaderno, mestres: renderMestres };
+const MAIS = ['calendario', 'jejum', 'devocoes', 'caderno', 'mestres'];
+let vistaAtual = null;
 function rota() {
   const h = (location.hash || '#hoje').slice(1), v = VIEWS[h] ? h : 'hoje';
   document.querySelectorAll('.view').forEach(s => { s.hidden = s.id !== 'v-' + v; });
-  document.querySelectorAll('nav.tabs a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + v ? 'page' : 'false'));
+  document.querySelectorAll('nav.tabs a, .bottombar a, #maisSheet a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + v ? 'page' : 'false'));
+  $('#maisBtn').setAttribute('aria-current', MAIS.includes(v) ? 'page' : 'false');
+  const sheet = $('#maisSheet'); if (sheet.open) sheet.close();
   VIEWS[v]();
+  if (vistaAtual !== null && vistaAtual !== v) window.scrollTo(0, 0);
+  vistaAtual = v;
   const ativo = document.querySelector('nav.tabs a[aria-current="page"]');
-  if (ativo && ativo.scrollIntoView) ativo.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  if (ativo && ativo.offsetParent && ativo.scrollIntoView) ativo.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 }
+
+/* Botão "Mais" da barra inferior */
+(function () {
+  const sheet = $('#maisSheet');
+  $('#maisBtn').addEventListener('click', () => sheet.showModal());
+  $('#maisFechar').addEventListener('click', () => sheet.close());
+  sheet.addEventListener('click', e => { const r = sheet.getBoundingClientRect(); if (e.clientY < r.top) sheet.close(); }); // toque fora da lista fecha
+  sheet.querySelectorAll('a').forEach(a => a.addEventListener('click', () => sheet.close()));
+})();
 
 /* Desenha raios e estrelas do emblema da Imaculada */
 (function desenharEmblema() {

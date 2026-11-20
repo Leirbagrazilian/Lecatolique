@@ -98,6 +98,10 @@ Para testar localmente: `python3 -m http.server` na pasta e abrir `http://localh
 (o service worker não funciona abrindo o arquivo direto com `file://`).
 Para instalar no celular, o app precisa estar publicado em HTTPS (ex.: Netlify ou GitHub Pages).
 
+**Navegação:** no celular e tablet (menos de 900px), **barra inferior** com Hoje, Missa, Rosário, Orações
+e **Mais** (abre uma lista com Calendário, Jejum, Devoções, Caderno e Mestres). No computador, abas no topo.
+Ao trocar de seção, a página volta ao topo.
+
 | Aba (`#hash`) | Conteúdo |
 |---|---|
 | `#hoje` | Dia litúrgico (1962), cor, classe, santo, tempo; avisos (Advento, Septuagésima, Quaresma, Têmporas); jejum de hoje nas duas disciplinas; roteiro do dia com marcação; Angelus seguinte; tema de meditação + links do YouTube; capítulo da *Imitação*; penitência sugerida; intenção; próximas datas |

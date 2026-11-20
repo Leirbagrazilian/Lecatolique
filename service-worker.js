@@ -1,7 +1,7 @@
 /* Sub Tuum Praesidium — service worker
    App: cache primeiro, com atualização em segundo plano. Fontes do Google: guardadas na primeira visita.
    Ao mudar qualquer arquivo do app, aumente VERSAO para forçar a atualização. */
-const VERSAO = 'stp-v1';
+const VERSAO = 'stp-v2';
 const APP = ['./', './index.html', './manifest.json', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-180.png'];
 
 self.addEventListener('install', e => {
