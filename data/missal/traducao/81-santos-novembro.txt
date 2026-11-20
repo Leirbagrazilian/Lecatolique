@@ -385,3 +385,45 @@ Venerando a glória perpétua dos vossos santos Apóstolos Simão e Judas, Senho
 Vós, que me seguistes, sentar-vos-eis em tronos para julgar as doze tribos de Israel.
 # Postcommunio
 Recebidos os sacramentos, Senhor, suplicamos humildemente que, pela intercessão dos vossos bem-aventurados Apóstolos Simão e Judas, o que fazemos em veneração da sua paixão nos aproveite como remédio.
+
+=== S:01-00
+# Introitus
+@T:Nat2-0
+# Oratio
+@T:Nat2-0
+# Lectio
+@T:Nat2-0
+# Graduale
+@T:Nat2-0
+# GradualeP
+@T:Nat2-0
+# Tractus
+@T:Nat2-0
+# Evangelium
+@T:Nat2-0
+# Offertorium
+@T:Nat2-0
+# Secreta
+@T:Nat2-0
+# Communio
+@T:Nat2-0
+# Postcommunio
+@T:Nat2-0
+
+=== S:11-02
+# Introitus
+@S:11-02m1
+# Oratio
+@S:11-02m1
+# Graduale
+@S:11-02m1
+# Sequentia
+@S:11-02m1
+# Offertorium
+@S:11-02m1
+# Secreta
+@S:11-02m1
+# Communio
+@S:11-02m1
+# Postcommunio
+@S:11-02m1
