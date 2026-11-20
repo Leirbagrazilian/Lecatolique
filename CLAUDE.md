@@ -11,6 +11,8 @@ Leia tudo antes de mexer no código.
 ## 1. Princípios (não quebrar)
 
 1. **Uso pessoal.** Um único usuário. Não há login, nem multiusuário, nem loja.
+   **Só celular e tablet** (retrato e paisagem). Não há versão para computador: não criar abas no topo
+   nem layouts pensados para desktop.
 2. **Calendário tradicional.** A referência é o Missal Romano de 1962 (rubricas de 1960).
 3. **Respeito pela situação do usuário.** O Gabriel frequenta a Missa nova com um pároco
    que ele considera muito bem formado e piedoso, porque não há Missa tradicional perto de casa.
@@ -98,8 +100,8 @@ Para testar localmente: `python3 -m http.server` na pasta e abrir `http://localh
 (o service worker não funciona abrindo o arquivo direto com `file://`).
 Para instalar no celular, o app precisa estar publicado em HTTPS (ex.: Netlify ou GitHub Pages).
 
-**Navegação:** no celular e tablet (menos de 900px), **barra inferior** com Hoje, Missa, Rosário, Orações
-e **Mais** (abre uma lista com Calendário, Jejum, Devoções, Caderno e Mestres). No computador, abas no topo.
+**Navegação:** só a **barra inferior**, em qualquer tamanho de tela: Hoje, Missa, Rosário, Orações
+e **Mais** (abre uma lista com Calendário, Jejum, Devoções, Caderno e Mestres).
 Ao trocar de seção, a página volta ao topo.
 
 | Aba (`#hash`) | Conteúdo |
