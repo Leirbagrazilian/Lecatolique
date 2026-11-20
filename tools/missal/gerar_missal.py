@@ -117,11 +117,24 @@ def converter(texto):
             else:
                 out.append('k|' + nome)
             continue
+        if s.startswith('!!!'):
+            out.append('t|' + s[3:].strip())  # palavras da Consagração (em versais no Missal)
+            continue
         if s.startswith('!'):
             corpo = s.lstrip('!').strip()
             if not corpo:
                 continue
             out.append(('c|' if CITACAO.match(corpo) else 'r|') + corpo)
+            continue
+        # Marcas internas do Divinum Officium: pausas ("wait10"), N.p / N.b (nome do Papa / Bispo)
+        s = re.sub(r'\s*\bwait\d+\b', '', s)
+        s = re.sub(r'\bN\.[pb]\b', 'N.', s).strip()
+        if not s:
+            continue
+        if s.startswith('{') and s.endswith('}'):
+            continue  # devoção opcional acrescentada pelo DO (ex.: Anima Christi), não está no Missal
+        if re.fullmatch(r'\([^()]*\)', s):
+            out.append('r|' + s[1:-1].strip())
             continue
         tipo = 't'
         m = re.match(r'^(v|V|R|r|S|M|D|O)\.\s*(.*)$', s)
