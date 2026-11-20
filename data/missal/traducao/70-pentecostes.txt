@@ -1,0 +1,162 @@
+// Tradução de apoio, não oficial. Próprio do Tempo depois de Pentecostes.
+// Cada linha traduz uma linha latina, na ordem (ver tools/missal/compilar_traducao.py).
+
+=== T:Pent24-0
+# Introitus
+Diz o Senhor: Eu tenho pensamentos de paz, e não de aflição; invocar-me-eis e eu vos ouvirei, e reconduzirei os vossos cativos de todos os lugares.
+Abençoastes, Senhor, a vossa terra; fizestes voltar os cativos de Jacó.
+=1
+# Oratio
+Despertai, Senhor, nós vos pedimos, a vontade dos vossos fiéis, para que, aplicando-se com mais ardor a dar fruto pela obra divina, recebam em maior abundância os remédios da vossa bondade.
+# Lectio
+Leitura da Epístola do bem-aventurado Apóstolo Paulo aos Colossenses
+Irmãos: Não cessamos de orar por vós e de pedir que sejais cheios do conhecimento da vontade de Deus, em toda a sabedoria e inteligência espiritual, para que andeis de modo digno de Deus, agradando-lhe em tudo, frutificando em toda obra boa e crescendo no conhecimento de Deus; fortalecidos em toda virtude, segundo o poder da sua glória, para toda paciência e longanimidade com alegria, dando graças a Deus Pai, que nos fez dignos de participar da herança dos santos na luz; que nos arrancou do poder das trevas e nos transferiu para o reino do Filho do seu amor, no qual temos a redenção pelo seu sangue, a remissão dos pecados.
+# Graduale
+Livrastes-nos, Senhor, dos que nos afligiam, e confundistes os que nos odiavam.
+Em Deus nos gloriaremos todo o dia, e o vosso nome louvaremos para sempre. Aleluia, aleluia.
+Das profundezas clamei a vós, Senhor: Senhor, ouvi a minha oração. Aleluia.
+# Evangelium
+Continuação do santo Evangelho segundo São Mateus
+Naquele tempo, disse Jesus aos seus discípulos: Quando virdes a abominação da desolação, de que falou o profeta Daniel, posta no lugar santo (quem lê, entenda), então os que estiverem na Judeia fujam para os montes; e quem estiver no terraço não desça para tirar alguma coisa de sua casa; e quem estiver no campo não volte para buscar a sua túnica. Ai das que estiverem grávidas e das que amamentarem naqueles dias! Orai para que a vossa fuga não aconteça no inverno nem em dia de sábado. Pois haverá então uma grande tribulação, como não houve desde o princípio do mundo até agora, nem haverá jamais. E se aqueles dias não fossem abreviados, nenhum ser vivo se salvaria; mas, por causa dos eleitos, aqueles dias serão abreviados. Então, se alguém vos disser: Eis aqui o Cristo, ou ali, não acrediteis. Pois surgirão falsos cristos e falsos profetas, e farão grandes sinais e prodígios, a ponto de enganar, se possível fosse, até os eleitos. Eis que vo-lo predisse. Se, pois, vos disserem: Ei-lo no deserto, não saiais; ei-lo no interior da casa, não acrediteis. Porque, assim como o relâmpago sai do oriente e se mostra até o ocidente, assim será a vinda do Filho do homem. Onde estiver o corpo, ali se ajuntarão as águias. Logo depois da tribulação daqueles dias, o sol escurecerá, a lua não dará a sua luz, as estrelas cairão do céu e as potências dos céus serão abaladas. Então aparecerá no céu o sinal do Filho do homem; e todas as tribos da terra baterão no peito, e verão o Filho do homem vindo sobre as nuvens do céu com grande poder e majestade. E ele enviará os seus Anjos com trombeta e grande voz, e eles reunirão os seus eleitos dos quatro ventos, de uma extremidade dos céus à outra. Aprendei da figueira esta comparação: quando os seus ramos já estão tenros e brotam as folhas, sabeis que o verão está próximo. Assim também vós, quando virdes todas estas coisas, sabei que ele está próximo, às portas. Em verdade vos digo: não passará esta geração sem que todas estas coisas aconteçam. O céu e a terra passarão, mas as minhas palavras não passarão.
+# Offertorium
+Das profundezas clamei a vós, Senhor: Senhor, ouvi a minha oração; das profundezas clamei a vós, Senhor.
+# Secreta
+Sede propício, Senhor, às nossas súplicas e, recebendo as ofertas e as preces do vosso povo, convertei a vós os corações de todos nós, para que, livres dos desejos terrenos, passemos aos desejos do céu.
+# Communio
+Em verdade vos digo: tudo o que pedirdes na oração, crede que o recebereis, e ser-vos-á feito.
+# Postcommunio
+Concedei-nos, Senhor, nós vos pedimos, que, pelos sacramentos que recebemos, tudo o que há de vicioso em nossa alma seja curado pelo dom do seu remédio.
+
+=== T:Pent01-0
+# Introitus
+Bendita seja a santa Trindade e a indivisa Unidade; louvá-la-emos, porque usou de misericórdia para conosco.
+Senhor, nosso Senhor, quão admirável é o vosso nome em toda a terra!
+=1
+# Oratio
+Deus eterno e todo-poderoso, que concedestes aos vossos servos, na profissão da verdadeira fé, reconhecer a glória da eterna Trindade e adorar a Unidade no poder da majestade, nós vos pedimos que, pela firmeza desta mesma fé, sejamos sempre defendidos de todas as adversidades.
+# Lectio
+Leitura da Epístola do bem-aventurado Apóstolo Paulo aos Romanos
+Ó profundidade das riquezas da sabedoria e da ciência de Deus! Quão incompreensíveis são os seus juízos e insondáveis os seus caminhos! Pois quem conheceu o pensamento do Senhor? Ou quem foi o seu conselheiro? Ou quem lhe deu primeiro, para que lhe seja retribuído? Porque dele, por ele e para ele são todas as coisas: a ele a glória pelos séculos. Amém.
+# Graduale
+Bendito sois vós, Senhor, que sondais os abismos e estais sentado sobre os Querubins.
+Bendito sois vós, Senhor, no firmamento do céu, e digno de louvor pelos séculos. Aleluia, aleluia.
+Bendito sois vós, Senhor, Deus dos nossos pais, e digno de louvor pelos séculos. Aleluia.
+# Evangelium
+Continuação do santo Evangelho segundo São Mateus
+Naquele tempo, disse Jesus aos seus discípulos: Foi-me dado todo o poder no céu e na terra. Ide, pois, ensinai todas as nações, batizando-as em nome do Pai, e do Filho, e do Espírito Santo, ensinando-as a observar tudo o que vos mandei. E eis que estou convosco todos os dias, até a consumação dos séculos.
+# Offertorium
+Bendito seja Deus Pai, e o Filho unigênito de Deus, e também o Espírito Santo, porque usou de misericórdia para conosco.
+# Secreta
+Santificai, Senhor nosso Deus, nós vos pedimos, pela invocação do vosso santo nome, a hóstia desta oblação, e por ela fazei de nós mesmos uma oferta eterna para vós.
+# Communio
+Bendizemos o Deus do céu e o louvaremos diante de todos os viventes, porque usou de misericórdia para conosco.
+# Postcommunio
+Que nos aproveite para a salvação do corpo e da alma, Senhor nosso Deus, a recepção deste sacramento e a profissão da eterna e santa Trindade e da sua indivisa Unidade.
+
+=== T:Pent01-4
+# Introitus
+Alimentou-os com a flor do trigo, aleluia; e saciou-os com o mel saído da rocha, aleluia, aleluia, aleluia.
+Exultai em Deus, nosso auxílio; aclamai o Deus de Jacó.
+=1
+# Oratio
+Ó Deus, que neste admirável Sacramento nos deixastes a memória da vossa paixão, concedei-nos, nós vos pedimos, venerar de tal modo os sagrados mistérios do vosso Corpo e do vosso Sangue, que sintamos continuamente em nós o fruto da vossa redenção,
+# Lectio
+Leitura da Epístola do bem-aventurado Apóstolo Paulo aos Coríntios
+Irmãos: Eu recebi do Senhor o que também vos transmiti: que o Senhor Jesus, na noite em que ia ser entregue, tomou o pão e, dando graças, partiu-o e disse: Tomai e comei: isto é o meu corpo, que será entregue por vós; fazei isto em memória de mim. Do mesmo modo, depois da ceia, tomou também o cálice, dizendo: Este cálice é o novo Testamento no meu sangue; fazei isto, todas as vezes que o beberdes, em memória de mim. Pois todas as vezes que comerdes este pão e beberdes este cálice, anunciareis a morte do Senhor, até que ele venha. Portanto, todo aquele que comer este pão ou beber o cálice do Senhor indignamente será réu do corpo e do sangue do Senhor. Examine-se, pois, cada um a si mesmo, e assim coma deste pão e beba deste cálice. Pois quem come e bebe indignamente come e bebe a sua própria condenação, não discernindo o corpo do Senhor.
+# Graduale
+Os olhos de todos esperam em vós, Senhor, e vós lhes dais o alimento no tempo oportuno.
+Abris a vossa mão e encheis de bênção todo ser vivente. Aleluia, aleluia.
+A minha carne é verdadeiramente comida, e o meu sangue é verdadeiramente bebida; quem come a minha carne e bebe o meu sangue permanece em mim e eu nele. Aleluia.
+# Sequentia
+Louva, Sião, o Salvador,
+louva o chefe e o pastor
+com hinos e cânticos.
+Ousa quanto puderes,
+pois ele está acima de todo louvor,
+e não bastas para louvá-lo.
+Tema especial de louvor,
+o pão vivo e que dá a vida
+hoje nos é proposto.
+Na mesa da sagrada ceia,
+ao grupo dos doze irmãos,
+não há dúvida de que foi dado.
+Seja o louvor pleno, sonoro,
+alegre e belo
+o júbilo da alma.
+Pois celebra-se o dia solene
+em que se recorda a primeira
+instituição desta mesa.
+Nesta mesa do novo Rei,
+a nova Páscoa da nova lei
+põe fim à antiga Páscoa.
+A novidade afasta o que é velho,
+a verdade afugenta a sombra,
+a luz elimina a noite.
+O que Cristo fez na ceia,
+mandou que se fizesse
+em sua memória.
+Instruídos pelos sagrados preceitos,
+consagramos o pão e o vinho
+em hóstia de salvação.
+É dogma dado aos cristãos
+que o pão se converte em carne
+e o vinho em sangue.
+O que não compreendes, o que não vês,
+uma fé corajosa o afirma,
+além da ordem natural.
+Sob espécies diferentes,
+que são apenas sinais e não a coisa,
+ocultam-se realidades sublimes.
+A carne é comida, o sangue é bebida;
+mas Cristo permanece inteiro
+sob uma e outra espécie.
+Por quem o recebe não é cortado,
+nem quebrado, nem dividido:
+é recebido inteiro.
+Recebe-o um, recebem-no mil:
+tanto recebem estes quanto aquele,
+e, recebido, não se consome.
+Recebem-no os bons, recebem-no os maus,
+mas com sorte desigual:
+de vida ou de morte.
+É morte para os maus, vida para os bons:
+vê como, de uma igual recepção,
+é tão diverso o resultado.
+Partido enfim o sacramento,
+não vaciles, mas lembra-te
+de que há tanto em cada fragmento
+quanto se oculta no todo.
+Não há divisão da realidade,
+só se parte o sinal;
+nem o estado nem o tamanho
+daquele que é significado diminuem.
+Eis o pão dos Anjos,
+feito alimento dos peregrinos;
+verdadeiro pão dos filhos,
+que não se deve lançar aos cães.
+Foi prefigurado em figuras:
+quando Isaac é imolado,
+quando o cordeiro pascal é destinado,
+quando o maná é dado aos pais.
+Bom pastor, pão verdadeiro,
+Jesus, tende piedade de nós;
+apascentai-nos, protegei-nos,
+fazei-nos ver os bens
+na terra dos viventes.
+Vós, que tudo sabeis e podeis,
+que aqui nos alimentais, mortais,
+fazei-nos lá vossos comensais,
+coerdeiros e companheiros
+dos santos cidadãos do céu.
+Amém. Aleluia.
+# Evangelium
+Continuação do santo Evangelho segundo São João
+Naquele tempo, disse Jesus às multidões dos judeus: A minha carne é verdadeiramente comida, e o meu sangue é verdadeiramente bebida. Quem come a minha carne e bebe o meu sangue permanece em mim e eu nele. Assim como o Pai, que vive, me enviou, e eu vivo pelo Pai, assim quem me come também viverá por mim. Este é o pão que desceu do céu. Não é como o maná que os vossos pais comeram e morreram. Quem come este pão viverá eternamente.
+# Offertorium
+Os sacerdotes do Senhor oferecem a Deus incenso e pães; por isso serão santos para o seu Deus e não profanarão o seu nome, aleluia.
+# Secreta
+Concedei propício, Senhor, nós vos pedimos, à vossa Igreja os dons da unidade e da paz, que são misticamente significados nas ofertas apresentadas.
+# Communio
+Todas as vezes que comerdes este pão e beberdes este cálice, anunciareis a morte do Senhor, até que ele venha; portanto, todo aquele que comer este pão ou beber o cálice do Senhor indignamente será réu do corpo e do sangue do Senhor, aleluia.
+# Postcommunio
+Fazei-nos, Senhor, nós vos pedimos, saciar-nos com o gozo eterno da vossa divindade, que é prefigurado pela recepção temporal do vosso precioso Corpo e Sangue,
