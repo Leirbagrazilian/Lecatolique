@@ -1,0 +1,1546 @@
+<title>Sub Tuum Praesidium</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: uma coluna de missal (até 780px) sobre fundo estrelado; a Imaculada abre a página e fica como marca d'água fixa em telas largas. */
+:root{
+  --bg:#ede5d1; --surface:#f8f3e6; --surface-2:#efe6cf; --ink:#1c2240; --muted:#5a5c6c;
+  --lapis:#1f3c78; --gold:#9a6f22; --rubric:#9c1d1d; --line:#d3c39e; --speck:rgba(154,111,34,.20);
+  --mantle:#27498f; --mantle-deep:#183268; --robe:#fbf8f0; --skin:#efd6be; --halo:#c49a42; --on-lapis:#f8f3e6;
+  --lit-v:#5d2c86; --lit-w:#efe6cc; --lit-g:#2e6a3b; --lit-r:#a21f1f; --lit-p:#d58aa1; --lit-n:#222222;
+  --f-display:"Cormorant Garamond","EB Garamond",Georgia,serif;
+  --f-body:"EB Garamond",Georgia,"Times New Roman",serif;
+  --f-caps:"Cinzel","Trajan Pro",Georgia,serif;
+  --f-init:"Cinzel Decorative","Cinzel",Georgia,serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0a1330; --surface:#111d42; --surface-2:#16244f; --ink:#ece2c8; --muted:#a8a690;
+  --lapis:#9db8ee; --gold:#d8b45c; --rubric:#e47a6a; --line:#283875; --speck:rgba(216,180,92,.22);
+  --mantle:#3a64b8; --mantle-deep:#22427f; --robe:#f2ead6; --skin:#e8cdb2; --halo:#d8b45c; --on-lapis:#0a1330;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0a1330; --surface:#111d42; --surface-2:#16244f; --ink:#ece2c8; --muted:#a8a690;
+  --lapis:#9db8ee; --gold:#d8b45c; --rubric:#e47a6a; --line:#283875; --speck:rgba(216,180,92,.22);
+  --mantle:#3a64b8; --mantle-deep:#22427f; --robe:#f2ead6; --skin:#e8cdb2; --halo:#d8b45c; --on-lapis:#0a1330;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(var(--speck) 1px,transparent 1.7px);
+  background-size:28px 28px;
+  color:var(--ink); font-family:var(--f-body); font-size:18px; line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:780px;margin:0 auto;padding-block:0 72px;position:relative;z-index:1}
+a{color:var(--lapis)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(1.9rem,5vw,2.6rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.25rem}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+.rubrica{font-family:var(--f-caps);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rubric);font-weight:700}
+.rubrica::before{content:"✠ "}
+.rub{color:var(--rubric);font-weight:500}
+.stack{display:flex;flex-direction:column;gap:14px}
+.stack-lg{display:flex;flex-direction:column;gap:26px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* Cabeçalho */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:22px 10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:40px;height:48px;flex:none}
+.brand b{font-family:var(--f-init);font-size:1.15rem;letter-spacing:.04em;display:block;line-height:1.1}
+.brand span{font-family:var(--f-display);font-style:italic;color:var(--muted);font-size:.98rem}
+.theme-btn{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.12em;background:transparent;border:1px solid var(--line);color:var(--muted);padding:.45em .8em;border-radius:2px;cursor:pointer}
+
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-block:1px solid var(--line);margin-bottom:24px}
+nav.tabs .scroller{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs .scroller::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;font-family:var(--f-caps);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:12px 12px 10px;border-bottom:2px solid transparent}
+nav.tabs a[aria-current="page"]{color:var(--rubric);border-bottom-color:var(--rubric)}
+
+/* Fólio (cartão de missal) */
+.folio{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:22px 22px 24px;box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px var(--line)}
+.folio>.rubrica{display:block;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid2>*{min-width:0}
+@media (max-width:620px){.grid2{grid-template-columns:1fr}}
+hr.orn{border:0;height:14px;margin:4px 0;background:
+  linear-gradient(var(--line),var(--line)) left center/calc(50% - 18px) 1px no-repeat,
+  linear-gradient(var(--line),var(--line)) right center/calc(50% - 18px) 1px no-repeat}
+hr.orn{position:relative}
+.orn-wrap{position:relative;text-align:center;color:var(--gold);font-size:.9rem}
+.orn-wrap::before,.orn-wrap::after{content:"";position:absolute;top:50%;width:calc(50% - 22px);height:1px;background:var(--line)}
+.orn-wrap::before{left:0}.orn-wrap::after{right:0}
+
+/* Frontispício */
+.hero{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center}
+.hero>*{min-width:0}
+.hero .fig{width:100%;max-width:200px;height:auto;display:block}
+@media (max-width:560px){.hero{grid-template-columns:1fr;text-align:center}.hero .fig{max-width:150px;margin:0 auto}.hero .row{justify-content:center}}
+.date-line{font-family:var(--f-caps);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:.35em .75em;border-radius:20px;background:var(--surface)}
+.sw{width:12px;height:12px;border-radius:50%;border:1px solid var(--line);flex:none;display:inline-block}
+.sw-v{background:var(--lit-v)}.sw-w{background:var(--lit-w)}.sw-g{background:var(--lit-g)}.sw-r{background:var(--lit-r)}.sw-p{background:var(--lit-p)}.sw-n{background:var(--lit-n)}
+
+/* Avisos */
+.aviso{border-left:3px solid var(--rubric);background:var(--surface-2);padding:12px 16px;border-radius:0 3px 3px 0}
+.aviso b{font-family:var(--f-display);font-size:1.15rem}
+
+/* Jejum */
+.fast{border:1px solid var(--line);border-radius:3px;padding:14px 16px;background:var(--surface-2)}
+.fast .lbl{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fast .st{font-family:var(--f-display);font-size:1.35rem;font-weight:600;margin-top:2px}
+.st.on{color:var(--rubric)}
+
+/* Roteiro do dia */
+.check{display:flex;flex-direction:column}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted var(--line);cursor:pointer}
+.check label:last-child{border-bottom:0}
+.check input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:1.5px solid var(--gold);border-radius:50%;margin:3px 0 0;flex:none;display:grid;place-items:center;cursor:pointer;background:transparent}
+.check input:checked{background:var(--gold)}
+.check input:checked::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--surface)}
+.check .t{flex:1;min-width:0}
+.check .h{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.check input:checked+.t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+
+/* Listas */
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dotted var(--line)}
+.list li:last-child{border-bottom:0}
+.list li>span:first-child{min-width:0}
+.list .when{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.06em;color:var(--muted);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+
+.links{display:flex;flex-direction:column;gap:6px}
+.links a{display:inline-flex;gap:8px;align-items:baseline}
+.links a::before{content:"▸";color:var(--gold);font-size:.8em}
+
+.initial::first-letter{font-family:var(--f-init);color:var(--rubric);float:left;font-size:3.1em;line-height:.85;padding:6px 8px 0 0}
+
+/* Botões e segmentos */
+.btn{font-family:var(--f-caps);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold);color:var(--ink);background:transparent;padding:.65em 1em;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.primary{background:var(--lapis);border-color:var(--lapis);color:var(--on-lapis)}
+.btn:disabled{opacity:.4;cursor:default}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;flex-wrap:wrap}
+.seg button{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:0;border-right:1px solid var(--line);color:var(--muted);padding:.6em .85em;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--lapis);color:var(--on-lapis)}
+
+/* Orações */
+.prayer{display:flex;flex-direction:column;gap:6px}
+.prayer h3{font-size:1.2rem}
+.pcols{display:grid;gap:16px}
+.pcols.two{grid-template-columns:1fr 1fr}
+.pcols>*{min-width:0}
+@media (max-width:620px){.pcols.two{grid-template-columns:1fr}}
+.pcols .la{font-style:italic}
+.ptext{white-space:pre-line}
+
+/* Mistérios */
+.myst{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;border-bottom:1px dotted var(--line)}
+.myst:last-child{border-bottom:0}
+.myst>*{min-width:0}
+.myst .n{font-family:var(--f-init);color:var(--rubric);font-size:1.8rem;line-height:1;text-align:center}
+.myst .ref{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.08em;color:var(--muted)}
+.fruto{font-style:italic;color:var(--gold)}
+
+/* Terço guiado */
+.guided{border:1px solid var(--gold);border-radius:3px;padding:20px;background:var(--surface-2)}
+.beads{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:10px 0}
+.bead{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--gold)}
+.bead.big{width:16px;height:16px}
+.bead.done{background:var(--gold)}
+.bead.cur{background:var(--rubric);border-color:var(--rubric)}
+.gstep{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-variant-numeric:tabular-nums}
+
+/* Calendário */
+.cal-scroll{overflow-x:auto}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(40px,1fr));gap:4px;min-width:300px}
+.cal .wd{font-family:var(--f-caps);font-size:.64rem;letter-spacing:.08em;text-align:center;color:var(--muted);padding-bottom:4px}
+.cal button{position:relative;aspect-ratio:1/1.05;max-width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:2px;padding:4px 3px 0;font-family:var(--f-body);font-size:1rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;overflow:hidden;font-variant-numeric:tabular-nums}
+.cal button .bar{position:absolute;left:0;right:0;bottom:0;height:5px}
+.cal button .mk{font-family:var(--f-caps);font-size:.58rem;color:var(--rubric);letter-spacing:.04em;line-height:1}
+.cal button.today{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+.cal button.sel{background:var(--surface-2);border-color:var(--rubric)}
+.cal button.sun{font-weight:500;color:var(--rubric)}
+.cal .empty{visibility:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.88rem;color:var(--muted)}
+
+/* Formulários */
+textarea,input[type=text],input[type=date],select{font:inherit;font-size:1rem;width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:10px 12px}
+textarea{min-height:110px;resize:vertical}
+.field{display:flex;flex-direction:column;gap:6px}
+.field>span{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.note{border-top:1px dotted var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.note .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.linkbtn{background:none;border:0;color:var(--rubric);font:inherit;font-size:.88rem;cursor:pointer;padding:0;text-decoration:underline}
+
+.slots{display:flex;flex-wrap:wrap;gap:8px}
+.slot{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;color:var(--ink);font-family:var(--f-caps);font-size:.8rem;cursor:pointer;font-variant-numeric:tabular-nums}
+.slot.on{background:var(--gold);color:var(--surface)}
+.bar-prog{height:8px;border-radius:4px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden}
+.bar-prog i{display:block;height:100%;background:var(--gold)}
+
+.master{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start}
+.master>*{min-width:0}
+.master .seal{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--f-init);color:var(--rubric);font-size:1.2rem;background:var(--surface-2)}
+
+/* Marca d'água */
+.watermark{position:fixed;right:max(24px,env(safe-area-inset-right,0px));bottom:0;width:min(30vw,400px);height:auto;opacity:.14;pointer-events:none;z-index:0;display:none}
+@media (min-width:1240px){.watermark{display:block}}
+.watermark-l{left:max(24px,env(safe-area-inset-left,0px));right:auto;transform:scaleX(-1);opacity:.07}
+
+footer{margin-top:40px;text-align:center;font-family:var(--f-display);font-style:italic;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.view:not([hidden]){animation:fade .35s ease}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+</style>
+
+<!-- ===== Imagem da Imaculada (desenho original em SVG, reutilizado com <use>) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="48%" r="55%">
+      <stop offset="0" style="stop-color:var(--halo);stop-opacity:.55"/>
+      <stop offset=".6" style="stop-color:var(--halo);stop-opacity:.16"/>
+      <stop offset="1" style="stop-color:var(--halo);stop-opacity:0"/>
+    </radialGradient>
+    <symbol id="immaculata" viewBox="0 0 300 470">
+      <ellipse cx="150" cy="240" rx="146" ry="230" fill="url(#glow)"/>
+      <g id="im-rays" style="stroke:var(--halo)" stroke-width="1.1" stroke-opacity=".38"></g>
+      <circle cx="150" cy="100" r="38" fill="none" style="stroke:var(--halo)" stroke-width="2"/>
+      <circle cx="150" cy="100" r="33" style="fill:var(--halo)" fill-opacity=".18"/>
+      <g id="im-stars" style="fill:var(--halo)"></g>
+      <!-- manto -->
+      <path d="M150 60 C122 60 106 82 106 110 C106 142 96 172 90 207 C80 272 70 332 64 394 C62 414 78 426 100 426 L200 426 C222 426 238 414 236 394 C230 332 220 272 210 207 C204 172 194 142 194 110 C194 82 178 60 150 60 Z" style="fill:var(--mantle);stroke:var(--halo)" stroke-width="2"/>
+      <path d="M112 232 C107 300 99 362 90 420 M188 232 C193 300 201 362 210 420 M100 260 C94 320 86 370 78 414 M200 260 C206 320 214 370 222 414" fill="none" style="stroke:var(--halo)" stroke-opacity=".45" stroke-width="1.4"/>
+      <!-- túnica -->
+      <path d="M150 138 C134 140 126 162 124 198 C120 262 116 332 112 420 L188 420 C184 332 180 262 176 198 C174 162 166 140 150 138 Z" style="fill:var(--robe)"/>
+      <path d="M140 250 C138 310 136 360 134 418 M160 250 C162 310 164 360 166 418" fill="none" style="stroke:var(--mantle)" stroke-opacity=".18" stroke-width="1.2"/>
+      <path d="M126 236 Q150 246 174 236" fill="none" style="stroke:var(--halo)" stroke-width="3"/>
+      <!-- véu e rosto -->
+      <ellipse cx="150" cy="106" rx="23" ry="29" style="fill:var(--robe)"/>
+      <ellipse cx="150" cy="108" rx="16" ry="21" style="fill:var(--skin)"/>
+      <path d="M143 104 q3 -2 6 0 M151 104 q3 -2 6 0" fill="none" style="stroke:var(--mantle-deep)" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M147 119 q3 1.6 6 0" fill="none" style="stroke:var(--mantle-deep)" stroke-opacity=".6" stroke-width="1.1" stroke-linecap="round"/>
+      <!-- mangas e mãos postas -->
+      <path d="M116 204 C127 192 139 196 144 206 L142 218 C132 218 121 215 116 204 Z" style="fill:var(--mantle-deep)"/>
+      <path d="M184 204 C173 192 161 196 156 206 L158 218 C168 218 179 215 184 204 Z" style="fill:var(--mantle-deep)"/>
+      <path d="M150 170 C144 178 141 192 142 208 L158 208 C159 192 156 178 150 170 Z" style="fill:var(--skin)"/>
+      <!-- lua -->
+      <path d="M76 432 C110 472 190 472 224 432 C190 454 110 454 76 432 Z" style="fill:var(--halo)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<svg class="watermark" viewBox="0 0 300 470" aria-hidden="true"><use href="#immaculata" width="300" height="470"/></svg>
+<svg class="watermark watermark-l" viewBox="0 0 300 470" aria-hidden="true"><use href="#immaculata" width="300" height="470"/></svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#hoje" aria-label="Sub Tuum Praesidium, início">
+      <svg viewBox="0 0 40 48" aria-hidden="true">
+        <path d="M20 2 V14 M15 7 H25" style="stroke:var(--rubric)" stroke-width="2" fill="none"/>
+        <path d="M6 20 H34" style="stroke:var(--gold)" stroke-width="2"/>
+        <path d="M8 44 V22 L20 36 L32 22 V44" fill="none" style="stroke:var(--lapis)" stroke-width="3" stroke-linejoin="miter"/>
+      </svg>
+      <div><b>Sub Tuum Praesidium</b><span>À vossa proteção recorremos</span></div>
+    </a>
+    <button class="theme-btn" id="themeBtn" type="button">Tema: sistema</button>
+  </header>
+
+  <nav class="tabs" aria-label="Seções">
+    <div class="scroller">
+      <a href="#hoje">Hoje</a>
+      <a href="#missa">Missa</a>
+      <a href="#rosario">Rosário</a>
+      <a href="#calendario">Calendário</a>
+      <a href="#jejum">Jejum</a>
+      <a href="#oracoes">Orações</a>
+      <a href="#devocoes">Devoções</a>
+      <a href="#caderno">Caderno</a>
+      <a href="#mestres">Mestres</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="view" id="v-hoje"></section>
+    <section class="view" id="v-missa" hidden></section>
+    <section class="view" id="v-rosario" hidden></section>
+    <section class="view" id="v-calendario" hidden></section>
+    <section class="view" id="v-jejum" hidden></section>
+    <section class="view" id="v-oracoes" hidden></section>
+    <section class="view" id="v-devocoes" hidden></section>
+    <section class="view" id="v-caderno" hidden></section>
+    <section class="view" id="v-mestres" hidden></section>
+  </main>
+
+  <footer>Sancta Maria, Mater Dei, ora pro nobis.</footer>
+</div>
+
+<script>
+/* =====================================================================
+   SUB TUUM PRAESIDIUM — app pessoal de vida católica tradicional
+   Leia CLAUDE.md antes de alterar. Seções:
+   1. DADOS  2. DATAS  3. MOTOR LITÚRGICO  4. JEJUM
+   5. ARMAZENAMENTO  6. UTILIDADES  7. TELAS  8. ROTEADOR
+   ===================================================================== */
+
+/* === 1. DADOS ======================================================== */
+
+/* Santoral de 1962 (festas principais). Formato: MM-DD|nome|classe|cor|L
+   classe: 1, 2, 3 = classes de 1962; 4 = comemoração.
+   cor: v violeta, w branco, g verde, r vermelho, p rosa, n preto.
+   L = festa do Senhor (vence domingo de 2ª classe). */
+const SANTORAL_TXT = `
+01-01|Oitava do Natal (Circuncisão do Senhor)|1|w|L
+01-06|Epifania de Nosso Senhor|1|w|L
+01-13|Batismo de Nosso Senhor|2|w|L
+01-14|Santo Hilário, bispo e doutor|3|w
+01-15|São Paulo, primeiro eremita|3|w
+01-16|São Marcelo I, papa e mártir|3|r
+01-17|Santo Antão, abade|3|w
+01-18|Santa Prisca, virgem e mártir|4|r
+01-20|Santos Fabião e Sebastião, mártires|3|r
+01-21|Santa Inês, virgem e mártir|3|r
+01-22|Santos Vicente e Anastácio, mártires|3|r
+01-23|São Raimundo de Penaforte|3|w
+01-24|São Timóteo, bispo e mártir|3|r
+01-25|Conversão de São Paulo|3|w
+01-26|São Policarpo, bispo e mártir|3|r
+01-27|São João Crisóstomo, bispo e doutor|3|w
+01-28|São Pedro Nolasco|3|w
+01-29|São Francisco de Sales, bispo e doutor|3|w
+01-30|Santa Martina, virgem e mártir|3|r
+01-31|São João Bosco|3|w
+02-01|Santo Inácio de Antioquia, bispo e mártir|3|r
+02-02|Purificação da Bem-aventurada Virgem Maria|2|w|L
+02-03|São Brás, bispo e mártir|4|r
+02-04|Santo André Corsini, bispo|3|w
+02-05|Santa Águeda, virgem e mártir|3|r
+02-06|São Tito, bispo|3|w
+02-07|São Romualdo, abade|3|w
+02-08|São João da Mata|3|w
+02-09|São Cirilo de Alexandria, bispo e doutor|3|w
+02-10|Santa Escolástica, virgem|3|w
+02-11|Aparição da Imaculada Virgem Maria em Lourdes|3|w
+02-12|Sete Santos Fundadores dos Servitas|3|w
+02-14|São Valentim, mártir|4|r
+02-22|Cátedra de São Pedro|2|w
+02-23|São Pedro Damião, bispo e doutor|3|w
+02-24|São Matias, apóstolo|2|r
+02-27|São Gabriel de Nossa Senhora das Dores|3|w
+03-04|São Casimiro|3|w
+03-06|Santas Perpétua e Felicidade, mártires|3|r
+03-07|Santo Tomás de Aquino, doutor|3|w
+03-08|São João de Deus|3|w
+03-09|Santa Francisca Romana, viúva|3|w
+03-10|Santos Quarenta Mártires|3|r
+03-12|São Gregório Magno, papa e doutor|3|w
+03-17|São Patrício, bispo|3|w
+03-18|São Cirilo de Jerusalém, bispo e doutor|3|w
+03-19|São José, Esposo da Bem-aventurada Virgem Maria|1|w
+03-21|São Bento, abade|3|w
+03-24|São Gabriel Arcanjo|3|w
+03-25|Anunciação da Bem-aventurada Virgem Maria|1|w
+03-27|São João Damasceno, doutor|3|w
+03-28|São João de Capistrano|3|w
+04-02|São Francisco de Paula|3|w
+04-04|Santo Isidoro, bispo e doutor|3|w
+04-05|São Vicente Ferrer|3|w
+04-11|São Leão Magno, papa e doutor|3|w
+04-13|Santo Hermenegildo, mártir|3|r
+04-14|São Justino, mártir|3|r
+04-21|Santo Anselmo, bispo e doutor|3|w
+04-22|Santos Sotero e Caio, papas e mártires|3|r
+04-23|São Jorge, mártir|4|r
+04-24|São Fidélis de Sigmaringa, mártir|3|r
+04-25|São Marcos, evangelista|2|r
+04-26|Santos Cleto e Marcelino, papas e mártires|3|r
+04-27|São Pedro Canísio, doutor|3|w
+04-28|São Paulo da Cruz|3|w
+04-29|São Pedro de Verona, mártir|3|r
+04-30|Santa Catarina de Sena, virgem|3|w
+05-01|São José Operário|1|w
+05-02|Santo Atanásio, bispo e doutor|3|w
+05-04|Santa Mônica, viúva|3|w
+05-05|São Pio V, papa|3|w
+05-07|Santo Estanislau, bispo e mártir|3|r
+05-09|São Gregório Nazianzeno, bispo e doutor|3|w
+05-10|Santo Antonino, bispo|3|w
+05-11|Santos Filipe e Tiago, apóstolos|2|r
+05-12|Santos Nereu, Aquileu, Domitila e Pancrácio, mártires|3|r
+05-13|São Roberto Belarmino, bispo e doutor|3|w
+05-15|São João Batista de La Salle|3|w
+05-17|São Pascoal Bailão|3|w
+05-20|São Bernardino de Sena|3|w
+05-25|São Gregório VII, papa|3|w
+05-26|São Filipe Néri|3|w
+05-27|São Beda, o Venerável, doutor|3|w
+05-28|Santo Agostinho de Cantuária, bispo|3|w
+05-29|Santa Maria Madalena de Pazzi, virgem|3|w
+05-31|Realeza da Bem-aventurada Virgem Maria|2|w
+06-05|São Bonifácio, bispo e mártir|3|r
+06-06|São Norberto, bispo|3|w
+06-10|Santa Margarida da Escócia, rainha|3|w
+06-11|São Barnabé, apóstolo|3|r
+06-13|Santo Antônio de Pádua, doutor|3|w
+06-14|São Basílio Magno, bispo e doutor|3|w
+06-18|Santo Efrém, diácono e doutor|3|w
+06-19|Santa Juliana Falconieri, virgem|3|w
+06-21|São Luís Gonzaga|3|w
+06-22|São Paulino de Nola, bispo|3|w
+06-23|Vigília de São João Batista|2|v
+06-24|Natividade de São João Batista|1|w
+06-26|Santos João e Paulo, mártires|3|r
+06-28|Vigília de São Pedro e São Paulo|2|v
+06-29|São Pedro e São Paulo, apóstolos|1|r
+06-30|Comemoração de São Paulo, apóstolo|3|r
+07-01|Preciosíssimo Sangue de Nosso Senhor|1|r|L
+07-02|Visitação da Bem-aventurada Virgem Maria|2|w
+07-05|Santo Antônio Maria Zacaria|3|w
+07-07|Santos Cirilo e Metódio, bispos|3|w
+07-08|Santa Isabel de Portugal, rainha|3|w
+07-10|Santos Sete Irmãos, mártires|3|r
+07-12|São João Gualberto, abade|3|w
+07-14|São Boaventura, bispo e doutor|3|w
+07-15|Santo Henrique, imperador|3|w
+07-16|Nossa Senhora do Carmo|3|w
+07-18|São Camilo de Lélis|3|w
+07-19|São Vicente de Paulo|3|w
+07-20|São Jerônimo Emiliani|3|w
+07-21|São Lourenço de Bríndisi, doutor|3|w
+07-22|Santa Maria Madalena, penitente|3|w
+07-23|Santo Apolinário, bispo e mártir|3|r
+07-25|São Tiago Maior, apóstolo|2|r
+07-26|Sant'Ana, Mãe da Bem-aventurada Virgem Maria|2|w
+07-29|Santa Marta, virgem|3|w
+07-31|Santo Inácio de Loyola|3|w
+08-01|Santos Macabeus, mártires|4|r
+08-02|Santo Afonso Maria de Ligório, bispo e doutor|3|w
+08-04|São Domingos|3|w
+08-05|Dedicação de Santa Maria das Neves|3|w
+08-06|Transfiguração de Nosso Senhor|2|w|L
+08-07|São Caetano|3|w
+08-08|São João Maria Vianney, o Cura d'Ars|3|w
+08-10|São Lourenço, diácono e mártir|2|r
+08-12|Santa Clara, virgem|3|w
+08-14|Vigília da Assunção|2|v
+08-15|Assunção da Bem-aventurada Virgem Maria|1|w
+08-16|São Joaquim, Pai da Bem-aventurada Virgem Maria|2|w
+08-17|São Jacinto|3|w
+08-19|São João Eudes|3|w
+08-20|São Bernardo, abade e doutor|3|w
+08-21|Santa Joana Francisca de Chantal|3|w
+08-22|Imaculado Coração de Maria|2|w
+08-23|São Filipe Benício|3|w
+08-24|São Bartolomeu, apóstolo|2|r
+08-25|São Luís, rei|3|w
+08-27|São José de Calasanz|3|w
+08-28|Santo Agostinho, bispo e doutor|3|w
+08-29|Degolação de São João Batista|3|r
+08-30|Santa Rosa de Lima, virgem|3|w
+08-31|São Raimundo Nonato|3|w
+09-02|Santo Estêvão da Hungria, rei|3|w
+09-05|São Lourenço Justiniano, bispo|3|w
+09-08|Natividade da Bem-aventurada Virgem Maria|2|w
+09-12|Santíssimo Nome de Maria|3|w
+09-14|Exaltação da Santa Cruz|2|r|L
+09-15|Sete Dores da Bem-aventurada Virgem Maria|2|w
+09-16|Santos Cornélio e Cipriano, mártires|3|r
+09-17|Estigmas de São Francisco|4|w
+09-18|São José de Cupertino|3|w
+09-19|São Januário e companheiros, mártires|3|r
+09-21|São Mateus, apóstolo e evangelista|2|r
+09-22|São Tomás de Vilanova, bispo|3|w
+09-23|São Lino, papa e mártir|3|r
+09-24|Nossa Senhora das Mercês|4|w
+09-27|Santos Cosme e Damião, mártires|3|r
+09-28|São Venceslau, mártir|3|r
+09-29|Dedicação de São Miguel Arcanjo|1|w
+09-30|São Jerônimo, doutor|3|w
+10-02|Santos Anjos da Guarda|3|w
+10-03|Santa Teresinha do Menino Jesus|3|w
+10-04|São Francisco de Assis|3|w
+10-06|São Bruno|3|w
+10-07|Nossa Senhora do Rosário|2|w
+10-08|Santa Brígida, viúva|3|w
+10-09|São João Leonardi|3|w
+10-10|São Francisco de Borja|3|w
+10-11|Maternidade da Bem-aventurada Virgem Maria|2|w
+10-12|Nossa Senhora da Conceição Aparecida, Padroeira do Brasil (próprio do Brasil)|1|w
+10-13|Santo Eduardo, rei|3|w
+10-14|São Calisto I, papa e mártir|3|r
+10-15|Santa Teresa de Ávila, virgem|3|w
+10-16|Santa Edwiges, viúva|3|w
+10-17|Santa Margarida Maria Alacoque|3|w
+10-18|São Lucas, evangelista|2|r
+10-19|São Pedro de Alcântara|3|w
+10-20|São João Câncio|3|w
+10-24|São Rafael Arcanjo|3|w
+10-28|Santos Simão e Judas, apóstolos|2|r
+11-01|Todos os Santos|1|w
+11-02|Comemoração de Todos os Fiéis Defuntos|1|n
+11-04|São Carlos Borromeu, bispo|3|w
+11-08|Santos Quatro Coroados, mártires|4|r
+11-09|Dedicação da Arquibasílica do Santíssimo Salvador (Latrão)|2|w|L
+11-10|Santo André Avelino|3|w
+11-11|São Martinho de Tours, bispo|3|w
+11-12|São Martinho I, papa e mártir|3|r
+11-13|São Diogo|3|w
+11-14|São Josafá, bispo e mártir|3|r
+11-15|Santo Alberto Magno, bispo e doutor|3|w
+11-16|Santa Gertrudes, virgem|3|w
+11-17|São Gregório Taumaturgo, bispo|3|w
+11-18|Dedicação das Basílicas de São Pedro e São Paulo|3|w
+11-19|Santa Isabel da Hungria, viúva|3|w
+11-20|São Félix de Valois|3|w
+11-21|Apresentação da Bem-aventurada Virgem Maria|3|w
+11-22|Santa Cecília, virgem e mártir|3|r
+11-23|São Clemente I, papa e mártir|3|r
+11-24|São João da Cruz, doutor|3|w
+11-25|Santa Catarina de Alexandria, virgem e mártir|4|r
+11-26|São Silvestre, abade|3|w
+11-29|São Saturnino, mártir|4|r
+11-30|Santo André, apóstolo|2|r
+12-02|Santa Bibiana, virgem e mártir|3|r
+12-03|São Francisco Xavier|3|w
+12-04|São Pedro Crisólogo, bispo e doutor|3|w
+12-05|São Sabas, abade|4|w
+12-06|São Nicolau, bispo|3|w
+12-07|Santo Ambrósio, bispo e doutor|3|w
+12-08|Imaculada Conceição da Bem-aventurada Virgem Maria|1|w
+12-11|São Dâmaso I, papa|3|w
+12-13|Santa Luzia, virgem e mártir|3|r
+12-16|Santo Eusébio, bispo e mártir|3|r
+12-21|São Tomé, apóstolo|2|r
+12-24|Vigília do Natal|1|v
+12-25|Natividade de Nosso Senhor Jesus Cristo|1|w|L
+12-26|Santo Estêvão, protomártir|2|r
+12-27|São João, apóstolo e evangelista|2|w
+12-28|Santos Inocentes, mártires|2|v
+12-29|São Tomás Becket, bispo e mártir|4|r
+12-31|São Silvestre I, papa|4|w`;
+const SANTORAL = {};
+SANTORAL_TXT.trim().split('\n').forEach(l => {
+  const [k, nome, cl, cor, L] = l.split('|');
+  SANTORAL[k] = { nome, classe: +cl, cor, senhor: L === 'L' };
+});
+
+/* Mistérios do Rosário: título, passagem, meditação, fruto */
+const MISTERIOS = {
+  gozosos: { nome: 'Mistérios Gozosos', la: 'Mysteria Gaudiosa', itens: [
+    ['A Anunciação do Anjo a Nossa Senhora', 'Lc 1,26-38', 'O Anjo Gabriel anuncia a Maria que ela será a Mãe do Salvador. Ela responde: "Eis aqui a serva do Senhor." Peça a graça de dizer sim a Deus mesmo quando não entende tudo.', 'Humildade'],
+    ['A Visitação de Nossa Senhora a Santa Isabel', 'Lc 1,39-56', 'Maria vai às pressas servir a prima. Leva Cristo consigo, e João estremece no seio da mãe. Quem traz Deus na alma se põe a serviço do próximo.', 'Caridade para com o próximo'],
+    ['O Nascimento de Nosso Senhor em Belém', 'Lc 2,1-20', 'O Filho de Deus nasce pobre numa gruta. Os primeiros a adorá-lo são pastores simples. Belém ensina que o coração apegado às coisas não tem lugar para Deus.', 'Desapego dos bens do mundo'],
+    ['A Apresentação do Menino Jesus no Templo', 'Lc 2,22-38', 'Maria e José cumprem a Lei e oferecem o Menino a Deus. Simeão anuncia a espada que traspassará a alma de Maria. Obedecer é oferecer-se inteiro.', 'Obediência e pureza'],
+    ['O Encontro do Menino Jesus no Templo', 'Lc 2,41-52', 'Depois de três dias de angústia, Maria e José encontram Jesus entre os doutores. Quando a alma perde Jesus pelo pecado, deve buscá-lo sem descanso.', 'Buscar Jesus em todas as coisas']
+  ]},
+  dolorosos: { nome: 'Mistérios Dolorosos', la: 'Mysteria Dolorosa', itens: [
+    ['A Agonia de Nosso Senhor no Horto', 'Mt 26,36-46', 'Jesus sua sangue diante do peso dos pecados do mundo e diz: "Não se faça a minha vontade, mas a vossa." Peça dor sincera dos próprios pecados.', 'Contrição e conformidade com a vontade de Deus'],
+    ['A Flagelação de Nosso Senhor', 'Jo 19,1', 'Jesus é açoitado preso à coluna, em reparação dos pecados da carne. Cada golpe pede de nós a guarda dos sentidos.', 'Mortificação dos sentidos e pureza'],
+    ['A Coroação de Espinhos', 'Mt 27,27-31', 'O Rei dos reis é coroado de espinhos e escarnecido como rei de brincadeira. Ele repara o nosso orgulho e a vaidade dos nossos pensamentos.', 'Humildade de coração'],
+    ['Jesus carrega a Cruz até o Calvário', 'Lc 23,26-32', 'Jesus cai e se levanta. Encontra sua Mãe no caminho, e Simão o ajuda. Cada um tem a sua cruz e deve levá-la atrás d\'Ele, sem reclamar.', 'Paciência nas cruzes'],
+    ['A Crucifixão e Morte de Nosso Senhor', 'Jo 19,25-30', 'Jesus morre na Cruz e nos dá Maria por Mãe. É o mesmo Sacrifício que se torna presente no altar em cada Santa Missa.', 'Perseverança e amor à Santa Missa']
+  ]},
+  gloriosos: { nome: 'Mistérios Gloriosos', la: 'Mysteria Gloriosa', itens: [
+    ['A Ressurreição de Nosso Senhor', 'Mt 28,1-10', 'Cristo vence a morte ao terceiro dia, como havia dito. A Ressurreição é o fundamento da nossa fé e a promessa da nossa própria ressurreição.', 'Fé'],
+    ['A Ascensão de Nosso Senhor ao Céu', 'At 1,6-11', 'Jesus sobe ao Céu diante dos Apóstolos para nos preparar um lugar. A nossa pátria verdadeira não é este mundo.', 'Esperança e desejo do Céu'],
+    ['A Vinda do Espírito Santo', 'At 2,1-13', 'O Espírito Santo desce sobre Maria e os Apóstolos reunidos no Cenáculo. Os que tinham medo saem a pregar com coragem.', 'Os dons do Espírito Santo e o zelo pelas almas'],
+    ['A Assunção de Nossa Senhora ao Céu', 'Ct 2,10-12', 'Terminada a vida terrena, Maria é levada ao Céu em corpo e alma (dogma definido por Pio XII em 1950). Ela nos espera e intercede por nós.', 'A graça de uma boa morte'],
+    ['A Coroação de Nossa Senhora como Rainha do Céu e da Terra', 'Ap 12,1', '"Uma mulher vestida de sol, com a lua sob os pés e na cabeça uma coroa de doze estrelas." Maria é Rainha e Mãe. Confie a ela a sua perseverança.', 'Perseverança final e confiança em Maria']
+  ]}
+};
+/* Mistérios por dia (costume tradicional): 0 = domingo */
+const MISTERIO_DO_DIA = ['gloriosos','gozosos','dolorosos','gloriosos','gozosos','dolorosos','gloriosos'];
+
+/* Orações (latim e português). ℣ e ℟ são exibidos em vermelho, como nos missais. */
+const ORACOES = {
+  sinal: { t: 'Sinal da Cruz',
+    la: 'In nomine Patris, et Filii, et Spiritus Sancti. Amen.',
+    pt: 'Em nome do Pai, e do Filho, e do Espírito Santo. Amém.' },
+  credo: { t: 'Credo (Símbolo dos Apóstolos)',
+    la: 'Credo in Deum Patrem omnipotentem, Creatorem caeli et terrae. Et in Iesum Christum, Filium eius unicum, Dominum nostrum, qui conceptus est de Spiritu Sancto, natus ex Maria Virgine, passus sub Pontio Pilato, crucifixus, mortuus, et sepultus, descendit ad inferos, tertia die resurrexit a mortuis, ascendit ad caelos, sedet ad dexteram Dei Patris omnipotentis, inde venturus est iudicare vivos et mortuos. Credo in Spiritum Sanctum, sanctam Ecclesiam catholicam, sanctorum communionem, remissionem peccatorum, carnis resurrectionem, vitam aeternam. Amen.',
+    pt: 'Creio em Deus Pai todo-poderoso, Criador do céu e da terra; e em Jesus Cristo, seu único Filho, Nosso Senhor, que foi concebido pelo poder do Espírito Santo; nasceu da Virgem Maria; padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado; desceu aos infernos; ressuscitou ao terceiro dia; subiu aos céus, está sentado à direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.' },
+  pai: { t: 'Pai-Nosso',
+    la: 'Pater noster, qui es in caelis, sanctificetur nomen tuum. Adveniat regnum tuum. Fiat voluntas tua, sicut in caelo et in terra. Panem nostrum quotidianum da nobis hodie, et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris. Et ne nos inducas in tentationem, sed libera nos a malo. Amen.',
+    pt: 'Pai Nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.' },
+  ave: { t: 'Ave-Maria',
+    la: 'Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.',
+    pt: 'Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora de nossa morte. Amém.' },
+  gloria: { t: 'Glória ao Pai',
+    la: 'Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.',
+    pt: 'Glória ao Pai, ao Filho e ao Espírito Santo. Assim como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.' },
+  fatima: { t: 'Oração de Fátima',
+    la: 'O mi Iesu, dimitte nobis debita nostra, libera nos ab igne inferni, conduc in caelum omnes animas, praesertim illas quae maxime indigent misericordia tua.',
+    pt: 'Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o Céu e socorrei principalmente as que mais precisarem.' },
+  salve: { t: 'Salve-Rainha',
+    la: 'Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus, exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle. Eia ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende. O clemens, o pia, o dulcis Virgo Maria.\n℣. Ora pro nobis, sancta Dei Genetrix.\n℟. Ut digni efficiamur promissionibus Christi.',
+    pt: 'Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva. A vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.\n℣. Rogai por nós, santa Mãe de Deus.\n℟. Para que sejamos dignos das promessas de Cristo.' },
+  angelus: { t: 'Angelus',
+    la: '℣. Angelus Domini nuntiavit Mariae.\n℟. Et concepit de Spiritu Sancto. Ave Maria…\n℣. Ecce ancilla Domini.\n℟. Fiat mihi secundum verbum tuum. Ave Maria…\n℣. Et Verbum caro factum est.\n℟. Et habitavit in nobis. Ave Maria…\n℣. Ora pro nobis, sancta Dei Genetrix.\n℟. Ut digni efficiamur promissionibus Christi.\nOremus. Gratiam tuam, quaesumus, Domine, mentibus nostris infunde; ut qui, Angelo nuntiante, Christi Filii tui incarnationem cognovimus, per passionem eius et crucem ad resurrectionis gloriam perducamur. Per eundem Christum Dominum nostrum. Amen.',
+    pt: '℣. O Anjo do Senhor anunciou a Maria.\n℟. E ela concebeu do Espírito Santo. Ave Maria…\n℣. Eis aqui a serva do Senhor.\n℟. Faça-se em mim segundo a vossa palavra. Ave Maria…\n℣. E o Verbo se fez carne.\n℟. E habitou entre nós. Ave Maria…\n℣. Rogai por nós, santa Mãe de Deus.\n℟. Para que sejamos dignos das promessas de Cristo.\nOremos. Infundi, Senhor, como vos pedimos, a vossa graça em nossas almas, para que nós, que pela anunciação do Anjo conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e morte na cruz sejamos conduzidos à glória da ressurreição. Pelo mesmo Cristo, Senhor Nosso. Amém.' },
+  reginacaeli: { t: 'Regina Caeli (Tempo Pascal, em lugar do Angelus)',
+    la: 'Regina caeli, laetare, alleluia.\nQuia quem meruisti portare, alleluia.\nResurrexit, sicut dixit, alleluia.\nOra pro nobis Deum, alleluia.\n℣. Gaude et laetare, Virgo Maria, alleluia.\n℟. Quia surrexit Dominus vere, alleluia.\nOremus. Deus, qui per resurrectionem Filii tui, Domini nostri Iesu Christi, mundum laetificare dignatus es: praesta, quaesumus; ut, per eius Genetricem Virginem Mariam, perpetuae capiamus gaudia vitae. Per eundem Christum Dominum nostrum. Amen.',
+    pt: 'Rainha do Céu, alegrai-vos, aleluia.\nPorque Aquele que merecestes trazer em vosso seio, aleluia.\nRessuscitou como disse, aleluia.\nRogai a Deus por nós, aleluia.\n℣. Exultai e alegrai-vos, ó Virgem Maria, aleluia.\n℟. Porque o Senhor ressuscitou verdadeiramente, aleluia.\nOremos. Ó Deus, que vos dignastes alegrar o mundo com a ressurreição do vosso Filho, Nosso Senhor Jesus Cristo, concedei-nos, vos suplicamos, que por sua Mãe, a Virgem Maria, alcancemos as alegrias da vida eterna. Pelo mesmo Cristo, Senhor Nosso. Amém.' },
+  subtuum: { t: 'Sub tuum praesidium',
+    la: 'Sub tuum praesidium confugimus, sancta Dei Genetrix; nostras deprecationes ne despicias in necessitatibus; sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta.',
+    pt: 'À vossa proteção recorremos, santa Mãe de Deus; não desprezeis as nossas súplicas em nossas necessidades, mas livrai-nos sempre de todos os perigos, ó Virgem gloriosa e bendita.' },
+  oferecimento: { t: 'Oferecimento do dia',
+    pt: 'Divino Coração de Jesus, eu vos ofereço, pelo Coração Imaculado de Maria, as orações, obras e sofrimentos deste dia, em reparação das ofensas que vos são feitas e por todas as intenções pelas quais vos imolais continuamente sobre o altar. Amém.' },
+  comunhao: { t: 'Comunhão espiritual (Santo Afonso de Ligório)',
+    pt: 'Meu Jesus, eu creio que estais presente no Santíssimo Sacramento. Amo-vos sobre todas as coisas e desejo receber-vos em minha alma. Já que agora não posso receber-vos sacramentalmente, vinde ao menos espiritualmente ao meu coração. Como se já vos tivesse recebido, eu vos abraço e me uno todo a vós. Não permitais que eu jamais me separe de vós. Amém.' },
+  contricao: { t: 'Ato de contrição',
+    la: 'Deus meus, ex toto corde paenitet me omnium meorum peccatorum, eaque detestor, quia peccando, non solum poenas a te iuste statutas promeritus sum, sed praesertim quia offendi te, summum bonum, ac dignum qui super omnia diligaris. Ideo firmiter propono, adiuvante gratia tua, de cetero me non peccaturum peccandique occasiones proximas fugiturum. Amen.',
+    pt: 'Meu Deus, porque sois infinitamente bom e digno de ser amado sobre todas as coisas, arrependo-me de todo o coração de vos ter ofendido e proponho firmemente, com o auxílio da vossa graça, emendar-me e nunca mais vos ofender. Amém.' },
+  inmanus: { t: 'Antes de dormir',
+    la: 'In manus tuas, Domine, commendo spiritum meum.',
+    pt: 'Em vossas mãos, Senhor, entrego o meu espírito.' },
+  requiem: { t: 'Pelos fiéis defuntos',
+    la: 'Requiem aeternam dona eis, Domine, et lux perpetua luceat eis. Requiescant in pace. Amen.',
+    pt: 'Dai-lhes, Senhor, o eterno descanso, e a luz perpétua os ilumine. Descansem em paz. Amém.' },
+  sacerdotes: { t: 'Oração breve pelos sacerdotes',
+    pt: 'Senhor Jesus, Sumo e Eterno Sacerdote, guardai os vossos sacerdotes, e de modo especial o meu pároco, à sombra do vosso Coração. Dai-lhes fé firme, pureza de vida e amor ao Santo Sacrifício do altar. Que Nossa Senhora os proteja e os conduza. Amém.' }
+};
+
+/* Temas de meditação. Cada tema: t = título, d = descrição, ref = onde estudar. */
+const TEMAS = {
+  geral: [
+    { t: 'Para que fomos criados', d: 'Deus nos criou para conhecê-lo, amá-lo e servi-lo nesta vida, e depois gozá-lo para sempre no Céu. Tudo o mais é meio para esse fim.', ref: 'Catecismo de São Pio X, primeiras perguntas' },
+    { t: 'A Santíssima Trindade', d: 'Um só Deus em três Pessoas iguais e distintas. É o mistério central da fé, que recebemos no Batismo.', ref: 'Catecismo de São Pio X, Credo, 1º artigo' },
+    { t: 'A Encarnação do Verbo', d: 'O Filho de Deus se fez homem no seio da Virgem Maria, sem deixar de ser Deus, para nos salvar.', ref: 'Catecismo de São Pio X, Credo, 3º artigo' },
+    { t: 'A Igreja, Corpo Místico de Cristo', d: 'Una, santa, católica e apostólica. Fora dela não há salvação, e por ela recebemos a doutrina e os sacramentos.', ref: 'Catecismo de São Pio X, Credo, 9º artigo' },
+    { t: 'A Comunhão dos Santos', d: 'A Igreja do Céu, a do Purgatório e a da terra formam um só corpo, unidas pela oração e pelos méritos.', ref: 'Catecismo de São Pio X, Credo, 9º artigo' },
+    { t: 'A graça santificante', d: 'A vida de Deus na alma. Perde-se pelo pecado mortal e recupera-se pela confissão bem feita.', ref: 'Catecismo de São Pio X, Da graça' },
+    { t: 'A Santa Missa, Sacrifício da Cruz', d: 'A Missa torna presente, de modo incruento, o mesmo Sacrifício do Calvário. Tem quatro fins: adoração, ação de graças, propiciação e impetração.', ref: 'Catecismo de São Pio X, Do Santo Sacrifício da Missa' },
+    { t: 'A Presença Real na Eucaristia', d: 'Na Hóstia consagrada está Jesus Cristo inteiro: Corpo, Sangue, Alma e Divindade. Daí a reverência, o jejum eucarístico e o estado de graça para comungar.', ref: 'Catecismo de São Pio X, Da Eucaristia' },
+    { t: 'Como fazer uma boa confissão', d: 'Cinco coisas: exame de consciência, dor dos pecados, propósito de não mais pecar, acusação dos pecados e cumprimento da penitência.', ref: 'Catecismo de São Pio X, Da Penitência' },
+    { t: 'O sacerdócio', d: 'Pela Ordem, Cristo dá à Igreja homens que oferecem o Sacrifício e perdoam os pecados. Rezar pelos sacerdotes é dever de todo fiel.', ref: 'Catecismo de São Pio X, Da Ordem' },
+    { t: 'O Matrimônio cristão', d: 'Sacramento uno e indissolúvel, ordenado à geração e educação dos filhos e à santificação dos esposos.', ref: 'Catecismo de São Pio X, Do Matrimônio' },
+    { t: 'Santificar o domingo', d: 'Ouvir a Missa inteira e abster-se de trabalhos desnecessários. O domingo é o dia do Senhor, não um dia de folga qualquer.', ref: 'Catecismo de São Pio X, 3º Mandamento' },
+    { t: 'Honrar pai e mãe', d: 'Amor, respeito e obediência aos pais e superiores legítimos, e cuidado deles na velhice.', ref: 'Catecismo de São Pio X, 4º Mandamento' },
+    { t: 'A virtude da castidade', d: 'Guardar a pureza de pensamentos, olhares e atos, segundo o próprio estado de vida. Exige vigilância, oração e fuga das ocasiões.', ref: 'Catecismo de São Pio X, 6º e 9º Mandamentos' },
+    { t: 'Os Mandamentos da Igreja', d: 'Missa aos domingos e festas, jejum e abstinência nos dias marcados, confissão ao menos uma vez por ano, comunhão pela Páscoa.', ref: 'Catecismo de São Pio X, Preceitos da Igreja' },
+    { t: 'Fé, esperança e caridade', d: 'As três virtudes teologais têm Deus por objeto. A caridade é a maior e dá valor a todas as outras.', ref: 'Catecismo de São Pio X, Das virtudes' },
+    { t: 'As virtudes cardeais', d: 'Prudência, justiça, fortaleza e temperança: os eixos da vida moral sobre os quais giram as demais virtudes.', ref: 'Suma Teológica, II-II' },
+    { t: 'Os sete pecados capitais', d: 'Soberba, avareza, luxúria, ira, gula, inveja e preguiça. Conhecer o seu defeito dominante é metade da luta.', ref: 'Catecismo de São Pio X, Dos vícios' },
+    { t: 'A oração', d: 'Elevar a alma a Deus para adorá-lo, agradecer, pedir perdão e pedir graças. O Pai-Nosso é a oração perfeita.', ref: 'Catecismo de São Pio X, Da oração' },
+    { t: 'A verdadeira devoção a Maria', d: 'Ir a Jesus por Maria. A devoção verdadeira é interior, terna, santa, constante e desinteressada.', ref: 'São Luís de Montfort, Tratado da Verdadeira Devoção' },
+    { t: 'O Reinado Social de Cristo', d: 'Cristo é Rei não só das almas, mas das famílias e das nações. Pio XI instituiu a festa de Cristo Rei para recordar isso.', ref: 'Pio XI, encíclica Quas Primas (1925)' },
+    { t: 'Os erros modernos', d: 'Liberalismo, indiferentismo e modernismo, condenados por Pio IX e São Pio X. Conhecê-los ajuda a guardar a fé íntegra.', ref: 'Pio IX, Syllabus; São Pio X, Pascendi' },
+    { t: 'O Anjo da Guarda', d: 'Cada um de nós tem um anjo que nos guarda, ilumina e defende. Reze a ele todos os dias.', ref: 'Catecismo de São Pio X, Dos anjos' },
+    { t: 'A mortificação cristã', d: 'Negar-se em pequenas coisas para ser livre nas grandes. Sem cruz não se segue a Cristo.', ref: 'Imitação de Cristo, Livro II, cap. 12' },
+    { t: 'A humildade', d: 'Reconhecer a verdade sobre si mesmo diante de Deus. É o fundamento de todas as virtudes.', ref: 'Imitação de Cristo, Livro I' }
+  ],
+  advento: [
+    { t: 'As vindas de Cristo', d: 'Ele veio em Belém, vem à alma pela graça e virá no fim dos tempos para julgar. O Advento prepara as três.', ref: 'Evangelho do 1º Domingo do Advento (Lc 21)' },
+    { t: 'A esperança cristã', d: 'Esperar de Deus a vida eterna e os meios para alcançá-la. O Advento é o tempo da esperança.', ref: 'Catecismo de São Pio X, Da esperança' },
+    { t: 'São João Batista, o Precursor', d: '"Preparai o caminho do Senhor." Penitência, humildade e testemunho da verdade.', ref: 'Evangelhos do 2º e 3º Domingos do Advento' },
+    { t: 'A Imaculada Conceição', d: 'Maria foi preservada do pecado original desde o primeiro instante, em previsão dos méritos de Cristo (Pio IX, 1854).', ref: 'Pio IX, Ineffabilis Deus' },
+    { t: 'Maria, a Virgem que espera', d: 'Ninguém esperou o Natal como Nossa Senhora. Viva o Advento com ela, em recolhimento.', ref: 'Lc 1' },
+    { t: 'O Juízo Final', d: 'Cristo voltará em glória para julgar vivos e mortos. A Igreja abre o ano litúrgico com essa lembrança.', ref: 'Catecismo de São Pio X, Credo, 7º artigo' }
+  ],
+  natal: [
+    { t: 'O mistério do Natal', d: 'Deus feito criança. A grandeza de Deus se mostra na pequenez.', ref: 'Jo 1,1-14 (Último Evangelho)' },
+    { t: 'A Sagrada Família', d: 'Jesus, Maria e José em Nazaré: modelo de oração, trabalho e obediência no lar.', ref: 'Lc 2,51-52' },
+    { t: 'O Santíssimo Nome de Jesus', d: 'Nome acima de todo nome, diante do qual todo joelho se dobra. Invocá-lo com reverência.', ref: 'Fl 2,9-11' },
+    { t: 'A Epifania', d: 'Os Magos adoram o Rei dos judeus e oferecem ouro, incenso e mirra: realeza, divindade e humanidade.', ref: 'Mt 2,1-12' }
+  ],
+  septuagesima: [
+    { t: 'Os trabalhadores da vinha', d: 'Deus chama a todas as horas. A Septuagésima convida a sair da tibieza e começar a trabalhar.', ref: 'Evangelho da Septuagésima (Mt 20,1-16)' },
+    { t: 'A parábola do semeador', d: 'Que terra é a minha alma: caminho, pedra, espinhos ou terra boa?', ref: 'Evangelho da Sexagésima (Lc 8,4-15)' },
+    { t: 'Preparar a Quaresma', d: 'Escolha agora suas penitências, de acordo com seu estado e, se possível, com seu confessor.', ref: 'Tempo da Septuagésima' },
+    { t: 'O sentido da penitência', d: 'Reparar os pecados, dominar as paixões e unir-se à Paixão de Cristo.', ref: 'Catecismo de São Pio X, Da Penitência' }
+  ],
+  quaresma: [
+    { t: 'Jejum, oração e esmola', d: 'Os três pilares da Quaresma: domar o corpo, elevar a alma e abrir o coração ao próximo.', ref: 'Evangelho da Quarta-feira de Cinzas (Mt 6,16-21)' },
+    { t: 'As tentações de Cristo', d: 'Jesus vence o demônio com a Palavra de Deus. Quem foge das ocasiões vence as tentações.', ref: 'Evangelho do 1º Domingo da Quaresma (Mt 4,1-11)' },
+    { t: 'A Transfiguração', d: 'Cristo mostra a glória aos Apóstolos para que suportem o escândalo da Cruz.', ref: 'Evangelho do 2º Domingo da Quaresma (Mt 17,1-9)' },
+    { t: 'O pecado mortal', d: 'Matéria grave, pleno conhecimento e deliberado consentimento. Rompe a amizade com Deus.', ref: 'Catecismo de São Pio X, Do pecado' },
+    { t: 'Laetare', d: 'No meio da penitência, a Igreja se alegra: a Páscoa se aproxima.', ref: '4º Domingo da Quaresma' },
+    { t: 'A confissão quaresmal', d: 'Faça uma confissão bem preparada, com exame cuidadoso. Aproveite o tempo da graça.', ref: 'Preceito da confissão anual' }
+  ],
+  paixao: [
+    { t: 'As sete palavras de Cristo na Cruz', d: 'Perdão, promessa, Maria, abandono, sede, consumação, entrega. Medite uma por dia.', ref: 'Evangelhos da Paixão' },
+    { t: 'As dores de Nossa Senhora', d: 'Maria de pé junto à Cruz. Ela sofre conosco e por nós.', ref: 'Jo 19,25-27; Stabat Mater' },
+    { t: 'A Quinta-feira Santa', d: 'Instituição da Eucaristia e do sacerdócio. O Senhor lava os pés dos Apóstolos.', ref: 'Jo 13; 1Cor 11,23-29' },
+    { t: 'O valor do sofrimento', d: 'Unido a Cristo, o sofrimento repara, purifica e salva almas.', ref: 'Cl 1,24' }
+  ],
+  pascoa: [
+    { t: 'A Ressurreição, fundamento da fé', d: '"Se Cristo não ressuscitou, vã é a nossa fé." A Páscoa é a festa das festas.', ref: '1Cor 15' },
+    { t: 'O Bom Pastor', d: 'Cristo conhece as suas ovelhas e dá a vida por elas. Reze pelos pastores da Igreja.', ref: 'Evangelho do 2º Domingo depois da Páscoa (Jo 10)' },
+    { t: 'A Ascensão e o desejo do Céu', d: 'Onde está a Cabeça, ali também devem estar os membros.', ref: 'At 1,1-11' },
+    { t: 'A vida nova da graça', d: 'Ressuscitados com Cristo, buscai as coisas do alto.', ref: 'Cl 3,1-4' }
+  ],
+  pentecostes: [
+    { t: 'Os sete dons do Espírito Santo', d: 'Sabedoria, entendimento, conselho, fortaleza, ciência, piedade e temor de Deus.', ref: 'Is 11,2-3; Catecismo de São Pio X' },
+    { t: 'Os frutos do Espírito Santo', d: 'Caridade, alegria, paz, paciência, benignidade, bondade, longanimidade, mansidão, fidelidade, modéstia, continência e castidade.', ref: 'Gl 5,22-23' },
+    { t: 'O Espírito Santo na alma', d: 'Ele habita na alma em graça como num templo. Não o entristeça pelo pecado.', ref: '1Cor 6,19' }
+  ],
+  novembro: [
+    { t: 'As almas do Purgatório', d: 'Novembro é o mês dos fiéis defuntos. Ofereça Missas, orações, esmolas e indulgências por eles.', ref: 'Catecismo de São Pio X, Do Purgatório' },
+    { t: 'A morte do cristão', d: 'Lembra-te, homem, que és pó. Viver cada dia como se fosse o último, em estado de graça.', ref: 'Imitação de Cristo, Livro I, cap. 23' },
+    { t: 'O juízo particular', d: 'Logo depois da morte, a alma é julgada sobre toda a sua vida.', ref: 'Catecismo de São Pio X, Dos Novíssimos' },
+    { t: 'O Céu', d: 'Ver a Deus face a face, para sempre. Nem olho viu, nem ouvido ouviu.', ref: '1Cor 2,9' },
+    { t: 'O Inferno', d: 'A Igreja ensina que existe e é eterno. Meditar nele leva à conversão sincera.', ref: 'Mt 25,41-46' },
+    { t: 'A brevidade da vida', d: 'O tempo passa e não volta. O que você está fazendo dele?', ref: 'Sl 89' }
+  ]
+};
+
+const PENITENCIAS = [
+  'Abster-se de doces e sobremesa hoje.',
+  'Tomar o café sem açúcar.',
+  'Passar o dia sem redes sociais.',
+  'Rezar o terço de joelhos.',
+  'Levantar-se na primeira vez que o despertador tocar.',
+  'Fazer o trajeto em silêncio, sem música nem podcast.',
+  'Dar uma esmola discreta.',
+  'Fazer uma visita ao Santíssimo Sacramento.',
+  'Aceitar uma contrariedade sem reclamar e oferecê-la a Deus.',
+  'Não comer nada entre as refeições.',
+  'Prestar um serviço escondido a alguém da família.',
+  'Rezar pelas almas do Purgatório e oferecer o dia por elas.',
+  'Guardar a vista na rua e na internet.',
+  'Calar uma resposta atravessada.'
+];
+
+const EXAME = [
+  ['1º Mandamento', ['Rezei todos os dias?', 'Duvidei voluntariamente de alguma verdade da fé?', 'Dei crédito a superstições, horóscopo ou espiritismo?', 'Comunguei em pecado mortal?']],
+  ['2º Mandamento', ['Usei o nome de Deus em vão?', 'Jurei sem necessidade ou falsamente?', 'Deixei de cumprir promessa feita a Deus?']],
+  ['3º Mandamento', ['Faltei à Missa no domingo ou dia santo por culpa minha?', 'Cheguei atrasado por descuido?', 'Trabalhei sem necessidade no domingo?']],
+  ['4º Mandamento', ['Fui desobediente ou desrespeitoso com pais e superiores?', 'Descuidei dos deveres de família?']],
+  ['5º Mandamento', ['Guardei ódio ou rancor?', 'Desejei mal a alguém?', 'Dei mau exemplo?', 'Prejudiquei minha saúde por excesso?']],
+  ['6º e 9º Mandamentos', ['Consenti em pensamentos ou desejos impuros?', 'Olhei conteúdo impuro?', 'Pratiquei atos contra a castidade?']],
+  ['7º e 10º Mandamentos', ['Roubei ou danifiquei algo alheio?', 'Fui desonesto no trabalho?', 'Invejei os bens dos outros?']],
+  ['8º Mandamento', ['Menti?', 'Caluniei ou falei mal dos outros sem necessidade?', 'Julguei temerariamente?']],
+  ['Preceitos da Igreja', ['Guardei o jejum e a abstinência?', 'Confessei-me ao menos uma vez no ano?', 'Comunguei pela Páscoa?']],
+  ['Pecados capitais', ['Em qual caí hoje: soberba, avareza, luxúria, ira, gula, inveja ou preguiça?']]
+];
+
+const DEVOCAO_SEMANA = ['Santíssima Trindade','Espírito Santo e almas do Purgatório','Santos Anjos','São José','Santíssimo Sacramento','Paixão do Senhor e Sagrado Coração','Nossa Senhora'];
+const DEVOCAO_MES = ['Santíssimo Nome de Jesus','Sagrada Família','São José','Santíssimo Sacramento','Nossa Senhora','Sagrado Coração de Jesus','Preciosíssimo Sangue','Imaculado Coração de Maria','Sete Dores de Nossa Senhora','Santo Rosário','Almas do Purgatório','Imaculada Conceição'];
+const INTENCOES = ['Pelo seu pároco e pelos sacerdotes', 'Pelas vocações sacerdotais e religiosas', 'Pela sua família', 'Pelas almas do Purgatório', 'Pela conversão dos pecadores', 'Pelo Reinado Social de Nosso Senhor', 'Pelo Papa e pela Igreja'];
+
+/* Imitação de Cristo: capítulos por livro */
+const IMITACAO = [25, 12, 59, 18];
+
+/* Festas marianas para concluir a Consagração de Montfort */
+const FESTAS_MARIANAS = [
+  ['12-08','Imaculada Conceição'],['02-02','Purificação de Nossa Senhora'],['03-25','Anunciação'],
+  ['05-31','Realeza de Maria'],['07-02','Visitação'],['08-15','Assunção'],['09-08','Natividade de Nossa Senhora'],
+  ['10-07','Nossa Senhora do Rosário'],['11-21','Apresentação de Nossa Senhora']
+];
+const MONTFORT_FASES = [
+  [1, 12, 'Desapego do espírito do mundo', 'Doze dias preliminares: rezar o Veni Creator, a Ave Maris Stella e o Magnificat; examinar o que no mundo prende a alma.'],
+  [13, 19, 'Conhecimento de si mesmo', 'Primeira semana: ladainha do Espírito Santo, ladainha de Nossa Senhora; pedir luz sobre os próprios pecados e misérias.'],
+  [20, 26, 'Conhecimento da Santíssima Virgem', 'Segunda semana: ladainha de Nossa Senhora e terço; meditar as virtudes e a missão de Maria.'],
+  [27, 33, 'Conhecimento de Jesus Cristo', 'Terceira semana: ladainha do Santíssimo Nome de Jesus, Ave Maris Stella; meditar a vida e a Paixão do Senhor.']
+];
+
+/* === 2. DATAS ======================================================== */
+const DIA_MS = 86400000;
+const D = (y, m, d) => new Date(y, m - 1, d, 12);               /* sempre ao meio-dia: evita erro de horário de verão */
+const noon = dt => new Date(dt.getFullYear(), dt.getMonth(), dt.getDate(), 12);
+const add = (dt, n) => { const x = noon(dt); x.setDate(x.getDate() + n); return x; };
+const diff = (a, b) => Math.round((noon(b) - noon(a)) / DIA_MS);  /* b − a em dias */
+const same = (a, b) => diff(a, b) === 0;
+const pad = n => String(n).padStart(2, '0');
+const chave = dt => pad(dt.getMonth() + 1) + '-' + pad(dt.getDate());
+const iso = dt => dt.getFullYear() + '-' + chave(dt);
+const fromIso = s => { const [y, m, d] = s.split('-').map(Number); return D(y, m, d); };
+
+function pascoa(y) { /* algoritmo gregoriano anônimo */
+  const a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
+    f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30,
+    i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
+    mes = Math.floor((h + l - 7 * m + 114) / 31), dia = ((h + l - 7 * m + 114) % 31) + 1;
+  return D(y, mes, dia);
+}
+function advento1(y) {
+  const natal = D(y, 12, 25), dow = natal.getDay();
+  return add(natal, -(dow === 0 ? 7 : dow) - 21);
+}
+const _cache = {};
+function datas(y) {
+  if (_cache[y]) return _cache[y];
+  const E = pascoa(y), adv1 = advento1(y);
+  const set1 = D(y, 9, 1), dom1set = add(set1, (7 - set1.getDay()) % 7), dom3set = add(dom1set, 14);
+  const oct31 = D(y, 10, 31), cristoRei = add(oct31, -oct31.getDay());
+  const j6 = D(y, 1, 6), sagradaFamilia = add(j6, 7 - j6.getDay() === 0 ? 7 : 7 - j6.getDay());
+  let santoNome = D(y, 1, 2);
+  for (let d = 2; d <= 5; d++) { if (D(y, 1, d).getDay() === 0) santoNome = D(y, 1, d); }
+  const k = {
+    pascoa: E, septuagesima: add(E, -63), sexagesima: add(E, -56), quinquagesima: add(E, -49),
+    cinzas: add(E, -46), quad1: add(E, -42), laetare: add(E, -21), paixao: add(E, -14), ramos: add(E, -7),
+    quintaSanta: add(E, -3), sextaSanta: add(E, -2), sabadoSanto: add(E, -1),
+    ascensao: add(E, 39), vigPentecostes: add(E, 48), pentecostes: add(E, 49), trindade: add(E, 56),
+    corpus: add(E, 60), sagradoCoracao: add(E, 68),
+    adv1, adv3: add(adv1, 14), natal: D(y, 12, 25), epifania: j6, cristoRei, sagradaFamilia, santoNome
+  };
+  /* Quatro Têmporas: quarta, sexta e sábado */
+  const tri = (base) => [add(base, 3), add(base, 5), add(base, 6)];
+  k.temporas = [
+    { nome: 'da Quaresma', dias: tri(k.quad1) },
+    { nome: 'de Pentecostes', dias: tri(k.pentecostes) },
+    { nome: 'de Setembro', dias: tri(dom3set) },
+    { nome: 'do Advento', dias: tri(k.adv3) }
+  ];
+  /* Vigílias de jejum (Código de 1917, cân. 1252); no domingo, antecipam para o sábado */
+  const ant = dt => dt.getDay() === 0 ? add(dt, -1) : dt;
+  k.vigiliasJejum = [
+    { nome: 'Vigília de Pentecostes', dia: k.vigPentecostes },
+    { nome: 'Vigília da Assunção', dia: ant(D(y, 8, 14)) },
+    { nome: 'Vigília de Todos os Santos', dia: ant(D(y, 10, 31)) },
+    { nome: 'Vigília do Natal', dia: ant(D(y, 12, 24)) }
+  ];
+  return (_cache[y] = k);
+}
+function temporasDe(dt) {
+  const k = datas(dt.getFullYear());
+  for (const t of k.temporas) if (t.dias.some(x => same(x, dt))) return t.nome;
+  return null;
+}
+function vigiliaDe(dt) {
+  const k = datas(dt.getFullYear());
+  const v = k.vigiliasJejum.find(x => same(x.dia, dt));
+  return v ? v.nome : null;
+}
+
+/* === 3. MOTOR LITÚRGICO ============================================== */
+const DIAS = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const CORES = { v: 'Violeta', w: 'Branco', g: 'Verde', r: 'Vermelho', p: 'Rosa', n: 'Preto' };
+const CLASSES = { 1: '1ª classe', 2: '2ª classe', 3: '3ª classe', 4: '4ª classe' };
+const ord = n => n + 'º';
+
+function tempo(dt) {
+  const y = dt.getFullYear(), k = datas(y);
+  if (dt >= k.adv1 && dt < k.natal) return { id: 'advento', nome: 'Advento', cor: 'v' };
+  if (dt >= k.natal) return { id: 'natal', nome: 'Tempo do Natal', cor: 'w' };
+  if (dt <= D(y, 1, 13)) return { id: 'natal', nome: dt >= D(y, 1, 6) ? 'Tempo da Epifania' : 'Tempo do Natal', cor: 'w' };
+  if (dt < k.septuagesima) return { id: 'epifania', nome: 'Tempo depois da Epifania', cor: 'g' };
+  if (dt < k.cinzas) return { id: 'septuagesima', nome: 'Tempo da Septuagésima', cor: 'v' };
+  if (dt < k.paixao) return { id: 'quaresma', nome: 'Quaresma', cor: 'v' };
+  if (dt < k.ramos) return { id: 'paixao', nome: 'Tempo da Paixão', cor: 'v' };
+  if (dt < k.pascoa) return { id: 'semanasanta', nome: 'Semana Santa', cor: 'v' };
+  if (dt < k.pentecostes) return { id: 'pascoa', nome: 'Tempo Pascal', cor: 'w' };
+  if (dt < k.trindade) return { id: 'pentecostes', nome: 'Oitava de Pentecostes', cor: 'r' };
+  return { id: 'posPentecostes', nome: 'Tempo depois de Pentecostes', cor: 'g' };
+}
+
+/* Retorna [título, classe, cor] para um domingo */
+function nomeDomingo(dt, k, y) {
+  if (dt >= k.adv1 && dt < k.natal) {
+    const n = diff(k.adv1, dt) / 7 + 1;
+    return [ord(n) + ' Domingo do Advento' + (n === 3 ? ' (Gaudete)' : ''), 1, n === 3 ? 'p' : 'v'];
+  }
+  if (dt > k.natal) return ['Domingo na Oitava do Natal', 2, 'w'];
+  if (same(dt, k.santoNome)) return ['Santíssimo Nome de Jesus', 2, 'w'];
+  if (same(dt, k.sagradaFamilia)) return ['Sagrada Família (1º Domingo depois da Epifania)', 2, 'w'];
+  if (dt < k.septuagesima) return [ord(Math.ceil(diff(k.epifania, dt) / 7)) + ' Domingo depois da Epifania', 2, 'g'];
+  const fixos = [
+    [k.septuagesima, 'Domingo da Septuagésima', 2, 'v'], [k.sexagesima, 'Domingo da Sexagésima', 2, 'v'],
+    [k.quinquagesima, 'Domingo da Quinquagésima', 2, 'v'], [k.laetare, '4º Domingo da Quaresma (Laetare)', 1, 'p'],
+    [k.paixao, '1º Domingo da Paixão', 1, 'v'], [k.ramos, '2º Domingo da Paixão ou de Ramos', 1, 'v'],
+    [k.pascoa, 'Domingo da Ressurreição', 1, 'w'], [add(k.pascoa, 7), 'Domingo in Albis (Pascoela)', 1, 'w'],
+    [add(k.pascoa, 42), 'Domingo depois da Ascensão', 2, 'w'], [k.pentecostes, 'Domingo de Pentecostes', 1, 'r'],
+    [k.trindade, 'Festa da Santíssima Trindade', 1, 'w']
+  ];
+  for (const [d, t, c, cor] of fixos) if (same(d, dt)) return [t, c, cor];
+  if (dt > k.quad1 && dt < k.paixao) return [ord(diff(k.quad1, dt) / 7 + 1) + ' Domingo da Quaresma', 1, 'v'];
+  if (same(dt, k.quad1)) return ['1º Domingo da Quaresma', 1, 'v'];
+  if (dt > k.pascoa && dt < k.pentecostes) return [ord(diff(k.pascoa, dt) / 7) + ' Domingo depois da Páscoa', 2, 'w'];
+  const n = diff(k.pentecostes, dt) / 7;
+  if (add(dt, 7) >= k.adv1) return ['Último Domingo depois de Pentecostes', 2, 'g'];
+  if (n > 23) return [ord(n) + ' Domingo depois de Pentecostes (próprio retomado da Epifania)', 2, 'g'];
+  return [ord(n) + ' Domingo depois de Pentecostes', 2, 'g'];
+}
+
+/* Retorna [título, classe, cor, flags] para um dia de semana */
+function nomeFeria(dt, k, y, t) {
+  const ep = diff(k.pascoa, dt), wd = DIAS[dt.getDay()];
+  if (same(dt, k.cinzas)) return ['Quarta-feira de Cinzas', 1, 'v'];
+  if (ep >= -6 && ep <= -1) {
+    const nomes = ['Segunda-feira Santa','Terça-feira Santa','Quarta-feira Santa','Quinta-feira Santa (Ceia do Senhor)','Sexta-feira Santa (Paixão do Senhor)','Sábado Santo (Vigília Pascal)'];
+    return [nomes[ep + 6], 1, ['v','v','v','w','n','v'][ep + 6]];
+  }
+  if (ep >= 1 && ep <= 6) return [ep === 6 ? 'Sábado in Albis' : wd + ' da Oitava da Páscoa', 1, 'w'];
+  if (ep === 39) return ['Ascensão de Nosso Senhor', 1, 'w'];
+  if (ep === 48) return ['Vigília de Pentecostes', 1, 'r'];
+  const tp = temporasDe(dt);
+  if (ep >= 50 && ep <= 55) return [wd + ' da Oitava de Pentecostes' + (tp ? ' (Quatro Têmporas)' : ''), 1, 'r'];
+  if (ep === 60) return ['Corpus Christi (Santíssimo Corpo de Cristo)', 1, 'w'];
+  if (ep === 68) return ['Sacratíssimo Coração de Jesus', 1, 'w'];
+  if (tp) return [wd + ' das Quatro Têmporas ' + tp, 2, 'v', 'temporas'];
+  if (dt > k.cinzas && dt < k.quad1) return [wd + ' depois das Cinzas', 3, 'v', 'quaresma'];
+  if (dt > k.quad1 && dt < k.paixao) return [wd + ' da ' + (Math.floor(diff(k.quad1, dt) / 7) + 1) + 'ª semana da Quaresma', 3, 'v', 'quaresma'];
+  if (dt > k.paixao && dt < k.ramos) return [wd + ' da semana da Paixão', 3, 'v', 'quaresma'];
+  if (ep >= 36 && ep <= 38) return [wd + ' das Rogações', 4, 'w'];
+  if (t.id === 'advento') {
+    const dia = dt.getDate();
+    if (dt.getMonth() === 11 && dia >= 17 && dia <= 23) return ['Féria maior do Advento', 2, 'v'];
+    return ['Féria do Advento', 3, 'v'];
+  }
+  if (t.id === 'natal' && dt.getMonth() === 11) return ['Dia na Oitava do Natal', 2, 'w'];
+  if (t.id === 'natal') return [dt.getDate() >= 7 ? 'Féria do Tempo da Epifania' : 'Féria do Tempo do Natal', 4, 'w'];
+  if (t.id === 'pascoa') return ['Féria do Tempo Pascal', 4, 'w'];
+  return ['Féria', 4, t.cor];
+}
+
+/* Dia litúrgico completo. Precedência simplificada (ver CLAUDE.md, seção 4). */
+function diaLiturgico(input) {
+  const dt = noon(input), y = dt.getFullYear(), k = datas(y), t = tempo(dt);
+  const domingo = dt.getDay() === 0;
+  let base = domingo ? nomeDomingo(dt, k, y) : nomeFeria(dt, k, y, t);
+  if (same(dt, k.cristoRei)) base = ['Festa de Nosso Senhor Jesus Cristo Rei', 1, 'w'];
+  const [bt, bc, bcor, flag] = base;
+  const s = SANTORAL[chave(dt)];
+  let titulo = bt, classe = bc, cor = bcor, santo = null, secundario = null;
+  if (s) {
+    let vence = false;
+    if (s.classe === 4) vence = false;
+    else if (s.classe < bc) vence = !(flag === 'quaresma' && s.classe === 3);
+    else if (s.classe === bc) {
+      if (domingo) vence = (s.classe === 1 && (chave(dt) === '12-08' || chave(dt) === '12-24')) || (s.classe === 2 && s.senhor);
+      else if (s.classe === 1) vence = false;
+      else vence = flag !== 'temporas' && flag !== 'quaresma';
+    }
+    if (bc === 4 && s.classe <= 3) vence = true;
+    if (vence) { titulo = s.nome; classe = s.classe; cor = s.cor; secundario = bt.startsWith('Féria') ? null : bt; }
+    else santo = s.classe === 1 ? s.nome + ' (transferida neste ano)' : (domingo ? 'Santo do dia: ' : 'Comemoração: ') + s.nome;
+  }
+  return { dt, titulo, classe, cor, tempo: t, santo, secundario, domingo, temporas: temporasDe(dt), vigilia: vigiliaDe(dt), k };
+}
+
+/* === 4. JEJUM ======================================================== */
+/* Lei atual: CIC 1983, cân. 1250-1253 */
+function jejumAtual(dt) {
+  const L = diaLiturgico(dt), k = L.k;
+  if (same(dt, k.cinzas) || same(dt, k.sextaSanta)) return { jejum: true, abst: true, nota: 'Jejum e abstinência obrigatórios.' };
+  if (dt.getDay() === 5) {
+    if (L.classe === 1) return { jejum: false, abst: false, nota: 'Solenidade: a abstinência da sexta-feira não obriga (cân. 1251).' };
+    return { jejum: false, abst: true, nota: 'Abstinência de carne. No Brasil, a CNBB permite trocar a das sextas-feiras comuns por outra penitência; confirme a norma com o seu pároco.' };
+  }
+  return { jejum: false, abst: false, nota: 'Sem obrigação de jejum ou abstinência.' };
+}
+/* Disciplina tradicional: Código de 1917, cân. 1250-1254 */
+const DIAS_DE_GUARDA_1917 = ['12-25','01-01','01-06','12-08','08-15','03-19','06-29','11-01'];
+function jejumTradicional(dt) {
+  const L = diaLiturgico(dt), k = L.k, wd = dt.getDay();
+  const quaresma = dt >= k.cinzas && dt < k.pascoa;
+  if (wd === 0) return { jejum: false, abst: false, nota: 'Domingo: não se jejua.' };
+  if (quaresma) {
+    const ab = same(dt, k.cinzas) || wd === 5 || wd === 6 || !!L.temporas;
+    return { jejum: true, abst: ab, nota: ab ? 'Dia de jejum e abstinência da Quaresma.' : 'Dia de jejum da Quaresma (carne permitida só na refeição principal, conforme o costume local).' };
+  }
+  if (L.temporas) return { jejum: true, abst: true, nota: 'Quatro Têmporas ' + L.temporas + ': jejum e abstinência.' };
+  if (L.vigilia) return { jejum: true, abst: true, nota: L.vigilia + ': jejum e abstinência.' };
+  if (wd === 5) {
+    const guarda = DIAS_DE_GUARDA_1917.includes(chave(dt)) || same(dt, k.ascensao) || same(dt, k.corpus);
+    if (guarda) return { jejum: false, abst: false, nota: 'Dia santo de guarda: a abstinência cessa (cân. 1252 §4).' };
+    return { jejum: false, abst: true, nota: 'Abstinência de carne, como em toda sexta-feira.' };
+  }
+  return { jejum: false, abst: false, nota: 'Sem jejum nem abstinência.' };
+}
+const statusTxt = j => j.jejum && j.abst ? 'Jejum e abstinência' : j.jejum ? 'Jejum' : j.abst ? 'Abstinência de carne' : 'Dia comum';
+
+/* === 5. ARMAZENAMENTO ================================================ */
+/* Tudo fica no navegador (localStorage). No app real, trocar por armazenamento com backup. */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('stp:' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('stp:' + k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* === 6. UTILIDADES =================================================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const rubricas = s => esc(s).replace(/℣\./g, '<span class="rub">℣.</span>').replace(/℟\./g, '<span class="rub">℟.</span>');
+const dataLonga = dt => DIAS[dt.getDay()] + ', ' + dt.getDate() + ' de ' + MESES[dt.getMonth()] + ' de ' + dt.getFullYear();
+const dataCurta = dt => dt.getDate() + ' de ' + MESES[dt.getMonth()];
+const emDias = n => n === 0 ? 'hoje' : n === 1 ? 'amanhã' : 'em ' + n + ' dias';
+const yt = q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+const swatch = c => `<span class="sw sw-${c}" aria-hidden="true"></span>`;
+const HOJE = () => noon(new Date());
+const diaDoAno = dt => diff(D(dt.getFullYear(), 1, 1), dt);
+let LANG = store.get('lang', 'ambos');
+
+function oracaoHTML(id, lang = LANG) {
+  const o = ORACOES[id];
+  const la = o.la ? `<div class="la ptext">${rubricas(o.la)}</div>` : '';
+  const pt = `<div class="ptext">${rubricas(o.pt)}</div>`;
+  let corpo;
+  if (lang === 'la' && o.la) corpo = la;
+  else if (lang === 'ambos' && o.la) corpo = `<div class="pcols two">${la}${pt}</div>`;
+  else corpo = pt;
+  return `<div class="prayer"><h3>${esc(o.t)}</h3>${corpo}</div>`;
+}
+function segLang(id) {
+  const opts = [['la', 'Latim'], ['pt', 'Português'], ['ambos', 'Lado a lado']];
+  return `<div class="seg" role="group" aria-label="Idioma das orações" id="${id}">${opts.map(([v, l]) => `<button type="button" data-lang="${v}" aria-pressed="${LANG === v}">${l}</button>`).join('')}</div>`;
+}
+function ligarLang(id, rerender) {
+  const el = document.getElementById(id); if (!el) return;
+  el.addEventListener('click', e => {
+    const b = e.target.closest('button[data-lang]'); if (!b) return;
+    LANG = b.dataset.lang; store.set('lang', LANG); rerender();
+  });
+}
+function temaDoDia(dt) {
+  const L = diaLiturgico(dt), t = L.tempo.id;
+  let pool = TEMAS.geral;
+  if (t === 'advento') pool = TEMAS.advento;
+  else if (t === 'natal') pool = TEMAS.natal;
+  else if (t === 'septuagesima') pool = TEMAS.septuagesima;
+  else if (t === 'quaresma') pool = TEMAS.quaresma;
+  else if (t === 'paixao' || t === 'semanasanta') pool = TEMAS.paixao;
+  else if (t === 'pascoa') pool = TEMAS.pascoa;
+  else if (t === 'pentecostes') pool = TEMAS.pentecostes;
+  else if (dt.getMonth() === 10) pool = TEMAS.novembro;
+  return pool[diaDoAno(dt) % pool.length];
+}
+function imitacaoDoDia(dt) {
+  let n = diaDoAno(dt) % IMITACAO.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < IMITACAO.length; i++) { if (n < IMITACAO[i]) return { livro: i + 1, cap: n + 1 }; n -= IMITACAO[i]; }
+  return { livro: 1, cap: 1 };
+}
+function proximoAngelus(now = new Date()) {
+  for (const h of [6, 12, 18]) { const x = new Date(now); x.setHours(h, 0, 0, 0); if (x > now) return x; }
+  const x = new Date(now); x.setDate(x.getDate() + 1); x.setHours(6, 0, 0, 0); return x;
+}
+function primeiroDiaSemana(y, m, wd) { const d = D(y, m, 1); return add(d, (wd - d.getDay() + 7) % 7); }
+function proximoPrimeiro(wd, from) {
+  let y = from.getFullYear(), m = from.getMonth() + 1;
+  for (let i = 0; i < 3; i++) { const d = primeiroDiaSemana(y, m, wd); if (d >= from) return d; m++; if (m > 12) { m = 1; y++; } }
+}
+function marcos(from, n = 8) {
+  const out = [];
+  for (const y of [from.getFullYear(), from.getFullYear() + 1]) {
+    const k = datas(y);
+    out.push([k.adv1, '1º Domingo do Advento'], [k.natal, 'Natal do Senhor'], [D(y, 12, 8), 'Imaculada Conceição'],
+      [k.epifania, 'Epifania'], [k.septuagesima, 'Septuagésima (início da preparação para a Quaresma)'],
+      [k.cinzas, 'Quarta-feira de Cinzas'], [k.paixao, 'Domingo da Paixão'], [k.ramos, 'Domingo de Ramos'],
+      [k.pascoa, 'Páscoa da Ressurreição'], [k.ascensao, 'Ascensão'], [k.pentecostes, 'Pentecostes'],
+      [k.corpus, 'Corpus Christi'], [k.sagradoCoracao, 'Sagrado Coração de Jesus'], [D(y, 8, 15), 'Assunção'],
+      [k.cristoRei, 'Cristo Rei'], [D(y, 11, 1), 'Todos os Santos']);
+    k.temporas.forEach(t => out.push([t.dias[0], 'Quatro Têmporas ' + t.nome + ' (jejum tradicional)']));
+  }
+  return out.filter(([d]) => d >= from).sort((a, b) => a[0] - b[0]).slice(0, n);
+}
+function avisos(dt) {
+  const out = [], y = dt.getFullYear();
+  const prox = (getter) => { for (const yy of [y, y + 1]) { const d = getter(datas(yy)); if (d >= dt) return d; } };
+  const sept = prox(k => k.septuagesima), cinz = prox(k => k.cinzas), adv = prox(k => k.adv1);
+  const L = diaLiturgico(dt);
+  const dS = diff(dt, sept), dC = diff(dt, cinz), dA = diff(dt, adv);
+  if (L.tempo.id === 'quaresma' || L.tempo.id === 'paixao' || L.tempo.id === 'semanasanta') {
+    const k = datas(y);
+    out.push(['Quaresma', `Faltam ${diff(dt, k.pascoa)} dias para a Páscoa. Guarde o jejum e a abstinência dos dias marcados.`]);
+  } else if (L.tempo.id === 'septuagesima') {
+    out.push(['A Quaresma está chegando', `A Quarta-feira de Cinzas é ${emDias(dC)} (${dataCurta(cinz)}). Escolha suas penitências e, se puder, combine-as com o confessor.`]);
+  } else if (dS >= 0 && dS <= 35) {
+    out.push(['A Septuagésima se aproxima', `${dataCurta(sept)}, ${emDias(dS)}. Os paramentos ficam roxos e a Igreja começa a preparar a Quaresma; as Cinzas serão em ${dataCurta(cinz)}.`]);
+  }
+  if (dA >= 0 && dA <= 14) out.push(['O Advento começa ' + emDias(dA), `1º Domingo do Advento: ${dataCurta(adv)}. Bom momento para preparar uma confissão e escolher um propósito.`]);
+  for (const yy of [y, y + 1]) for (const t of datas(yy).temporas) {
+    const d = diff(dt, t.dias[0]);
+    if (d >= 0 && d <= 7) out.push(['Quatro Têmporas ' + t.nome, `${dataCurta(t.dias[0])}, ${dataCurta(t.dias[1])} e ${dataCurta(t.dias[2])}: dias tradicionais de jejum, abstinência e oração pelas ordenações.`]);
+  }
+  if (dt.getMonth() === 10 && dt.getDate() <= 8) out.push(['Oitava dos Fiéis Defuntos', 'De 1º a 8 de novembro, a visita ao cemitério com oração pelos defuntos pode lucrar indulgência plenária aplicável às almas, nas condições habituais.']);
+  return out;
+}
+
+/* === 7. TELAS ======================================================== */
+const ROTEIRO = [
+  ['oferecimento', 'Oferecimento do dia', 'manhã'],
+  ['ang6', 'Angelus', '6h'],
+  ['ang12', 'Angelus', '12h'],
+  ['terco', 'Santo Terço', ''],
+  ['leitura', 'Leitura espiritual (Imitação de Cristo)', ''],
+  ['meditacao', 'Meditação do tema do dia', '15 min'],
+  ['sacerdotes', 'Oração pelos sacerdotes', ''],
+  ['ang18', 'Angelus', '18h'],
+  ['exame', 'Exame de consciência e ato de contrição', 'noite']
+];
+
+function renderHoje() {
+  const dt = HOJE(), L = diaLiturgico(dt), ja = jejumAtual(dt), jt = jejumTradicional(dt);
+  const tema = temaDoDia(dt), imi = imitacaoDoDia(dt), mist = MISTERIOS[MISTERIO_DO_DIA[dt.getDay()]];
+  const marcados = store.get('roteiro:' + iso(dt), {});
+  const pen = PENITENCIAS[diaDoAno(dt) % PENITENCIAS.length];
+  const intencao = INTENCOES[dt.getDay()];
+  const ang = proximoAngelus();
+  const pascal = L.tempo.id === 'pascoa' || L.tempo.id === 'pentecostes';
+  const av = avisos(dt);
+  $('#v-hoje').innerHTML = `
+  <div class="stack-lg">
+    <div class="hero">
+      <svg class="fig" viewBox="0 0 300 470" role="img" aria-label="Nossa Senhora Imaculada, coroada de doze estrelas, com a lua sob os pés"><use href="#immaculata" width="300" height="470"/></svg>
+      <div class="stack">
+        <div class="date-line">${dataLonga(dt)}</div>
+        <h1>${esc(L.titulo)}</h1>
+        ${L.secundario ? `<p class="muted"><i>${esc(L.secundario)}</i></p>` : ''}
+        <div class="row">
+          <span class="pill">${swatch(L.cor)} ${CORES[L.cor]}</span>
+          <span class="pill">${CLASSES[L.classe]}</span>
+          <span class="pill">${esc(L.tempo.nome)}</span>
+        </div>
+        ${L.santo ? `<p class="small muted">${esc(L.santo)}</p>` : ''}
+        <p class="small muted">Devoção do dia: ${DEVOCAO_SEMANA[dt.getDay()]}. Devoção do mês: ${DEVOCAO_MES[dt.getMonth()]}.</p>
+      </div>
+    </div>
+
+    ${av.map(([t, d]) => `<div class="aviso"><b>${esc(t)}</b><p>${esc(d)}</p></div>`).join('')}
+
+    <div class="folio">
+      <span class="rubrica">Jejum e abstinência hoje</span>
+      <div class="grid2">
+        <div class="fast"><div class="lbl">Lei atual da Igreja</div><div class="st ${ja.jejum || ja.abst ? 'on' : ''}">${statusTxt(ja)}</div><p class="small muted">${esc(ja.nota)}</p></div>
+        <div class="fast"><div class="lbl">Disciplina tradicional (1917)</div><div class="st ${jt.jejum || jt.abst ? 'on' : ''}">${statusTxt(jt)}</div><p class="small muted">${esc(jt.nota)}</p></div>
+      </div>
+      <p class="small muted" style="margin-top:10px">Penitência sugerida: <b>${esc(pen)}</b> Penitências maiores, combine com o seu confessor.</p>
+    </div>
+
+    <div class="folio">
+      <span class="rubrica">O que fazer hoje</span>
+      <p class="small muted" style="margin-bottom:6px">Próximo ${pascal ? 'Regina Caeli' : 'Angelus'}: ${pad(ang.getHours())}h. Intenção do dia: <b>${esc(intencao)}</b>.</p>
+      <div class="check" id="roteiro">
+        ${ROTEIRO.map(([id, t, h]) => {
+          const label = id.startsWith('ang') && pascal ? 'Regina Caeli' : t;
+          const extra = id === 'terco' ? ' · ' + mist.nome : id === 'leitura' ? ` · Livro ${imi.livro}, cap. ${imi.cap}` : '';
+          return `<label for="r-${id}"><input type="checkbox" id="r-${id}" data-id="${id}" ${marcados[id] ? 'checked' : ''}><span class="t">${esc(label)}${esc(extra)}</span><span class="h">${h}</span></label>`;
+        }).join('')}
+      </div>
+    </div>
+
+    <div class="folio">
+      <span class="rubrica">Meditação do dia</span>
+      <div class="stack">
+        <h2>${esc(tema.t)}</h2>
+        <p class="initial">${esc(tema.d)}</p>
+        <p class="small muted">Para estudar: ${esc(tema.ref)}</p>
+        <div class="orn-wrap" aria-hidden="true">✠</div>
+        <div class="links small">
+          <a href="${yt('Padre Paulo Ricardo ' + tema.t)}" target="_blank" rel="noopener">Pe. Paulo Ricardo: vídeos sobre "${esc(tema.t)}"</a>
+          <a href="${yt('Dom Lefebvre sermão ' + tema.t)}" target="_blank" rel="noopener">Dom Marcel Lefebvre: sermões sobre o tema</a>
+          <a href="${yt('Padre Leonardo Wagner ' + tema.t)}" target="_blank" rel="noopener">Pe. Leonardo Wagner: vídeos sobre o tema</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="folio">
+        <span class="rubrica">Terço de hoje</span>
+        <h3>${mist.nome}</h3>
+        <p class="small muted" style="margin:6px 0 12px">${mist.itens.map(m => esc(m[0])).join(' · ')}</p>
+        <a class="btn primary" href="#rosario">Rezar o terço</a>
+      </div>
+      <div class="folio">
+        <span class="rubrica">Leitura espiritual</span>
+        <h3>Imitação de Cristo</h3>
+        <p style="margin:6px 0 12px">Livro ${imi.livro}, capítulo ${imi.cap}</p>
+        <p class="small muted">Leia devagar, de preferência depois da oração da manhã.</p>
+      </div>
+    </div>
+
+    <div class="folio">
+      <span class="rubrica">Próximas datas</span>
+      <ul class="list">${marcos(dt).map(([d, t]) => `<li><span>${esc(t)}</span><span class="when">${dataCurta(d)}${d.getFullYear() !== dt.getFullYear() ? ' de ' + d.getFullYear() : ''}<br>${emDias(diff(dt, d))}</span></li>`).join('')}</ul>
+    </div>
+  </div>`;
+  $('#roteiro').addEventListener('change', e => {
+    const id = e.target.dataset.id; if (!id) return;
+    const m = store.get('roteiro:' + iso(dt), {}); m[id] = e.target.checked; store.set('roteiro:' + iso(dt), m);
+  });
+}
+
+function renderMissa() {
+  const dt = HOJE();
+  const dom = dt.getDay() === 0 ? dt : add(dt, 7 - dt.getDay());
+  const L = diaLiturgico(dom);
+  const ultConf = store.get('ultimaConfissao', '');
+  const dias = ultConf ? diff(fromIso(ultConf), dt) : null;
+  const domMarc = store.get('domingo:' + iso(dom), {});
+  $('#v-missa').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack">
+      <span class="rubrica">A Missa de sempre</span>
+      <h1>${dt.getDay() === 0 ? 'Hoje' : 'Próximo domingo'}: ${esc(L.titulo)}</h1>
+      <div class="row"><span class="pill">${swatch(L.cor)} ${CORES[L.cor]}</span><span class="pill">${dataCurta(dom)}</span></div>
+    </div>
+
+    <div class="folio">
+      <span class="rubrica">Domingo sem Missa tradicional por perto</span>
+      <div class="stack">
+        <p>Vá à Missa com o seu pároco e, em casa, una-se à liturgia tradicional do dia.</p>
+        <div class="check" id="domCheck">
+          ${[['missa', 'Missa com o seu pároco.'], ['proprio', 'Ler o Próprio da Missa de 1962 do dia (Intróito, Coleta, Epístola, Evangelho, Ofertório, Comunhão).'], ['comunhao', 'Comunhão espiritual, sobretudo se não puder comungar sacramentalmente.'], ['terco', 'Terço em família.'], ['evangelho', 'Evangelho do domingo com um bom comentário.']].map(([id, t]) =>
+            `<label for="d-${id}"><input type="checkbox" id="d-${id}" data-id="${id}" ${domMarc[id] ? 'checked' : ''}><span class="t">${esc(t)}</span></label>`).join('')}
+        </div>
+        <div class="row"><a class="btn" href="https://www.divinumofficium.com/" target="_blank" rel="noopener">Abrir o Divinum Officium</a></div>
+        <p class="small muted">No Divinum Officium, escolha "Missa" e a versão "Rubrics 1960" para ver o Próprio em latim com tradução.</p>
+      </div>
+    </div>
+
+    <div class="folio">${oracaoHTML('comunhao')}</div>
+
+    <div class="grid2">
+      <div class="folio stack">
+        <span class="rubrica">Missa tradicional mais próxima</span>
+        <label class="field" for="tlm"><span>Local, horário e distância</span>
+          <textarea id="tlm" placeholder="Ex.: Capela de ..., 1º domingo do mês, 10h. 2h de viagem.">${esc(store.get('tlm', ''))}</textarea></label>
+        <p class="small muted">Programe-se para ir de tempos em tempos e aproveite para se confessar.</p>
+      </div>
+      <div class="folio stack">
+        <span class="rubrica">Confissão</span>
+        <label class="field" for="conf"><span>Última confissão</span><input type="date" id="conf" value="${esc(ultConf)}"></label>
+        <p id="confInfo" class="${dias != null && dias > 30 ? 'rub' : 'muted'}">${dias == null ? 'Anote a data para acompanhar.' : dias === 0 ? 'Hoje. Deo gratias!' : 'Há ' + dias + ' dias.' + (dias > 30 ? ' Que tal marcar com o seu pároco?' : '')}</p>
+      </div>
+    </div>
+  </div>`;
+  $('#domCheck').addEventListener('change', e => {
+    const id = e.target.dataset.id; if (!id) return;
+    const m = store.get('domingo:' + iso(dom), {}); m[id] = e.target.checked; store.set('domingo:' + iso(dom), m);
+  });
+  $('#tlm').addEventListener('input', e => store.set('tlm', e.target.value));
+  $('#conf').addEventListener('change', e => { store.set('ultimaConfissao', e.target.value); renderMissa(); });
+}
+
+let rosDia = null, guia = null;
+function passosTerco(set) {
+  const p = [['sinal'], ['credo'], ['pai'], ['ave', null, 1, 3, 'pela fé'], ['ave', null, 2, 3, 'pela esperança'], ['ave', null, 3, 3, 'pela caridade'], ['gloria']];
+  for (let m = 0; m < 5; m++) {
+    p.push(['misterio', m], ['pai', m]);
+    for (let i = 1; i <= 10; i++) p.push(['ave', m, i, 10]);
+    p.push(['gloria', m], ['fatima', m]);
+  }
+  p.push(['salve']);
+  return p;
+}
+function renderRosario() {
+  const hoje = HOJE().getDay();
+  if (rosDia == null) rosDia = hoje;
+  const setId = MISTERIO_DO_DIA[rosDia], set = MISTERIOS[setId];
+  const passos = passosTerco(set);
+  let guiaHTML = '';
+  if (guia != null) {
+    const [tipo, m, i, tot, intencao] = passos[guia];
+    let corpo;
+    if (tipo === 'misterio') {
+      const [t, ref, med, fruto] = set.itens[m];
+      corpo = `<h3>${ord(m + 1)} mistério: ${esc(t)}</h3><p class="small muted">${esc(ref)}</p><p>${esc(med)}</p><p class="fruto">Fruto: ${esc(fruto)}</p>`;
+    } else corpo = oracaoHTML(tipo);
+    const dezena = m != null ? `<div class="beads" aria-hidden="true"><span class="bead big ${tipo === 'pai' ? 'cur' : (tipo !== 'misterio' ? 'done' : '')}"></span>${Array.from({ length: 10 }, (_, k) => {
+      const n = k + 1; let c = '';
+      if (tipo === 'ave') c = n < i ? 'done' : n === i ? 'cur' : '';
+      else if (tipo === 'gloria' || tipo === 'fatima') c = 'done';
+      return `<span class="bead ${c}"></span>`; }).join('')}</div>` : '';
+    guiaHTML = `<div class="guided stack" id="guia">
+      <div class="row" style="justify-content:space-between"><span class="gstep">Passo ${guia + 1} de ${passos.length}${tipo === 'ave' ? ` · Ave-Maria ${i} de ${tot}` : ''}${intencao ? ' · ' + intencao : ''}${m != null ? ` · ${ord(m + 1)} mistério` : ''}</span>
+      <button class="linkbtn" type="button" id="gSair">Encerrar</button></div>
+      ${dezena}${corpo}
+      <div class="row"><button class="btn" type="button" id="gAnt" ${guia === 0 ? 'disabled' : ''}>Anterior</button><button class="btn primary" type="button" id="gProx">${guia === passos.length - 1 ? 'Concluir' : 'Próximo'}</button></div>
+    </div>`;
+  }
+  $('#v-rosario').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack">
+      <span class="rubrica">Santo Rosário</span>
+      <h1>${set.nome}</h1>
+      <p class="muted"><i>${set.la}</i>. Segunda e quinta: gozosos. Terça e sexta: dolorosos. Quarta, sábado e domingo: gloriosos.</p>
+      <div class="seg" role="group" aria-label="Dia da semana" id="rosDias">${DIAS.map((d, i) => `<button type="button" data-d="${i}" aria-pressed="${i === rosDia}">${d.slice(0, 3)}${i === hoje ? ' •' : ''}</button>`).join('')}</div>
+      <div class="row">${segLang('langRos')}${guia == null ? '<button class="btn primary" type="button" id="gIni">Rezar passo a passo</button>' : ''}</div>
+    </div>
+    ${guiaHTML}
+    <div class="folio">
+      <span class="rubrica">Os cinco mistérios</span>
+      ${set.itens.map(([t, ref, med, fruto], i) => `<div class="myst"><div class="n">${['I','II','III','IV','V'][i]}</div><div class="stack" style="gap:4px"><h3>${esc(t)}</h3><span class="ref">${esc(ref)}</span><p>${esc(med)}</p><p class="fruto">Fruto: ${esc(fruto)}</p></div></div>`).join('')}
+    </div>
+    <div class="folio stack-lg">
+      <span class="rubrica">Orações do terço</span>
+      ${['sinal', 'credo', 'pai', 'ave', 'gloria', 'fatima', 'salve'].map(id => oracaoHTML(id)).join('<div class="orn-wrap" aria-hidden="true">✠</div>')}
+    </div>
+  </div>`;
+  ligarLang('langRos', renderRosario);
+  $('#rosDias').addEventListener('click', e => { const b = e.target.closest('button[data-d]'); if (!b) return; rosDia = +b.dataset.d; guia = null; renderRosario(); });
+  const ini = $('#gIni'); if (ini) ini.addEventListener('click', () => { guia = 0; renderRosario(); $('#guia').scrollIntoView({ block: 'start' }); });
+  if (guia != null) {
+    $('#gAnt').addEventListener('click', () => { guia = Math.max(0, guia - 1); renderRosario(); });
+    $('#gProx').addEventListener('click', () => { if (guia >= passos.length - 1) guia = null; else guia++; renderRosario(); if (guia != null) $('#gProx').focus(); });
+    $('#gSair').addEventListener('click', () => { guia = null; renderRosario(); });
+  }
+}
+
+let calMes = null, calSel = null;
+function renderCalendario() {
+  const hoje = HOJE();
+  if (!calMes) calMes = D(hoje.getFullYear(), hoje.getMonth() + 1, 1);
+  if (!calSel) calSel = hoje;
+  const y = calMes.getFullYear(), m = calMes.getMonth(), ndias = new Date(y, m + 1, 0).getDate();
+  const cells = [];
+  for (let i = 0; i < calMes.getDay(); i++) cells.push('<span class="empty"></span>');
+  for (let d = 1; d <= ndias; d++) {
+    const dt = D(y, m + 1, d), L = diaLiturgico(dt), jt = jejumTradicional(dt), ja = jejumAtual(dt);
+    const mk = [ja.jejum ? '✝' : '', jt.jejum ? 'J' : '', L.temporas ? 'T' : '', L.vigilia ? 'V' : ''].filter(Boolean).join(' ');
+    cells.push(`<button type="button" data-d="${d}" class="${same(dt, hoje) ? 'today' : ''} ${same(dt, calSel) ? 'sel' : ''} ${dt.getDay() === 0 ? 'sun' : ''}" aria-label="${d} de ${MESES[m]}: ${esc(L.titulo)}"><span>${d}</span><span class="mk">${mk}</span><span class="bar" style="background:var(--lit-${L.cor})"></span></button>`);
+  }
+  const S = diaLiturgico(calSel), sja = jejumAtual(calSel), sjt = jejumTradicional(calSel);
+  $('#v-calendario').innerHTML = `
+  <div class="stack-lg">
+    <div class="row" style="justify-content:space-between">
+      <div class="stack" style="gap:4px"><span class="rubrica">Calendário de 1962</span><h1>${MESES[m][0].toUpperCase() + MESES[m].slice(1)} de ${y}</h1></div>
+      <div class="row"><button class="btn" type="button" id="cPrev" aria-label="Mês anterior">‹</button><button class="btn" type="button" id="cHoje">Hoje</button><button class="btn" type="button" id="cNext" aria-label="Próximo mês">›</button></div>
+    </div>
+    <div class="folio">
+      <div class="cal-scroll"><div class="cal" id="calGrid">${['D','S','T','Q','Q','S','S'].map(w => `<span class="wd">${w}</span>`).join('')}${cells.join('')}</div></div>
+      <div class="legend" style="margin-top:12px">
+        <span>${swatch('v')} violeta</span><span>${swatch('w')} branco</span><span>${swatch('g')} verde</span><span>${swatch('r')} vermelho</span><span>${swatch('p')} rosa</span><span>${swatch('n')} preto</span>
+        <span><b class="rub">✝</b> jejum pela lei atual</span><span><b class="rub">J</b> jejum tradicional</span><span><b class="rub">T</b> Têmporas</span><span><b class="rub">V</b> vigília</span>
+      </div>
+    </div>
+    <div class="folio stack">
+      <span class="rubrica">${dataLonga(calSel)}</span>
+      <h2>${esc(S.titulo)}</h2>
+      <div class="row"><span class="pill">${swatch(S.cor)} ${CORES[S.cor]}</span><span class="pill">${CLASSES[S.classe]}</span><span class="pill">${esc(S.tempo.nome)}</span></div>
+      ${S.santo ? `<p class="small muted">${esc(S.santo)}</p>` : ''}
+      <div class="grid2">
+        <div class="fast"><div class="lbl">Lei atual</div><div class="st ${sja.jejum || sja.abst ? 'on' : ''}">${statusTxt(sja)}</div></div>
+        <div class="fast"><div class="lbl">Tradicional (1917)</div><div class="st ${sjt.jejum || sjt.abst ? 'on' : ''}">${statusTxt(sjt)}</div></div>
+      </div>
+      <p class="small muted">Mistérios do terço: ${MISTERIOS[MISTERIO_DO_DIA[calSel.getDay()]].nome}.</p>
+    </div>
+  </div>`;
+  $('#calGrid').addEventListener('click', e => { const b = e.target.closest('button[data-d]'); if (!b) return; calSel = D(y, m + 1, +b.dataset.d); renderCalendario(); });
+  $('#cPrev').addEventListener('click', () => { calMes = D(y, m, 1); renderCalendario(); });
+  $('#cNext').addEventListener('click', () => { calMes = D(y, m + 2, 1); renderCalendario(); });
+  $('#cHoje').addEventListener('click', () => { calMes = null; calSel = null; renderCalendario(); });
+}
+
+function renderJejum() {
+  const hoje = HOJE(), prox = [];
+  for (let i = 0; i < 420 && prox.length < 12; i++) {
+    const d = add(hoje, i), jt = jejumTradicional(d), ja = jejumAtual(d);
+    if (jt.jejum || ja.jejum) prox.push([d, ja, jt, diaLiturgico(d)]);
+  }
+  $('#v-jejum').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack"><span class="rubrica">Jejum, abstinência e penitência</span><h1>O que a Igreja pede</h1>
+      <p class="muted">Duas colunas, sempre separadas: o que a lei atual obriga e o que a disciplina tradicional pedia.</p></div>
+    <div class="grid2">
+      <div class="folio stack">
+        <span class="rubrica">Lei atual (Código de 1983)</span>
+        <p><b>Jejum e abstinência:</b> Quarta-feira de Cinzas e Sexta-feira Santa.</p>
+        <p><b>Abstinência de carne:</b> todas as sextas-feiras, salvo solenidade. No Brasil, a CNBB permite trocar a das sextas comuns por outra penitência (pergunte ao pároco).</p>
+        <p><b>Jejum:</b> uma refeição completa e duas pequenas, que juntas não igualem a principal. Dos 18 aos 59 anos.</p>
+        <p><b>Abstinência:</b> a partir dos 14 anos.</p>
+        <p><b>Jejum eucarístico:</b> 1 hora antes da comunhão.</p>
+      </div>
+      <div class="folio stack">
+        <span class="rubrica">Disciplina tradicional (Código de 1917)</span>
+        <p><b>Jejum:</b> todos os dias da Quaresma, exceto domingos; Quatro Têmporas; vigílias de Pentecostes, Assunção, Todos os Santos e Natal.</p>
+        <p><b>Abstinência:</b> todas as sextas-feiras; Cinzas, sextas e sábados da Quaresma; Têmporas e vigílias.</p>
+        <p><b>Idades:</b> jejum dos 21 aos 59 anos; abstinência a partir dos 7.</p>
+        <p><b>Jejum eucarístico:</b> 3 horas (Pio XII, 1957); antes, desde a meia-noite.</p>
+        <p class="small muted">Não é obrigação hoje, mas muitos fiéis tradicionais guardam por devoção. Converse com o confessor antes de assumir.</p>
+      </div>
+    </div>
+    <div class="folio">
+      <span class="rubrica">Próximos dias de jejum</span>
+      <ul class="list">${prox.map(([d, ja, jt, L]) => `<li><span><b>${esc(L.titulo)}</b><br><span class="small muted">Atual: ${statusTxt(ja)} · Tradicional: ${statusTxt(jt)}</span></span><span class="when">${dataCurta(d)}${d.getFullYear() !== hoje.getFullYear() ? ' de ' + d.getFullYear() : ''}<br>${emDias(diff(hoje, d))}</span></li>`).join('')}</ul>
+    </div>
+    <div class="folio stack">
+      <span class="rubrica">Penitências para escolher</span>
+      <p class="small muted">Pequenas, discretas e constantes. As maiores, só com o confessor.</p>
+      <ul class="list">${PENITENCIAS.map(p => `<li><span>${esc(p)}</span></li>`).join('')}</ul>
+    </div>
+  </div>`;
+}
+
+function renderOracoes() {
+  const L = diaLiturgico(HOJE()), pascal = L.tempo.id === 'pascoa' || L.tempo.id === 'pentecostes';
+  const sep = '<div class="orn-wrap" aria-hidden="true">✠</div>';
+  $('#v-oracoes').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack"><span class="rubrica">Orações</span><h1>O ritmo do dia</h1>${segLang('langOr')}</div>
+    <div class="folio stack-lg"><span class="rubrica">Manhã</span>${oracaoHTML('sinal')}${sep}${oracaoHTML('oferecimento')}${sep}${oracaoHTML('subtuum')}</div>
+    <div class="folio stack-lg"><span class="rubrica">6h · 12h · 18h</span>${oracaoHTML(pascal ? 'reginacaeli' : 'angelus')}
+      <p class="small muted">${pascal ? 'No Tempo Pascal reza-se o Regina Caeli em lugar do Angelus.' : 'Do Sábado Santo até o sábado depois de Pentecostes, reza-se o Regina Caeli.'}</p></div>
+    <div class="folio stack">
+      <span class="rubrica">Noite: exame de consciência</span>
+      ${EXAME.map(([t, qs]) => `<div><h3>${esc(t)}</h3><ul style="margin:4px 0 0;padding-left:20px">${qs.map(q => `<li>${esc(q)}</li>`).join('')}</ul></div>`).join('')}
+      ${sep}${oracaoHTML('contricao')}${sep}${oracaoHTML('inmanus')}
+    </div>
+    <div class="folio stack-lg"><span class="rubrica">Marianas</span>${oracaoHTML('salve')}</div>
+    <div class="folio stack-lg"><span class="rubrica">Pelos defuntos e pelos sacerdotes</span>${oracaoHTML('requiem')}${sep}${oracaoHTML('sacerdotes')}</div>
+  </div>`;
+  ligarLang('langOr', renderOracoes);
+}
+
+function renderDevocoes() {
+  const hoje = HOJE();
+  const inicio = store.get('montfortInicio', '');
+  let montHTML;
+  if (inicio) {
+    const ini = fromIso(inicio), n = diff(ini, hoje) + 1, fim = add(ini, 33);
+    const fase = MONTFORT_FASES.find(f => n >= f[0] && n <= f[1]);
+    montHTML = `<div class="stack">
+      <p>${n < 1 ? `Começa ${emDias(1 - n)} (${dataCurta(ini)}).` : n <= 33 ? `<b>Dia ${n} de 33.</b> Consagração em ${dataCurta(fim)}.` : n === 34 ? '<b>Hoje é o dia da consagração.</b>' : `Consagração feita em ${dataCurta(fim)}. Renove-a todos os anos.`}</p>
+      <div class="bar-prog" aria-hidden="true"><i style="width:${Math.max(0, Math.min(100, n / 34 * 100))}%"></i></div>
+      ${fase ? `<h3>${esc(fase[2])}</h3><p class="small">${esc(fase[3])}</p>` : ''}
+      <button class="linkbtn" type="button" id="mReset">Escolher outra data</button></div>`;
+  } else {
+    const ops = [];
+    for (const y of [hoje.getFullYear(), hoje.getFullYear() + 1]) for (const [k, nome] of FESTAS_MARIANAS) {
+      const [mm, dd] = k.split('-').map(Number), festa = D(y, mm, dd), ini = add(festa, -33);
+      if (ini >= add(hoje, -2)) ops.push([ini, festa, nome]);
+    }
+    ops.sort((a, b) => a[0] - b[0]);
+    montHTML = `<p class="small muted">Escolha a festa em que quer fazer a consagração. A preparação começa 33 dias antes.</p>
+      <ul class="list" id="mOps">${ops.slice(0, 5).map(([ini, festa, nome]) => `<li><span><b>${esc(nome)}</b> · ${dataCurta(festa)}${festa.getFullYear() !== hoje.getFullYear() ? ' de ' + festa.getFullYear() : ''}<br><span class="small muted">Começar em ${dataCurta(ini)} (${emDias(diff(hoje, ini))})</span></span><button class="btn" type="button" data-ini="${iso(ini)}">Escolher</button></li>`).join('')}</ul>`;
+  }
+  const sextas = store.get('primeirasSextas', []), sabados = store.get('primeirosSabados', []);
+  const pf = proximoPrimeiro(5, hoje), ps = proximoPrimeiro(6, hoje);
+  const slots = (arr, n, id) => `<div class="slots" id="${id}">${Array.from({ length: n }, (_, i) => `<button type="button" class="slot ${arr[i] ? 'on' : ''}" data-i="${i}" aria-pressed="${!!arr[i]}" aria-label="${i + 1}º ${arr[i] ? 'feito em ' + arr[i] : 'pendente'}">${i + 1}</button>`).join('')}</div>`;
+  $('#v-devocoes').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack"><span class="rubrica">Devoções</span><h1>Totus tuus</h1></div>
+    <div class="folio stack"><span class="rubrica">Consagração a Nossa Senhora (São Luís de Montfort)</span>${montHTML}</div>
+    <div class="grid2">
+      <div class="folio stack"><span class="rubrica">Nove primeiras sextas-feiras</span>
+        <p class="small">Comungar em reparação ao Sagrado Coração na primeira sexta de nove meses seguidos.</p>
+        ${slots(sextas, 9, 'sSextas')}
+        <p class="small muted">Próxima: ${dataCurta(pf)} (${emDias(diff(hoje, pf))}).</p></div>
+      <div class="folio stack"><span class="rubrica">Cinco primeiros sábados</span>
+        <p class="small">Confissão, comunhão, terço e 15 minutos de meditação dos mistérios, em reparação ao Imaculado Coração.</p>
+        ${slots(sabados, 5, 'sSabados')}
+        <p class="small muted">Próximo: ${dataCurta(ps)} (${emDias(diff(hoje, ps))}).</p></div>
+    </div>
+    <div class="folio stack"><span class="rubrica">Reinado Social de Nosso Senhor Jesus Cristo</span>
+      <p class="initial">Pio XI instituiu a festa de Cristo Rei em 1925, na encíclica <i>Quas Primas</i>, para lembrar que Cristo deve reinar não só nas almas, mas também nas famílias e na sociedade. A fé não é assunto apenas privado.</p>
+      <ul class="list">
+        <li><span>Entronizar o Sagrado Coração de Jesus em casa.</span></li>
+        <li><span>Rezar antes e depois das refeições, também fora de casa.</span></li>
+        <li><span>Oferecer o trabalho a Deus e fazê-lo com honestidade.</span></li>
+        <li><span>Dar testemunho da fé com caridade, sem respeito humano.</span></li>
+        <li><span>Rezar todos os dias pelos sacerdotes, a começar pelo seu pároco.</span></li>
+      </ul></div>
+  </div>`;
+  const ops = $('#mOps'); if (ops) ops.addEventListener('click', e => { const b = e.target.closest('button[data-ini]'); if (!b) return; store.set('montfortInicio', b.dataset.ini); renderDevocoes(); });
+  const rs = $('#mReset'); if (rs) rs.addEventListener('click', () => { store.set('montfortInicio', ''); renderDevocoes(); });
+  const toggle = (key, id) => $('#' + id).addEventListener('click', e => {
+    const b = e.target.closest('button[data-i]'); if (!b) return;
+    const arr = store.get(key, []), i = +b.dataset.i;
+    arr[i] = arr[i] ? null : dataCurta(hoje) + ' de ' + hoje.getFullYear(); store.set(key, arr); renderDevocoes();
+  });
+  toggle('primeirasSextas', 'sSextas'); toggle('primeirosSabados', 'sSabados');
+}
+
+let apagar = null;
+function renderCaderno() {
+  const notas = store.get('notas', []);
+  $('#v-caderno').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack"><span class="rubrica">Caderno espiritual</span><h1>Para levar ao confessor</h1>
+      <p class="muted">Dúvidas, luzes da oração e propósitos. Fica guardado só neste navegador.</p></div>
+    <form class="folio stack" id="fNota">
+      <label class="field" for="nTipo"><span>Tipo</span>
+        <select id="nTipo"><option>Dúvida</option><option>Para a confissão</option><option>Direção espiritual</option><option>Luz da oração</option><option>Propósito</option></select></label>
+      <label class="field" for="nTexto"><span>Anotação</span><textarea id="nTexto" required placeholder="Escreva aqui..."></textarea></label>
+      <div><button class="btn primary" type="submit">Guardar anotação</button></div>
+    </form>
+    <div class="folio stack">
+      <span class="rubrica">${notas.length ? notas.length + ' anotaç' + (notas.length === 1 ? 'ão' : 'ões') : 'Nenhuma anotação ainda'}</span>
+      ${notas.length ? '' : '<p class="muted">Sua primeira anotação aparece aqui. Use, por exemplo, para uma dúvida sobre jejum que queira tirar com o padre.</p>'}
+      ${notas.map((n, i) => `<div class="note"><div class="meta"><span class="rubrica" style="font-size:.66rem">${esc(n.tipo)}</span><span class="small muted">${esc(n.data)}</span></div><p class="ptext">${esc(n.texto)}</p>
+        <div>${apagar === i ? `<span class="small">Apagar mesmo? </span><button class="linkbtn" type="button" data-sim="${i}">Sim, apagar</button> · <button class="linkbtn" type="button" data-nao="1">Cancelar</button>` : `<button class="linkbtn" type="button" data-del="${i}">Apagar</button>`}</div></div>`).join('')}
+    </div>
+  </div>`;
+  $('#fNota').addEventListener('submit', e => {
+    e.preventDefault();
+    const texto = $('#nTexto').value.trim(); if (!texto) return;
+    const h = HOJE(), arr = store.get('notas', []);
+    arr.unshift({ tipo: $('#nTipo').value, texto, data: dataCurta(h) + ' de ' + h.getFullYear() });
+    store.set('notas', arr); apagar = null; renderCaderno();
+  });
+  if (!cadernoLigado) {
+    cadernoLigado = true;
+    $('#v-caderno').addEventListener('click', e => {
+      const t = e.target;
+      if (t.dataset.del != null) { apagar = +t.dataset.del; renderCaderno(); }
+      else if (t.dataset.nao != null) { apagar = null; renderCaderno(); }
+      else if (t.dataset.sim != null) { const arr = store.get('notas', []); arr.splice(+t.dataset.sim, 1); store.set('notas', arr); apagar = null; renderCaderno(); }
+    });
+  }
+}
+let cadernoLigado = false;
+
+function renderMestres() {
+  const M = [
+    ['ML', 'Dom Marcel Lefebvre', '1905–1991', 'Arcebispo francês, missionário na África e fundador da Fraternidade Sacerdotal São Pio X (1970). Defendeu a Missa tradicional e a doutrina anterior às reformas do Concílio Vaticano II.', [['Sermões', 'Dom Lefebvre sermão'], ['Conferências legendadas', 'Dom Lefebvre conferência legendado']]],
+    ['PR', 'Pe. Paulo Ricardo', 'Arquidiocese de Cuiabá', 'Sacerdote brasileiro conhecido pelos cursos e pregações de formação católica na internet.', [['Vídeos', 'Padre Paulo Ricardo'], ['Sobre a Missa', 'Padre Paulo Ricardo Santa Missa']]],
+    ['LW', 'Pe. Leonardo Wagner', 'Administração Apostólica São João Maria Vianney', 'Indicado por você. A Administração Apostólica Pessoal São João Maria Vianney, em Campos (RJ), celebra a Missa tradicional em plena comunhão com Roma.', [['Vídeos', 'Padre Leonardo Wagner'], ['Administração Apostólica', 'Administração Apostólica São João Maria Vianney Missa']]]
+  ];
+  const F = [
+    ['Catecismo Maior de São Pio X', 'Doutrina em perguntas e respostas.'],
+    ['Catecismo Romano (do Concílio de Trento)', 'O catecismo para os párocos.'],
+    ['Suma Teológica', 'Santo Tomás de Aquino.'],
+    ['Imitação de Cristo', 'Tomás de Kempis. Leitura espiritual diária.'],
+    ['Tratado da Verdadeira Devoção à Santíssima Virgem', 'São Luís Maria Grignion de Montfort.'],
+    ['Exercícios Espirituais', 'Santo Inácio de Loyola.'],
+    ['Quas Primas (1925)', 'Pio XI, sobre a realeza de Cristo.'],
+    ['Missal Romano de 1962', 'O Próprio de cada dia, em latim.']
+  ];
+  $('#v-mestres').innerHTML = `
+  <div class="stack-lg">
+    <div class="stack"><span class="rubrica">Mestres e fontes</span><h1>A quem ouvir</h1>
+      <p class="muted">Os links abrem buscas no YouTube. Confira sempre a fonte de cada vídeo.</p></div>
+    ${M.map(([ini, n, sub, d, links]) => `<div class="folio master"><div class="seal" aria-hidden="true">${ini}</div><div class="stack" style="gap:6px"><h2>${esc(n)}</h2><span class="small muted">${esc(sub)}</span><p>${esc(d)}</p><div class="links small">${links.map(([l, q]) => `<a href="${yt(q)}" target="_blank" rel="noopener">${esc(l)}</a>`).join('')}</div></div></div>`).join('')}
+    <div class="folio"><span class="rubrica">Fontes para ancorar o estudo</span>
+      <ul class="list">${F.map(([t, d]) => `<li><span><b>${esc(t)}</b><br><span class="small muted">${esc(d)}</span></span></li>`).join('')}</ul></div>
+  </div>`;
+}
+
+/* === 8. ROTEADOR ===================================================== */
+const VIEWS = { hoje: renderHoje, missa: renderMissa, rosario: renderRosario, calendario: renderCalendario, jejum: renderJejum, oracoes: renderOracoes, devocoes: renderDevocoes, caderno: renderCaderno, mestres: renderMestres };
+function rota() {
+  const h = (location.hash || '#hoje').slice(1), v = VIEWS[h] ? h : 'hoje';
+  document.querySelectorAll('.view').forEach(s => { s.hidden = s.id !== 'v-' + v; });
+  document.querySelectorAll('nav.tabs a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + v ? 'page' : 'false'));
+  VIEWS[v]();
+  const ativo = document.querySelector('nav.tabs a[aria-current="page"]');
+  if (ativo && ativo.scrollIntoView) ativo.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+}
+
+/* Desenha raios e estrelas da Imaculada */
+(function desenharImaculada() {
+  const NS = 'http://www.w3.org/2000/svg', rays = document.getElementById('im-rays'), stars = document.getElementById('im-stars');
+  for (let i = 0; i < 64; i++) {
+    const a = i / 64 * Math.PI * 2, l = document.createElementNS(NS, 'line');
+    l.setAttribute('x1', 150 + Math.cos(a) * 70); l.setAttribute('y1', 240 + Math.sin(a) * 110);
+    l.setAttribute('x2', 150 + Math.cos(a) * 144); l.setAttribute('y2', 240 + Math.sin(a) * 226);
+    rays.appendChild(l);
+  }
+  for (let i = 0; i < 12; i++) {
+    const a = -Math.PI / 2 + i / 12 * Math.PI * 2, cx = 150 + Math.cos(a) * 54, cy = 100 + Math.sin(a) * 54, pts = [];
+    for (let j = 0; j < 10; j++) { const r = j % 2 ? 2.8 : 7, b = -Math.PI / 2 + j * Math.PI / 5; pts.push((cx + Math.cos(b) * r).toFixed(1) + ',' + (cy + Math.sin(b) * r).toFixed(1)); }
+    const p = document.createElementNS(NS, 'polygon'); p.setAttribute('points', pts.join(' ')); stars.appendChild(p);
+  }
+})();
+
+/* Tema claro / escuro / sistema */
+(function tema() {
+  const btn = $('#themeBtn'), nomes = { system: 'sistema', light: 'claro', dark: 'escuro' }, ordem = ['system', 'light', 'dark'];
+  let t = store.get('tema', 'system');
+  const aplicar = () => { if (t === 'system') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', t); btn.textContent = 'Tema: ' + nomes[t]; };
+  btn.addEventListener('click', () => { t = ordem[(ordem.indexOf(t) + 1) % 3]; store.set('tema', t); aplicar(); });
+  aplicar();
+})();
+
+window.addEventListener('hashchange', rota);
+rota();
+</script>
