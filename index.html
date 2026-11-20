@@ -1,174 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Sub Tuum Praesidium</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vida católica segundo a Tradição: calendário de 1962, Santo Rosário, jejum e devoções.">
+<meta name="theme-color" content="#0a0908">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sub Tuum">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=UnifrakturMaguntia&display=swap">
 <style>
-/* Layout: uma coluna de missal (até 780px) sobre fundo estrelado; a Imaculada abre a página e fica como marca d'água fixa em telas largas. */
+/* Estética: missal encadernado em couro preto. Fundo negro, ouro velho (douração de lombada),
+   vermelho das rubricas, texto marfim. Tema escuro único. Cantos retos, filetes finos, sem enfeites infantis. */
 :root{
-  --bg:#ede5d1; --surface:#f8f3e6; --surface-2:#efe6cf; --ink:#1c2240; --muted:#5a5c6c;
-  --lapis:#1f3c78; --gold:#9a6f22; --rubric:#9c1d1d; --line:#d3c39e; --speck:rgba(154,111,34,.20);
-  --mantle:#27498f; --mantle-deep:#183268; --robe:#fbf8f0; --skin:#efd6be; --halo:#c49a42; --on-lapis:#f8f3e6;
-  --lit-v:#5d2c86; --lit-w:#efe6cc; --lit-g:#2e6a3b; --lit-r:#a21f1f; --lit-p:#d58aa1; --lit-n:#222222;
+  --bg:#0a0908; --surface:#121110; --surface-2:#181614; --ink:#e6dcc6; --muted:#9a917f;
+  --gold:#b89a5a; --gold-hi:#d4b876; --rubric:#c8463a; --line:#2c2722; --line-gold:#4a3f2a;
+  --accent:#b89a5a; --on-accent:#0a0908;
+  --lit-v:#6a3d8f; --lit-w:#e8e0cc; --lit-g:#3d7a4a; --lit-r:#b42a24; --lit-p:#c98a9e; --lit-n:#4a4540;
   --f-display:"Cormorant Garamond","EB Garamond",Georgia,serif;
   --f-body:"EB Garamond",Georgia,"Times New Roman",serif;
   --f-caps:"Cinzel","Trajan Pro",Georgia,serif;
-  --f-init:"Cinzel Decorative","Cinzel",Georgia,serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0a1330; --surface:#111d42; --surface-2:#16244f; --ink:#ece2c8; --muted:#a8a690;
-  --lapis:#9db8ee; --gold:#d8b45c; --rubric:#e47a6a; --line:#283875; --speck:rgba(216,180,92,.22);
-  --mantle:#3a64b8; --mantle-deep:#22427f; --robe:#f2ead6; --skin:#e8cdb2; --halo:#d8b45c; --on-lapis:#0a1330;
-  color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --bg:#0a1330; --surface:#111d42; --surface-2:#16244f; --ink:#ece2c8; --muted:#a8a690;
-  --lapis:#9db8ee; --gold:#d8b45c; --rubric:#e47a6a; --line:#283875; --speck:rgba(216,180,92,.22);
-  --mantle:#3a64b8; --mantle-deep:#22427f; --robe:#f2ead6; --skin:#e8cdb2; --halo:#d8b45c; --on-lapis:#0a1330;
+  --f-init:"UnifrakturMaguntia","Cinzel",Georgia,serif;
   color-scheme:dark;
 }
 
 *{box-sizing:border-box}
+html{background:var(--bg)}
 body{
+  margin:0;
   background-color:var(--bg);
-  background-image:radial-gradient(var(--speck) 1px,transparent 1.7px);
-  background-size:28px 28px;
-  color:var(--ink); font-family:var(--f-body); font-size:18px; line-height:1.55;
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% -10%,rgba(184,154,90,.07),transparent 60%),
+    radial-gradient(ellipse 140% 100% at 50% 120%,rgba(0,0,0,.6),transparent 70%);
+  background-attachment:fixed;
+  color:var(--ink); font-family:var(--f-body); font-size:18px; line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased;
 }
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-.wrap{max-width:780px;margin:0 auto;padding-block:0 72px;position:relative;z-index:1}
-a{color:var(--lapis)}
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
-h1{font-size:clamp(1.9rem,5vw,2.6rem)}
-h2{font-size:1.6rem}
-h3{font-size:1.25rem}
+.wrap{max-width:760px;margin:0 auto;padding-block:0 72px;position:relative;z-index:1}
+a{color:var(--gold-hi);text-decoration-color:var(--line-gold);text-underline-offset:3px}
+a:hover{text-decoration-color:var(--gold)}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+::selection{background:var(--rubric);color:#fff}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15;letter-spacing:.01em}
+h1{font-size:clamp(1.9rem,5vw,2.55rem)}
+h2{font-size:1.55rem}
+h3{font-size:1.22rem}
 p{margin:0}
+b{font-weight:500;color:#f1e8d4}
 .muted{color:var(--muted)}
 .small{font-size:.9rem}
-.rubrica{font-family:var(--f-caps);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rubric);font-weight:700}
-.rubrica::before{content:"✠ "}
+.rubrica{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rubric);font-weight:700}
+.rubrica::before{content:"✠\00a0\00a0"}
 .rub{color:var(--rubric);font-weight:500}
 .stack{display:flex;flex-direction:column;gap:14px}
-.stack-lg{display:flex;flex-direction:column;gap:26px}
+.stack-lg{display:flex;flex-direction:column;gap:28px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 
 /* Cabeçalho */
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:22px 10px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-.brand svg{width:40px;height:48px;flex:none}
-.brand b{font-family:var(--f-init);font-size:1.15rem;letter-spacing:.04em;display:block;line-height:1.1}
+.top{display:flex;align-items:center;justify-content:center;gap:14px;padding-block:28px 14px;text-align:center}
+.brand{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
+.brand svg{width:46px;height:46px;flex:none}
+.brand b{font-family:var(--f-caps);font-weight:700;font-size:1.05rem;letter-spacing:.32em;text-transform:uppercase;display:block;line-height:1.1;color:var(--gold-hi);padding-left:.32em}
 .brand span{font-family:var(--f-display);font-style:italic;color:var(--muted);font-size:.98rem}
-.theme-btn{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.12em;background:transparent;border:1px solid var(--line);color:var(--muted);padding:.45em .8em;border-radius:2px;cursor:pointer}
 
-nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-block:1px solid var(--line);margin-bottom:24px}
-nav.tabs .scroller{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(10,9,8,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-block:1px solid var(--line-gold);margin-bottom:28px}
+nav.tabs .scroller{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;justify-content:safe center}
 nav.tabs .scroller::-webkit-scrollbar{display:none}
-nav.tabs a{flex:none;font-family:var(--f-caps);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:12px 12px 10px;border-bottom:2px solid transparent}
-nav.tabs a[aria-current="page"]{color:var(--rubric);border-bottom-color:var(--rubric)}
+nav.tabs a{flex:none;font-family:var(--f-caps);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:13px 9px 11px;border-bottom:1px solid transparent}
+nav.tabs a:hover{color:var(--ink)}
+nav.tabs a[aria-current="page"]{color:var(--gold-hi);border-bottom-color:var(--gold)}
 
-/* Fólio (cartão de missal) */
-.folio{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:22px 22px 24px;box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px var(--line)}
-.folio>.rubrica{display:block;margin-bottom:8px}
+/* Fólio: página de missal com duplo filete dourado */
+.folio{background:var(--surface);border:1px solid var(--line-gold);padding:24px 24px 26px;box-shadow:inset 0 0 0 4px var(--surface),inset 0 0 0 5px var(--line)}
+.folio>.rubrica{display:block;margin-bottom:10px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .grid2>*{min-width:0}
-@media (max-width:620px){.grid2{grid-template-columns:1fr}}
-hr.orn{border:0;height:14px;margin:4px 0;background:
-  linear-gradient(var(--line),var(--line)) left center/calc(50% - 18px) 1px no-repeat,
-  linear-gradient(var(--line),var(--line)) right center/calc(50% - 18px) 1px no-repeat}
-hr.orn{position:relative}
+@media (max-width:620px){.grid2{grid-template-columns:1fr}.folio{padding:20px 18px 22px}}
 .orn-wrap{position:relative;text-align:center;color:var(--gold);font-size:.9rem}
-.orn-wrap::before,.orn-wrap::after{content:"";position:absolute;top:50%;width:calc(50% - 22px);height:1px;background:var(--line)}
+.orn-wrap::before,.orn-wrap::after{content:"";position:absolute;top:50%;width:calc(50% - 22px);height:1px;background:var(--line-gold)}
 .orn-wrap::before{left:0}.orn-wrap::after{right:0}
 
 /* Frontispício */
-.hero{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center}
+.hero{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;padding-bottom:6px}
 .hero>*{min-width:0}
-.hero .fig{width:100%;max-width:200px;height:auto;display:block}
-@media (max-width:560px){.hero{grid-template-columns:1fr;text-align:center}.hero .fig{max-width:150px;margin:0 auto}.hero .row{justify-content:center}}
-.date-line{font-family:var(--f-caps);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:.35em .75em;border-radius:20px;background:var(--surface)}
-.sw{width:12px;height:12px;border-radius:50%;border:1px solid var(--line);flex:none;display:inline-block}
-.sw-v{background:var(--lit-v)}.sw-w{background:var(--lit-w)}.sw-g{background:var(--lit-g)}.sw-r{background:var(--lit-r)}.sw-p{background:var(--lit-p)}.sw-n{background:var(--lit-n)}
+.hero .fig{width:100%;max-width:190px;height:auto;display:block}
+.hero .fig-img{width:100%;max-width:190px;display:block;border:1px solid var(--line-gold);padding:4px;background:var(--surface);filter:sepia(.25) contrast(1.05)}
+@media (max-width:560px){.hero{grid-template-columns:1fr;text-align:center}.hero .fig,.hero .fig-img{max-width:150px;margin:0 auto}.hero .row{justify-content:center}}
+.date-line{font-family:var(--f-caps);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-caps);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line-gold);padding:.4em .8em;background:transparent;color:var(--ink)}
+.sw{width:10px;height:10px;border:1px solid var(--line-gold);flex:none;display:inline-block;transform:rotate(45deg)}
+.sw-v{background:var(--lit-v)}.sw-w{background:var(--lit-w)}.sw-g{background:var(--lit-g)}.sw-r{background:var(--lit-r)}.sw-p{background:var(--lit-p)}.sw-n{background:#000;border-color:var(--muted)}
 
 /* Avisos */
-.aviso{border-left:3px solid var(--rubric);background:var(--surface-2);padding:12px 16px;border-radius:0 3px 3px 0}
-.aviso b{font-family:var(--f-display);font-size:1.15rem}
+.aviso{border-left:2px solid var(--rubric);background:var(--surface-2);padding:13px 18px}
+.aviso b{font-family:var(--f-display);font-size:1.15rem;font-weight:600}
 
 /* Jejum */
-.fast{border:1px solid var(--line);border-radius:3px;padding:14px 16px;background:var(--surface-2)}
-.fast .lbl{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fast{border:1px solid var(--line);padding:14px 16px;background:var(--surface-2)}
+.fast .lbl{font-family:var(--f-caps);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .fast .st{font-family:var(--f-display);font-size:1.35rem;font-weight:600;margin-top:2px}
 .st.on{color:var(--rubric)}
 
 /* Roteiro do dia */
 .check{display:flex;flex-direction:column}
-.check label{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted var(--line);cursor:pointer}
+.check label{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer}
 .check label:last-child{border-bottom:0}
-.check input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:1.5px solid var(--gold);border-radius:50%;margin:3px 0 0;flex:none;display:grid;place-items:center;cursor:pointer;background:transparent}
+.check input{appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1px solid var(--gold);margin:6px 0 0;flex:none;display:grid;place-items:center;cursor:pointer;background:transparent;transform:rotate(45deg)}
 .check input:checked{background:var(--gold)}
-.check input:checked::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--surface)}
 .check .t{flex:1;min-width:0}
-.check .h{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
-.check input:checked+.t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.check .h{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+.check input:checked+.t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line-gold)}
 
 /* Listas */
 .list{list-style:none;margin:0;padding:0}
-.list li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dotted var(--line)}
+.list li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line)}
 .list li:last-child{border-bottom:0}
 .list li>span:first-child{min-width:0}
-.list .when{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.06em;color:var(--muted);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.list .when{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
 
 .links{display:flex;flex-direction:column;gap:6px}
-.links a{display:inline-flex;gap:8px;align-items:baseline}
-.links a::before{content:"▸";color:var(--gold);font-size:.8em}
+.links a{display:inline-flex;gap:10px;align-items:baseline}
+.links a::before{content:"✠";color:var(--rubric);font-size:.75em}
 
-.initial::first-letter{font-family:var(--f-init);color:var(--rubric);float:left;font-size:3.1em;line-height:.85;padding:6px 8px 0 0}
+.initial::first-letter{font-family:var(--f-init);color:var(--rubric);float:left;font-size:3.4em;line-height:.8;padding:6px 10px 0 0}
 
 /* Botões e segmentos */
-.btn{font-family:var(--f-caps);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold);color:var(--ink);background:transparent;padding:.65em 1em;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block}
-.btn.primary{background:var(--lapis);border-color:var(--lapis);color:var(--on-lapis)}
-.btn:disabled{opacity:.4;cursor:default}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;flex-wrap:wrap}
-.seg button{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:0;border-right:1px solid var(--line);color:var(--muted);padding:.6em .85em;cursor:pointer}
+.btn{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line-gold);color:var(--ink);background:transparent;padding:.7em 1.1em;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{border-color:var(--gold);color:var(--gold-hi)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{background:var(--gold-hi);color:var(--on-accent)}
+.btn:disabled{opacity:.35;cursor:default}
+.seg{display:inline-flex;border:1px solid var(--line-gold);overflow:hidden;flex-wrap:wrap}
+.seg button{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:transparent;border:0;border-right:1px solid var(--line-gold);color:var(--muted);padding:.65em .9em;cursor:pointer}
 .seg button:last-child{border-right:0}
-.seg button[aria-pressed="true"]{background:var(--lapis);color:var(--on-lapis)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
 
 /* Orações */
 .prayer{display:flex;flex-direction:column;gap:6px}
-.prayer h3{font-size:1.2rem}
-.pcols{display:grid;gap:16px}
+.prayer h3{font-size:1.2rem;color:var(--gold-hi)}
+.pcols{display:grid;gap:18px}
 .pcols.two{grid-template-columns:1fr 1fr}
 .pcols>*{min-width:0}
 @media (max-width:620px){.pcols.two{grid-template-columns:1fr}}
-.pcols .la{font-style:italic}
+.pcols .la{font-style:italic;color:#d9cfb8}
 .ptext{white-space:pre-line}
 
 /* Mistérios */
-.myst{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;border-bottom:1px dotted var(--line)}
+.myst{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
 .myst:last-child{border-bottom:0}
 .myst>*{min-width:0}
-.myst .n{font-family:var(--f-init);color:var(--rubric);font-size:1.8rem;line-height:1;text-align:center}
-.myst .ref{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.08em;color:var(--muted)}
+.myst .n{font-family:var(--f-caps);font-weight:700;color:var(--rubric);font-size:1.3rem;line-height:1.3;text-align:center}
+.myst .ref{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.1em;color:var(--muted)}
 .fruto{font-style:italic;color:var(--gold)}
 
 /* Terço guiado */
-.guided{border:1px solid var(--gold);border-radius:3px;padding:20px;background:var(--surface-2)}
-.beads{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:10px 0}
-.bead{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--gold)}
-.bead.big{width:16px;height:16px}
+.guided{border:1px solid var(--line-gold);padding:22px;background:var(--surface-2)}
+.beads{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.bead{width:9px;height:9px;border-radius:50%;border:1px solid var(--gold)}
+.bead.big{width:13px;height:13px}
 .bead.done{background:var(--gold)}
 .bead.cur{background:var(--rubric);border-color:var(--rubric)}
-.gstep{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-variant-numeric:tabular-nums}
+.gstep{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;font-variant-numeric:tabular-nums}
 
 /* Calendário */
 .cal-scroll{overflow-x:auto}
-.cal{display:grid;grid-template-columns:repeat(7,minmax(40px,1fr));gap:4px;min-width:300px}
-.cal .wd{font-family:var(--f-caps);font-size:.64rem;letter-spacing:.08em;text-align:center;color:var(--muted);padding-bottom:4px}
-.cal button{position:relative;aspect-ratio:1/1.05;max-width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:2px;padding:4px 3px 0;font-family:var(--f-body);font-size:1rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;overflow:hidden;font-variant-numeric:tabular-nums}
-.cal button .bar{position:absolute;left:0;right:0;bottom:0;height:5px}
-.cal button .mk{font-family:var(--f-caps);font-size:.58rem;color:var(--rubric);letter-spacing:.04em;line-height:1}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(40px,1fr));gap:3px;min-width:300px}
+.cal .wd{font-family:var(--f-caps);font-size:.62rem;letter-spacing:.1em;text-align:center;color:var(--muted);padding-bottom:4px}
+.cal button{position:relative;aspect-ratio:1/1.05;max-width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:4px 3px 0;font-family:var(--f-body);font-size:1rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;overflow:hidden;font-variant-numeric:tabular-nums}
+.cal button:hover{border-color:var(--line-gold)}
+.cal button .bar{position:absolute;left:0;right:0;bottom:0;height:3px}
+.cal button .mk{font-family:var(--f-caps);font-size:.56rem;color:var(--rubric);letter-spacing:.04em;line-height:1}
 .cal button.today{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
 .cal button.sel{background:var(--surface-2);border-color:var(--rubric)}
 .cal button.sun{font-weight:500;color:var(--rubric)}
@@ -176,65 +186,72 @@ hr.orn{position:relative}
 .legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.88rem;color:var(--muted)}
 
 /* Formulários */
-textarea,input[type=text],input[type=date],select{font:inherit;font-size:1rem;width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:10px 12px}
+textarea,input[type=text],input[type=date],select{font:inherit;font-size:1rem;width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line-gold);border-radius:0;padding:10px 12px}
+textarea:focus,input:focus,select:focus{border-color:var(--gold);outline:0}
 textarea{min-height:110px;resize:vertical}
 .field{display:flex;flex-direction:column;gap:6px}
-.field>span{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.note{border-top:1px dotted var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.field>span{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.note{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
 .note .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.linkbtn{background:none;border:0;color:var(--rubric);font:inherit;font-size:.88rem;cursor:pointer;padding:0;text-decoration:underline}
+.linkbtn{background:none;border:0;color:var(--rubric);font:inherit;font-size:.88rem;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
 
 .slots{display:flex;flex-wrap:wrap;gap:8px}
-.slot{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;color:var(--ink);font-family:var(--f-caps);font-size:.8rem;cursor:pointer;font-variant-numeric:tabular-nums}
-.slot.on{background:var(--gold);color:var(--surface)}
-.bar-prog{height:8px;border-radius:4px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden}
+.slot{width:42px;height:42px;border:1px solid var(--line-gold);background:transparent;color:var(--ink);font-family:var(--f-caps);font-size:.78rem;cursor:pointer;font-variant-numeric:tabular-nums}
+.slot.on{background:var(--gold);border-color:var(--gold);color:var(--on-accent)}
+.bar-prog{height:4px;background:var(--line);overflow:hidden}
 .bar-prog i{display:block;height:100%;background:var(--gold)}
 
-.master{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start}
+.master{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start}
 .master>*{min-width:0}
-.master .seal{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--f-init);color:var(--rubric);font-size:1.2rem;background:var(--surface-2)}
+.master .seal{width:52px;height:52px;border:1px solid var(--line-gold);display:grid;place-items:center;font-family:var(--f-caps);font-weight:700;letter-spacing:.04em;color:var(--gold-hi);font-size:1rem;background:var(--bg);box-shadow:inset 0 0 0 3px var(--bg),inset 0 0 0 4px var(--line)}
 
-/* Marca d'água */
-.watermark{position:fixed;right:max(24px,env(safe-area-inset-right,0px));bottom:0;width:min(30vw,400px);height:auto;opacity:.14;pointer-events:none;z-index:0;display:none}
+/* Marca d'água: o emblema da Imaculada, muito discreto, em telas largas */
+.watermark{position:fixed;right:max(32px,env(safe-area-inset-right,0px));bottom:40px;width:min(24vw,320px);height:auto;opacity:.08;pointer-events:none;z-index:0;display:none}
 @media (min-width:1240px){.watermark{display:block}}
-.watermark-l{left:max(24px,env(safe-area-inset-left,0px));right:auto;transform:scaleX(-1);opacity:.07}
+.watermark-l{left:max(32px,env(safe-area-inset-left,0px));right:auto;opacity:.05}
 
-footer{margin-top:40px;text-align:center;font-family:var(--f-display);font-style:italic;color:var(--muted)}
-@media (prefers-reduced-motion:no-preference){.view:not([hidden]){animation:fade .35s ease}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+footer{margin-top:48px;text-align:center;font-family:var(--f-display);font-style:italic;color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:center}
+footer .cross{color:var(--rubric);font-style:normal}
+@media (prefers-reduced-motion:no-preference){.view:not([hidden]){animation:fade .3s ease}@keyframes fade{from{opacity:.5}to{opacity:1}}}
 </style>
+</head>
+<body>
 
-<!-- ===== Imagem da Imaculada (desenho original em SVG, reutilizado com <use>) ===== -->
+<!-- ===== Emblema da Imaculada (Ap 12,1), gravura em ouro, reutilizado com <use> =====
+     Arco gótico; o sol em raios; a coroa de doze estrelas; o monograma mariano
+     (M sob a barra e a cruz, como no reverso da Medalha Milagrosa); a lua sob os pés. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="48%" r="55%">
-      <stop offset="0" style="stop-color:var(--halo);stop-opacity:.55"/>
-      <stop offset=".6" style="stop-color:var(--halo);stop-opacity:.16"/>
-      <stop offset="1" style="stop-color:var(--halo);stop-opacity:0"/>
+    <clipPath id="arch-clip"><path d="M44 398 V196 A206 206 0 0 1 150 22 A206 206 0 0 1 256 196 V398 Z"/></clipPath>
+    <radialGradient id="sol" cx="50%" cy="50%" r="50%">
+      <stop offset="0" style="stop-color:var(--gold);stop-opacity:.20"/>
+      <stop offset=".55" style="stop-color:var(--gold);stop-opacity:.06"/>
+      <stop offset="1" style="stop-color:var(--gold);stop-opacity:0"/>
     </radialGradient>
+    <symbol id="monogram" viewBox="0 0 100 100">
+      <g fill="none" style="stroke:var(--gold-hi)" stroke-width="3" stroke-linecap="square">
+        <path d="M50 6 V40 M39 17 H61"/>
+        <path d="M22 40 H78"/>
+        <path d="M28 88 V46 L50 74 L72 46 V88"/>
+        <path d="M22 88 H34 M66 88 H78"/>
+      </g>
+    </symbol>
     <symbol id="immaculata" viewBox="0 0 300 470">
-      <ellipse cx="150" cy="240" rx="146" ry="230" fill="url(#glow)"/>
-      <g id="im-rays" style="stroke:var(--halo)" stroke-width="1.1" stroke-opacity=".38"></g>
-      <circle cx="150" cy="100" r="38" fill="none" style="stroke:var(--halo)" stroke-width="2"/>
-      <circle cx="150" cy="100" r="33" style="fill:var(--halo)" fill-opacity=".18"/>
-      <g id="im-stars" style="fill:var(--halo)"></g>
-      <!-- manto -->
-      <path d="M150 60 C122 60 106 82 106 110 C106 142 96 172 90 207 C80 272 70 332 64 394 C62 414 78 426 100 426 L200 426 C222 426 238 414 236 394 C230 332 220 272 210 207 C204 172 194 142 194 110 C194 82 178 60 150 60 Z" style="fill:var(--mantle);stroke:var(--halo)" stroke-width="2"/>
-      <path d="M112 232 C107 300 99 362 90 420 M188 232 C193 300 201 362 210 420 M100 260 C94 320 86 370 78 414 M200 260 C206 320 214 370 222 414" fill="none" style="stroke:var(--halo)" stroke-opacity=".45" stroke-width="1.4"/>
-      <!-- túnica -->
-      <path d="M150 138 C134 140 126 162 124 198 C120 262 116 332 112 420 L188 420 C184 332 180 262 176 198 C174 162 166 140 150 138 Z" style="fill:var(--robe)"/>
-      <path d="M140 250 C138 310 136 360 134 418 M160 250 C162 310 164 360 166 418" fill="none" style="stroke:var(--mantle)" stroke-opacity=".18" stroke-width="1.2"/>
-      <path d="M126 236 Q150 246 174 236" fill="none" style="stroke:var(--halo)" stroke-width="3"/>
-      <!-- véu e rosto -->
-      <ellipse cx="150" cy="106" rx="23" ry="29" style="fill:var(--robe)"/>
-      <ellipse cx="150" cy="108" rx="16" ry="21" style="fill:var(--skin)"/>
-      <path d="M143 104 q3 -2 6 0 M151 104 q3 -2 6 0" fill="none" style="stroke:var(--mantle-deep)" stroke-width="1.2" stroke-linecap="round"/>
-      <path d="M147 119 q3 1.6 6 0" fill="none" style="stroke:var(--mantle-deep)" stroke-opacity=".6" stroke-width="1.1" stroke-linecap="round"/>
-      <!-- mangas e mãos postas -->
-      <path d="M116 204 C127 192 139 196 144 206 L142 218 C132 218 121 215 116 204 Z" style="fill:var(--mantle-deep)"/>
-      <path d="M184 204 C173 192 161 196 156 206 L158 218 C168 218 179 215 184 204 Z" style="fill:var(--mantle-deep)"/>
-      <path d="M150 170 C144 178 141 192 142 208 L158 208 C159 192 156 178 150 170 Z" style="fill:var(--skin)"/>
-      <!-- lua -->
-      <path d="M76 432 C110 472 190 472 224 432 C190 454 110 454 76 432 Z" style="fill:var(--halo)"/>
+      <g clip-path="url(#arch-clip)">
+        <circle cx="150" cy="236" r="200" fill="url(#sol)"/>
+        <g id="im-rays" style="stroke:var(--gold)" stroke-width=".7" stroke-opacity=".55"></g>
+      </g>
+      <path d="M44 452 V196 A206 206 0 0 1 150 22 A206 206 0 0 1 256 196 V452 Z" fill="none" style="stroke:var(--gold)" stroke-width="1.4"/>
+      <path d="M36 460 V194 A214 214 0 0 1 150 12 A214 214 0 0 1 264 194 V460 Z" fill="none" style="stroke:var(--gold)" stroke-width=".7" stroke-opacity=".6"/>
+      <circle cx="150" cy="236" r="104" fill="none" style="stroke:var(--gold)" stroke-width=".8" stroke-opacity=".7"/>
+      <circle cx="150" cy="236" r="80" style="fill:var(--bg);stroke:var(--gold)" stroke-width="1.2"/>
+      <circle cx="150" cy="236" r="75" fill="none" style="stroke:var(--gold)" stroke-width=".6" stroke-opacity=".6"/>
+      <g id="im-stars" style="fill:var(--gold-hi)"></g>
+      <use href="#monogram" x="104" y="186" width="92" height="92"/>
+      <path d="M92 352 C118 384 182 384 208 352 C180 370 120 370 92 352 Z" style="fill:var(--gold)"/>
+      <path d="M60 400 H240" style="stroke:var(--gold)" stroke-width=".7" stroke-opacity=".7"/>
+      <text x="150" y="426" text-anchor="middle" style="fill:var(--gold);font-family:var(--f-caps)" font-size="12.5" letter-spacing="2.6">SVB TVVM PRAESIDIVM</text>
+      <path d="M60 440 H240" style="stroke:var(--gold)" stroke-width=".7" stroke-opacity=".7"/>
     </symbol>
   </defs>
 </svg>
@@ -245,14 +262,9 @@ footer{margin-top:40px;text-align:center;font-family:var(--f-display);font-style
 <div class="wrap">
   <header class="top">
     <a class="brand" href="#hoje" aria-label="Sub Tuum Praesidium, início">
-      <svg viewBox="0 0 40 48" aria-hidden="true">
-        <path d="M20 2 V14 M15 7 H25" style="stroke:var(--rubric)" stroke-width="2" fill="none"/>
-        <path d="M6 20 H34" style="stroke:var(--gold)" stroke-width="2"/>
-        <path d="M8 44 V22 L20 36 L32 22 V44" fill="none" style="stroke:var(--lapis)" stroke-width="3" stroke-linejoin="miter"/>
-      </svg>
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#monogram" width="100" height="100"/></svg>
       <div><b>Sub Tuum Praesidium</b><span>À vossa proteção recorremos</span></div>
     </a>
-    <button class="theme-btn" id="themeBtn" type="button">Tema: sistema</button>
   </header>
 
   <nav class="tabs" aria-label="Seções">
@@ -281,7 +293,7 @@ footer{margin-top:40px;text-align:center;font-family:var(--f-display);font-style
     <section class="view" id="v-mestres" hidden></section>
   </main>
 
-  <footer>Sancta Maria, Mater Dei, ora pro nobis.</footer>
+  <footer><span class="cross" aria-hidden="true">✠</span><span>Sancta Maria, Mater Dei, ora pro nobis.</span></footer>
 </div>
 
 <script>
@@ -1080,7 +1092,7 @@ function renderHoje() {
   $('#v-hoje').innerHTML = `
   <div class="stack-lg">
     <div class="hero">
-      <svg class="fig" viewBox="0 0 300 470" role="img" aria-label="Nossa Senhora Imaculada, coroada de doze estrelas, com a lua sob os pés"><use href="#immaculata" width="300" height="470"/></svg>
+      ${imgImaculadaOk ? `<img class="fig-img" src="${IMG_IMACULADA}" alt="Nossa Senhora Imaculada">` : `<svg class="fig" viewBox="0 0 300 470" role="img" aria-label="Emblema da Imaculada: coroa de doze estrelas, monograma de Maria e a lua sob os pés"><use href="#immaculata" width="300" height="470"/></svg>`}
       <div class="stack">
         <div class="date-line">${dataLonga(dt)}</div>
         <h1>${esc(L.titulo)}</h1>
@@ -1516,31 +1528,34 @@ function rota() {
   if (ativo && ativo.scrollIntoView) ativo.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 }
 
-/* Desenha raios e estrelas da Imaculada */
-(function desenharImaculada() {
+/* Desenha raios e estrelas do emblema da Imaculada */
+(function desenharEmblema() {
   const NS = 'http://www.w3.org/2000/svg', rays = document.getElementById('im-rays'), stars = document.getElementById('im-stars');
-  for (let i = 0; i < 64; i++) {
-    const a = i / 64 * Math.PI * 2, l = document.createElementNS(NS, 'line');
-    l.setAttribute('x1', 150 + Math.cos(a) * 70); l.setAttribute('y1', 240 + Math.sin(a) * 110);
-    l.setAttribute('x2', 150 + Math.cos(a) * 144); l.setAttribute('y2', 240 + Math.sin(a) * 226);
+  for (let i = 0; i < 96; i++) {
+    const a = i / 96 * Math.PI * 2, l = document.createElementNS(NS, 'line'), longo = i % 2 === 0;
+    l.setAttribute('x1', 150 + Math.cos(a) * 108); l.setAttribute('y1', 236 + Math.sin(a) * 108);
+    l.setAttribute('x2', 150 + Math.cos(a) * (longo ? 240 : 170)); l.setAttribute('y2', 236 + Math.sin(a) * (longo ? 240 : 170));
     rays.appendChild(l);
   }
   for (let i = 0; i < 12; i++) {
-    const a = -Math.PI / 2 + i / 12 * Math.PI * 2, cx = 150 + Math.cos(a) * 54, cy = 100 + Math.sin(a) * 54, pts = [];
-    for (let j = 0; j < 10; j++) { const r = j % 2 ? 2.8 : 7, b = -Math.PI / 2 + j * Math.PI / 5; pts.push((cx + Math.cos(b) * r).toFixed(1) + ',' + (cy + Math.sin(b) * r).toFixed(1)); }
+    const a = -Math.PI / 2 + i / 12 * Math.PI * 2, cx = 150 + Math.cos(a) * 92, cy = 236 + Math.sin(a) * 92, pts = [];
+    for (let j = 0; j < 10; j++) { const r = j % 2 ? 2.2 : 5.6, b = -Math.PI / 2 + j * Math.PI / 5; pts.push((cx + Math.cos(b) * r).toFixed(1) + ',' + (cy + Math.sin(b) * r).toFixed(1)); }
     const p = document.createElementNS(NS, 'polygon'); p.setAttribute('points', pts.join(' ')); stars.appendChild(p);
   }
 })();
 
-/* Tema claro / escuro / sistema */
-(function tema() {
-  const btn = $('#themeBtn'), nomes = { system: 'sistema', light: 'claro', dark: 'escuro' }, ordem = ['system', 'light', 'dark'];
-  let t = store.get('tema', 'system');
-  const aplicar = () => { if (t === 'system') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', t); btn.textContent = 'Tema: ' + nomes[t]; };
-  btn.addEventListener('click', () => { t = ordem[(ordem.indexOf(t) + 1) % 3]; store.set('tema', t); aplicar(); });
-  aplicar();
-})();
+/* Imagem opcional: se existir img/imaculada.jpg (uma pintura em domínio público), ela substitui o emblema no frontispício. */
+const IMG_IMACULADA = 'img/imaculada.jpg';
+let imgImaculadaOk = null;
+(function () { const im = new Image(); im.onload = () => { imgImaculadaOk = true; if ((location.hash || '#hoje') === '#hoje') rota(); }; im.onerror = () => { imgImaculadaOk = false; }; im.src = IMG_IMACULADA; })();
+
+/* PWA: registra o service worker (funciona sem internet depois da primeira visita) */
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js').catch(() => {}));
+}
 
 window.addEventListener('hashchange', rota);
 rota();
 </script>
+</body>
+</html>

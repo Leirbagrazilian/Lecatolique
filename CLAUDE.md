@@ -21,9 +21,14 @@ Leia tudo antes de mexer no código.
    **disciplina tradicional** (Código de 1917). Nunca misturar as duas.
 6. **Não inventar citações** de pessoas reais (Dom Lefebvre, Pe. Paulo Ricardo, Pe. Leonardo Wagner).
    Para conteúdo deles, usar links de busca no YouTube ou textos verificados com fonte.
-7. **Estética tradicional mariana.** Azul de lápis-lazúli, ouro, pergaminho, vermelho das rubricas
-   (℣ ℟ em vermelho, como nos missais). Imagem da Imaculada (mulher vestida de sol, lua sob os pés,
-   coroa de doze estrelas, Ap 12,1) no frontispício e como marca d'água ao fundo.
+7. **Estética tradicional, sóbria e escura** (pedido do Gabriel: "menos cartoon", aspecto tradicionalista
+   à Dom Lefebvre, preto, tema escuro). Missal encadernado em couro preto: fundo negro `#0a0908`,
+   ouro velho de douração (`--gold`, `--gold-hi`), vermelho das rubricas (℣ ℟ e ✠ em vermelho), texto marfim.
+   **Tema escuro único** (não há tema claro). Cantos retos, filetes finos, nada de cantos arredondados,
+   bolinhas ou figuras de desenho infantil. Tipos: Cinzel (versais), Cormorant/EB Garamond (texto),
+   UnifrakturMaguntia (só capitulares). A Imaculada (Ap 12,1) aparece como **emblema gravado**:
+   arco gótico, raios, coroa de doze estrelas, monograma mariano (M + barra + cruz) e lua sob os pés.
+   Se existir `img/imaculada.jpg` (pintura em **domínio público**), ela substitui o emblema no frontispício.
 
 ---
 
@@ -81,7 +86,17 @@ Leia tudo antes de mexer no código.
 
 ## 3. O que o protótipo (`index.html`) já faz
 
-Arquivo único, HTML + CSS + JavaScript puro, sem bibliotecas. Abre no navegador.
+HTML + CSS + JavaScript puro, sem bibliotecas, já como **PWA** instalável:
+
+- `index.html` — o app inteiro.
+- `manifest.json` — nome, cores e ícones para instalar no celular.
+- `service-worker.js` — cache para funcionar sem internet. **Ao mudar qualquer arquivo, aumente `VERSAO`.**
+- `icons/` — `icon.svg` (fonte) e PNGs 180/192/512 + maskable 512, gerados a partir do SVG.
+- `img/` — opcional: `imaculada.jpg` (pintura em domínio público) para o frontispício.
+
+Para testar localmente: `python3 -m http.server` na pasta e abrir `http://localhost:8000`
+(o service worker não funciona abrindo o arquivo direto com `file://`).
+Para instalar no celular, o app precisa estar publicado em HTTPS (ex.: Netlify ou GitHub Pages).
 
 | Aba (`#hash`) | Conteúdo |
 |---|---|
@@ -102,7 +117,9 @@ Arquivo único, HTML + CSS + JavaScript puro, sem bibliotecas. Abre no navegador
 3. `MOTOR LITÚRGICO` — `tempo(d)`, `nomeDomingo`, `nomeFeria`, `diaLiturgico(d)` com precedência simplificada.
 4. `JEJUM` — `jejumAtual(d)` e `jejumTradicional(d)`.
 5. `ARMAZENAMENTO` — `store.get/set` com `localStorage` (prefixo `stp:`), sempre em `try/catch`.
-6. `TELAS` — uma função `render<Aba>()` por aba; roteador pelo `location.hash`.
+6. `UTILIDADES`.
+7. `TELAS` — uma função `render<Aba>()` por aba.
+8. `ROTEADOR` — pelo `location.hash`; depois dele: desenho do emblema, imagem opcional e registro do service worker.
 
 Classes: 1 a 3 = classes de 1962; 4 = comemoração ou féria simples.
 Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
@@ -127,9 +144,8 @@ Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
 
 ## 5. Próximos passos sugeridos (em ordem)
 
-1. **Virar PWA** (Progressive Web App): instala no celular, funciona sem internet, permite notificações.
-   - `manifest.json`, ícones, `service-worker.js` com cache do app.
-   - Notificações locais: Angelus 6h/12h/18h, véspera de dia de jejum, 7 dias antes da Septuagésima,
+1. **PWA** — feito: `manifest.json`, ícones e `service-worker.js`. Falta publicar em HTTPS e as
+   notificações locais: Angelus 6h/12h/18h, véspera de dia de jejum, 7 dias antes da Septuagésima,
      Cinzas, Têmporas e primeiras sextas/sábados.
 2. **Separar dados em arquivos JSON** (`data/santoral.json`, `data/oracoes.json`, `data/temas.json`)
    para facilitar revisão.
