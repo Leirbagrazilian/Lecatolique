@@ -17,8 +17,8 @@ Leia tudo antes de mexer no código.
    O app **nunca** deve pressioná-lo ou culpá-lo por isso. Ele complementa: Próprio tradicional
    do domingo em casa, comunhão espiritual, terço em família e idas ocasionais à Missa tradicional.
 4. **Penitências moderadas e discretas.** Penitências maiores só com o confessor. O app sempre diz isso.
-5. **Duas colunas no jejum.** Mostrar sempre lado a lado a **lei atual** (CIC 1983 + CNBB) e a
-   **disciplina tradicional** (Código de 1917). Nunca misturar as duas.
+5. **Jejum só pela disciplina tradicional** (Código de 1917, com o jejum eucarístico de Pio XII, 1957).
+   Decisão do Gabriel: **nenhuma regra da CNBB nem coluna de "lei atual"** (CIC 1983). Não reintroduzir.
 6. **Não inventar citações** de pessoas reais (Dom Lefebvre, Pe. Paulo Ricardo, Pe. Leonardo Wagner).
    Para conteúdo deles, usar links de busca no YouTube ou textos verificados com fonte.
 7. **Estética tradicional, sóbria e escura** (pedido do Gabriel: "menos cartoon", aspecto tradicionalista
@@ -70,7 +70,7 @@ Leia tudo antes de mexer no código.
 - **Espaço para anotar dúvidas** e o que vive na oração, para levar ao confessor ou diretor espiritual.
 - **Septuagésima**: três domingos antes da Quaresma, a Igreja já avisa (paramentos roxos).
 - Marcar **Quatro Têmporas** e **vigílias**.
-- Jejum: mostrar **lei atual** e **disciplina tradicional** lado a lado.
+- Jejum: ~~lei atual e tradicional lado a lado~~ → depois o Gabriel decidiu: **só a disciplina tradicional**.
 - Penitências **moderadas e discretas**; as maiores, **com o confessor**.
 - **Quinze mistérios**: gozosos (segunda e quinta), dolorosos (terça e sexta), gloriosos (quarta, sábado e domingo).
 - O que faltava:
@@ -104,11 +104,11 @@ Ao trocar de seção, a página volta ao topo.
 
 | Aba (`#hash`) | Conteúdo |
 |---|---|
-| `#hoje` | Dia litúrgico (1962), cor, classe, santo, tempo; avisos (Advento, Septuagésima, Quaresma, Têmporas); jejum de hoje nas duas disciplinas; roteiro do dia com marcação; Angelus seguinte; tema de meditação + links do YouTube; capítulo da *Imitação*; penitência sugerida; intenção; próximas datas |
+| `#hoje` | Dia litúrgico (1962), cor, classe, santo, tempo; avisos (Advento, Septuagésima, Quaresma, Têmporas); jejum de hoje (disciplina de 1917); roteiro do dia com marcação; Angelus seguinte; tema de meditação + links do YouTube; capítulo da *Imitação*; penitência sugerida; intenção; próximas datas |
 | `#missa` | Próximo domingo, como seguir o Próprio em casa, comunhão espiritual, Missa tradicional mais próxima (anotação), última confissão |
 | `#rosario` | 15 mistérios com passagem bíblica, meditação e fruto; escolha do dia; latim / português / lado a lado; **terço guiado passo a passo** (78 passos) |
 | `#calendario` | Mês com cor litúrgica de cada dia e marcas de jejum, Têmporas e vigílias; detalhe do dia |
-| `#jejum` | Regras atuais × tradicionais, idades, jejum eucarístico, próximos dias de jejum, lista de penitências |
+| `#jejum` | Disciplina tradicional (1917): dias, como jejuar, idades, jejum eucarístico, próximos dias de jejum, penitências |
 | `#oracoes` | Manhã, Angelus/Regina Caeli (troca sozinho no Tempo Pascal), noite com exame de consciência, marianas, defuntos, sacerdotes |
 | `#devocoes` | Consagração de Montfort (33 dias, com fases), primeiras sextas (9) e primeiros sábados (5), Reinado Social |
 | `#caderno` | Notas para o confessor / diretor espiritual |
@@ -119,7 +119,7 @@ Ao trocar de seção, a página volta ao topo.
 1. `DADOS` — `SANTORAL` (texto `MM-DD|nome|classe|cor|L`), `MISTERIOS`, `ORACOES`, `TEMAS`, `PENITENCIAS`, `EXAME`.
 2. `DATAS` — `pascoa(ano)`, `advento1(ano)`, `datas(ano)` (todas as datas móveis, Têmporas, vigílias).
 3. `MOTOR LITÚRGICO` — `tempo(d)`, `nomeDomingo`, `nomeFeria`, `diaLiturgico(d)` com precedência simplificada.
-4. `JEJUM` — `jejumAtual(d)` e `jejumTradicional(d)`.
+4. `JEJUM` — `jejumTradicional(d)` (a única regra; `jejumAtual` foi removida).
 5. `ARMAZENAMENTO` — `store.get/set` com `localStorage` (prefixo `stp:`), sempre em `try/catch`.
 6. `UTILIDADES`.
 7. `TELAS` — uma função `render<Aba>()` por aba.
@@ -141,8 +141,6 @@ Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
 - **Imitação de Cristo**: o app indica livro e capítulo, mas não traz o texto. Usar tradução em domínio público.
 - **Notificações do Angelus** não funcionam no protótipo (o navegador bloqueia). No app real, usar notificação push.
 - **Dados ficam no navegador** (`localStorage`). Se limpar os dados do navegador, as anotações somem.
-- **CNBB e abstinência às sextas**: o app diz para confirmar com o pároco a norma complementar que
-  permite trocar a abstinência das sextas comuns por outra penitência. Verificar o texto oficial.
 
 ---
 
@@ -161,8 +159,8 @@ Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
 8. **Assistente de IA** (opcional), com a API da Anthropic:
    - doutrina e direção espiritual → `claude-opus-5-5`, esforço alto;
    - perguntas rápidas do dia → `claude-sonnet-5-5` ou `claude-haiku-5-5`;
-   - prompt de sistema que obriga a citar catecismo ou fonte, distingue lei atual de disciplina
-     tradicional e manda questões de consciência ao confessor;
+   - prompt de sistema que obriga a citar catecismo ou fonte, responde sobre jejum pela
+     disciplina tradicional (1917) e manda questões de consciência ao confessor;
    - conferir parâmetros e preços atuais em https://docs.claude.com antes de implementar.
    - A chave da API **nunca** vai no front-end: usar um pequeno servidor ou função serverless.
 
@@ -179,5 +177,6 @@ Casos que devem passar (ano → resultado esperado):
 - 19/11/2026 → Santa Isabel da Hungria (3ª classe, branco), Tempo depois de Pentecostes.
 - 22/11/2026 → Último Domingo depois de Pentecostes (verde).
 - 08/12/2026 → Imaculada Conceição (1ª classe, branco).
-- Sexta-feira Santa → jejum e abstinência nas duas disciplinas.
-- Qualquer segunda-feira da Quaresma → jejum só na disciplina tradicional.
+- Sexta-feira Santa → jejum e abstinência.
+- Qualquer segunda-feira da Quaresma → jejum (sem abstinência).
+- Sexta-feira comum fora da Quaresma → abstinência; se for dia santo de guarda (ex.: 25/12) → nada.

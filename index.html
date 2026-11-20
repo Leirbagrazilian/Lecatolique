@@ -978,17 +978,7 @@ function diaLiturgico(input) {
 }
 
 /* === 4. JEJUM ======================================================== */
-/* Lei atual: CIC 1983, cân. 1250-1253 */
-function jejumAtual(dt) {
-  const L = diaLiturgico(dt), k = L.k;
-  if (same(dt, k.cinzas) || same(dt, k.sextaSanta)) return { jejum: true, abst: true, nota: 'Jejum e abstinência obrigatórios.' };
-  if (dt.getDay() === 5) {
-    if (L.classe === 1) return { jejum: false, abst: false, nota: 'Solenidade: a abstinência da sexta-feira não obriga (cân. 1251).' };
-    return { jejum: false, abst: true, nota: 'Abstinência de carne. No Brasil, a CNBB permite trocar a das sextas-feiras comuns por outra penitência; confirme a norma com o seu pároco.' };
-  }
-  return { jejum: false, abst: false, nota: 'Sem obrigação de jejum ou abstinência.' };
-}
-/* Disciplina tradicional: Código de 1917, cân. 1250-1254 */
+/* Disciplina tradicional: Código de 1917, cân. 1250-1254 (é a única regra de jejum do app, por escolha do usuário) */
 const DIAS_DE_GUARDA_1917 = ['12-25','01-01','01-06','12-08','08-15','03-19','06-29','11-01'];
 function jejumTradicional(dt) {
   const L = diaLiturgico(dt), k = L.k, wd = dt.getDay();
@@ -1128,7 +1118,7 @@ const ROTEIRO = [
 ];
 
 function renderHoje() {
-  const dt = HOJE(), L = diaLiturgico(dt), ja = jejumAtual(dt), jt = jejumTradicional(dt);
+  const dt = HOJE(), L = diaLiturgico(dt), jt = jejumTradicional(dt);
   const tema = temaDoDia(dt), imi = imitacaoDoDia(dt), mist = MISTERIOS[MISTERIO_DO_DIA[dt.getDay()]];
   const marcados = store.get('roteiro:' + iso(dt), {});
   const pen = PENITENCIAS[diaDoAno(dt) % PENITENCIAS.length];
@@ -1158,10 +1148,7 @@ function renderHoje() {
 
     <div class="folio">
       <span class="rubrica">Jejum e abstinência hoje</span>
-      <div class="grid2">
-        <div class="fast"><div class="lbl">Lei atual da Igreja</div><div class="st ${ja.jejum || ja.abst ? 'on' : ''}">${statusTxt(ja)}</div><p class="small muted">${esc(ja.nota)}</p></div>
-        <div class="fast"><div class="lbl">Disciplina tradicional (1917)</div><div class="st ${jt.jejum || jt.abst ? 'on' : ''}">${statusTxt(jt)}</div><p class="small muted">${esc(jt.nota)}</p></div>
-      </div>
+      <div class="fast"><div class="lbl">Disciplina tradicional (Código de 1917)</div><div class="st ${jt.jejum || jt.abst ? 'on' : ''}">${statusTxt(jt)}</div><p class="small muted">${esc(jt.nota)}</p></div>
       <p class="small muted" style="margin-top:10px">Penitência sugerida: <b>${esc(pen)}</b> Penitências maiores, combine com o seu confessor.</p>
     </div>
 
@@ -1344,11 +1331,11 @@ function renderCalendario() {
   const cells = [];
   for (let i = 0; i < calMes.getDay(); i++) cells.push('<span class="empty"></span>');
   for (let d = 1; d <= ndias; d++) {
-    const dt = D(y, m + 1, d), L = diaLiturgico(dt), jt = jejumTradicional(dt), ja = jejumAtual(dt);
-    const mk = [ja.jejum ? '✝' : '', jt.jejum ? 'J' : '', L.temporas ? 'T' : '', L.vigilia ? 'V' : ''].filter(Boolean).join(' ');
+    const dt = D(y, m + 1, d), L = diaLiturgico(dt), jt = jejumTradicional(dt);
+    const mk = [jt.jejum ? 'J' : '', L.temporas ? 'T' : '', L.vigilia ? 'V' : ''].filter(Boolean).join(' ');
     cells.push(`<button type="button" data-d="${d}" class="${same(dt, hoje) ? 'today' : ''} ${same(dt, calSel) ? 'sel' : ''} ${dt.getDay() === 0 ? 'sun' : ''}" aria-label="${d} de ${MESES[m]}: ${esc(L.titulo)}"><span>${d}</span><span class="mk">${mk}</span><span class="bar" style="background:var(--lit-${L.cor})"></span></button>`);
   }
-  const S = diaLiturgico(calSel), sja = jejumAtual(calSel), sjt = jejumTradicional(calSel);
+  const S = diaLiturgico(calSel), sjt = jejumTradicional(calSel);
   $('#v-calendario').innerHTML = `
   <div class="stack-lg">
     <div class="row" style="justify-content:space-between">
@@ -1359,7 +1346,7 @@ function renderCalendario() {
       <div class="cal-scroll"><div class="cal" id="calGrid">${['D','S','T','Q','Q','S','S'].map(w => `<span class="wd">${w}</span>`).join('')}${cells.join('')}</div></div>
       <div class="legend" style="margin-top:12px">
         <span>${swatch('v')} violeta</span><span>${swatch('w')} branco</span><span>${swatch('g')} verde</span><span>${swatch('r')} vermelho</span><span>${swatch('p')} rosa</span><span>${swatch('n')} preto</span>
-        <span><b class="rub">✝</b> jejum pela lei atual</span><span><b class="rub">J</b> jejum tradicional</span><span><b class="rub">T</b> Têmporas</span><span><b class="rub">V</b> vigília</span>
+        <span><b class="rub">J</b> jejum</span><span><b class="rub">T</b> Têmporas</span><span><b class="rub">V</b> vigília</span>
       </div>
     </div>
     <div class="folio stack">
@@ -1367,10 +1354,7 @@ function renderCalendario() {
       <h2>${esc(S.titulo)}</h2>
       <div class="row"><span class="pill">${swatch(S.cor)} ${CORES[S.cor]}</span><span class="pill">${CLASSES[S.classe]}</span><span class="pill">${esc(S.tempo.nome)}</span></div>
       ${S.santo ? `<p class="small muted">${esc(S.santo)}</p>` : ''}
-      <div class="grid2">
-        <div class="fast"><div class="lbl">Lei atual</div><div class="st ${sja.jejum || sja.abst ? 'on' : ''}">${statusTxt(sja)}</div></div>
-        <div class="fast"><div class="lbl">Tradicional (1917)</div><div class="st ${sjt.jejum || sjt.abst ? 'on' : ''}">${statusTxt(sjt)}</div></div>
-      </div>
+      <div class="fast"><div class="lbl">Jejum e abstinência (1917)</div><div class="st ${sjt.jejum || sjt.abst ? 'on' : ''}">${statusTxt(sjt)}</div><p class="small muted">${esc(sjt.nota)}</p></div>
       <p class="small muted">Mistérios do terço: ${MISTERIOS[MISTERIO_DO_DIA[calSel.getDay()]].nome}.</p>
     </div>
   </div>`;
@@ -1383,34 +1367,25 @@ function renderCalendario() {
 function renderJejum() {
   const hoje = HOJE(), prox = [];
   for (let i = 0; i < 420 && prox.length < 12; i++) {
-    const d = add(hoje, i), jt = jejumTradicional(d), ja = jejumAtual(d);
-    if (jt.jejum || ja.jejum) prox.push([d, ja, jt, diaLiturgico(d)]);
+    const d = add(hoje, i), jt = jejumTradicional(d);
+    if (jt.jejum) prox.push([d, jt, diaLiturgico(d)]);
   }
   $('#v-jejum').innerHTML = `
   <div class="stack-lg">
     <div class="stack"><span class="rubrica">Jejum, abstinência e penitência</span><h1>O que a Igreja pede</h1>
-      <p class="muted">Duas colunas, sempre separadas: o que a lei atual obriga e o que a disciplina tradicional pedia.</p></div>
-    <div class="grid2">
-      <div class="folio stack">
-        <span class="rubrica">Lei atual (Código de 1983)</span>
-        <p><b>Jejum e abstinência:</b> Quarta-feira de Cinzas e Sexta-feira Santa.</p>
-        <p><b>Abstinência de carne:</b> todas as sextas-feiras, salvo solenidade. No Brasil, a CNBB permite trocar a das sextas comuns por outra penitência (pergunte ao pároco).</p>
-        <p><b>Jejum:</b> uma refeição completa e duas pequenas, que juntas não igualem a principal. Dos 18 aos 59 anos.</p>
-        <p><b>Abstinência:</b> a partir dos 14 anos.</p>
-        <p><b>Jejum eucarístico:</b> 1 hora antes da comunhão.</p>
-      </div>
-      <div class="folio stack">
-        <span class="rubrica">Disciplina tradicional (Código de 1917)</span>
-        <p><b>Jejum:</b> todos os dias da Quaresma, exceto domingos; Quatro Têmporas; vigílias de Pentecostes, Assunção, Todos os Santos e Natal.</p>
-        <p><b>Abstinência:</b> todas as sextas-feiras; Cinzas, sextas e sábados da Quaresma; Têmporas e vigílias.</p>
-        <p><b>Idades:</b> jejum dos 21 aos 59 anos; abstinência a partir dos 7.</p>
-        <p><b>Jejum eucarístico:</b> 3 horas (Pio XII, 1957); antes, desde a meia-noite.</p>
-        <p class="small muted">Não é obrigação hoje, mas muitos fiéis tradicionais guardam por devoção. Converse com o confessor antes de assumir.</p>
-      </div>
+      <p class="muted">A disciplina tradicional da Igreja, segundo o Código de Direito Canônico de 1917.</p></div>
+    <div class="folio stack">
+      <span class="rubrica">Disciplina tradicional (Código de 1917)</span>
+      <p><b>Jejum:</b> todos os dias da Quaresma, exceto domingos; Quatro Têmporas; vigílias de Pentecostes, Assunção, Todos os Santos e Natal.</p>
+      <p><b>Abstinência de carne:</b> todas as sextas-feiras; Quarta-feira de Cinzas, sextas e sábados da Quaresma; Têmporas e vigílias. Cessa quando cai num dia santo de guarda.</p>
+      <p><b>Como se jejua:</b> uma só refeição completa por dia; pela manhã e à noite, um pouco de alimento, segundo o costume aprovado. Nos dias de jejum sem abstinência, a carne é permitida só na refeição principal.</p>
+      <p><b>Idades:</b> jejum dos 21 aos 59 anos completos; abstinência a partir dos 7 anos.</p>
+      <p><b>Jejum eucarístico:</b> 3 horas sem alimentos sólidos e bebidas alcoólicas; 1 hora sem outras bebidas; a água não quebra o jejum (Pio XII, <i>Sacram Communionem</i>, 1957). Antes, desde a meia-noite.</p>
+      <p class="small muted">Doença, trabalho pesado ou outra causa grave dispensam. Em caso de dúvida, e para penitências maiores, fale com o confessor.</p>
     </div>
     <div class="folio">
       <span class="rubrica">Próximos dias de jejum</span>
-      <ul class="list">${prox.map(([d, ja, jt, L]) => `<li><span><b>${esc(L.titulo)}</b><br><span class="small muted">Atual: ${statusTxt(ja)} · Tradicional: ${statusTxt(jt)}</span></span><span class="when">${dataCurta(d)}${d.getFullYear() !== hoje.getFullYear() ? ' de ' + d.getFullYear() : ''}<br>${emDias(diff(hoje, d))}</span></li>`).join('')}</ul>
+      <ul class="list">${prox.map(([d, jt, L]) => `<li><span><b>${esc(L.titulo)}</b><br><span class="small muted">${statusTxt(jt)}</span></span><span class="when">${dataCurta(d)}${d.getFullYear() !== hoje.getFullYear() ? ' de ' + d.getFullYear() : ''}<br>${emDias(diff(hoje, d))}</span></li>`).join('')}</ul>
     </div>
     <div class="folio stack">
       <span class="rubrica">Penitências para escolher</span>
