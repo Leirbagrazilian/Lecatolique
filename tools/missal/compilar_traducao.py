@@ -8,6 +8,7 @@ Formato dos arquivos de tradução:
     Abençoastes, Senhor, a vossa terra...
     =1                          (repete a 1ª linha traduzida desta parte)
     # Oratio
+    @T:Epi3-0                   (copia esta parte já traduzida de outra Missa)
     ...
 
 Cada linha traduz, na ordem, uma linha latina de texto (títulos de leitura, texto, ℣ e ℟).
@@ -60,6 +61,7 @@ def modelo(chave, latim):
 def compilar(latim):
     saida = {'T': {}, 'S': {}}
     erros = []
+    pendentes = []  # partes copiadas de outra Missa (@T:Chave), resolvidas no fim
     for arq in sorted(glob.glob(os.path.join(DADOS, 'traducao', '*.txt'))):
         chave = parte = None
         buf = {}
@@ -76,6 +78,9 @@ def compilar(latim):
             res = {}
             for p, linhas in buf.items():
                 lat = linhas_latinas(m, p)
+                if len(linhas) == 1 and linhas[0].startswith('@'):
+                    pendentes.append((fonte, k, p, linhas[0][1:].strip(), len(lat), nome))
+                    continue
                 final = []
                 for ln in linhas:
                     mm = re.match(r'^=(\d+)$', ln)
@@ -105,6 +110,15 @@ def compilar(latim):
                 elif parte is not None:
                     buf[parte].append(ln)
             fechar()
+    for fonte, k, p, ref, n, nome in pendentes:
+        rf, rk = ref.split(':', 1)
+        txt = saida.get(rf, {}).get(rk, {}).get(p)
+        if txt is None:
+            erros.append('%s: %s:%s [%s] copia %s, que não tem essa parte traduzida' % (nome, fonte, k, p, ref))
+        elif len(txt) != n:
+            erros.append('%s: %s:%s [%s] copia %s com %d linhas, o latim tem %d' % (nome, fonte, k, p, ref, len(txt), n))
+        else:
+            saida[fonte].setdefault(k, {})[p] = txt
     return saida, erros
 
 

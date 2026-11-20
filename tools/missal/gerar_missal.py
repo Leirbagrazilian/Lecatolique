@@ -21,6 +21,7 @@ Formato de cada Missa:
           V versículo · R resposta · k conclusão (chave de Ordo/Prayers) · s separador
     pP  partes que mudam no Tempo Pascal (só no Próprio dos Santos)
 """
+import html
 import json
 import os
 import re
@@ -95,7 +96,7 @@ def classe_de(rank):
 def converter(texto):
     """Seção bruta -> lista de linhas 'x|texto'."""
     out = []
-    texto = re.sub(r'~\s*\n\s*', ' ', texto)  # "~" no fim da linha: continua na próxima
+    texto = html.unescape(re.sub(r'~\s*\n\s*', ' ', texto))  # "~": continua na próxima; &#509; -> ǽ
     for ln in texto.split('\n'):
         ln = ln.rstrip()
         if not ln.strip():
@@ -216,6 +217,13 @@ def montar(d, nome, ctx, domingo_fallback=None):
                     and re.match(r'^(L[ée]ctio|Sequ[ée]ntia|In[íi]tium|P[áa]ssio)', linhas[0][2:]):
                 linhas[0] = 'h|' + linhas[0][2:]
             partes[k] = linhas
+    # A Sequência só se diz quando a regra da Missa a pede (ex.: Páscoa, Pentecostes, Corpus Christi).
+    # Exceção: o Divinum Officium herda o Lauda Sion no 2º domingo depois de Pentecostes (Comum = Corpus
+    # Christi), sobra da oitava de Corpus Christi, abolida em 1955. No Missal de 1962 não se diz.
+    if 'Sequentia' in partes and not re.search(r'Sequentia', rr + '\n' + (com or {}).get('Rule', '')):
+        partes.pop('Sequentia')
+    if 'Sequentia' in partes and 'Sequentia' not in secs and cm == 'Tempora/Pent01-4':
+        partes.pop('Sequentia')
     # As leituras extras das Têmporas só valem se a regra pede (LectioLn)
     mL = re.search(r'LectioL(\d)', rr)
     nL = int(mL.group(1)) if mL else 0
