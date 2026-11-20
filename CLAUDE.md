@@ -107,7 +107,7 @@ Ao trocar de seção, a página volta ao topo.
 | Aba (`#hash`) | Conteúdo |
 |---|---|
 | `#hoje` | Dia litúrgico (1962), cor, classe, santo, tempo; avisos (Advento, Septuagésima, Quaresma, Têmporas); jejum de hoje (disciplina de 1917); roteiro do dia com marcação; Angelus seguinte; tema de meditação + links do YouTube; capítulo da *Imitação*; penitência sugerida; intenção; próximas datas |
-| `#missa` | Próximo domingo, como seguir o Próprio em casa, comunhão espiritual, Missa tradicional mais próxima (anotação), última confissão |
+| `#missa` | **Missal de 1962** (ver seção 3.1): Missa do dia ou de qualquer data, latim / português / lado a lado, "Missa inteira" ou "Só o Próprio", rubricas, atalhos para as partes; Tríduo com o rito próprio. Abaixo, "Domingo em casa": comunhão espiritual, Missa tradicional mais próxima (anotação), última confissão |
 | `#rosario` | 15 mistérios com passagem bíblica, meditação e fruto; escolha do dia; latim / português / lado a lado; **terço guiado passo a passo** (78 passos) |
 | `#calendario` | Mês com cor litúrgica de cada dia e marcas de jejum, Têmporas e vigílias; detalhe do dia |
 | `#jejum` | Disciplina tradicional (1917): dias, como jejuar, idades, jejum eucarístico, próximos dias de jejum, penitências |
@@ -130,6 +130,51 @@ Ao trocar de seção, a página volta ao topo.
 Classes: 1 a 3 = classes de 1962; 4 = comemoração ou féria simples.
 Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
 
+### 3.1 Missal (`missal.js` + `data/missal/`)
+
+**Decisão do Gabriel: o missal que a FSSPX usa** = *Missale Romanum* de 1962 (rubricas de 1960),
+**sem nada posterior**: só os 15 prefácios de 1962; Communicantes com São José; oração pelos judeus
+da Sexta-feira Santa no texto de 1959/1962 (não a de 2008); orações leoninas depois da Missa rezada;
+o terceiro Confiteor aparece marcado como costume. Latim + **tradução de apoio** (não oficial,
+feita para o app, que é público). Não trocar por tradução de terceiros sem verificar a licença.
+
+**Origem do latim:** dados do Divinum Officium (licença MIT, ver `data/missal/LICENCA-DivinumOfficium.txt`),
+lidos **só como dados** por um porte próprio em Python (não rodar o Perl deles).
+
+| Arquivo | O que é |
+|---|---|
+| `missal.js` | Tela e regras: `carregarMissal`, `chaveTempora(d)`, `missasDoDia(d)`, `obterMissa`, `contexto`, `nomePrefacio`, `nomeCommunicantes`, `renderMissa`. Carregado antes do script principal; as preferências são lidas tarde (`lerPreferenciasMissa`) porque `store` vem depois. |
+| `data/missal/ordinario.json` | Ordinário da Missa rezada, escrito à mão (latim + português), com condições (`gloria`, `credo`, `pascal`, `defuntos`…) e textos fixos (prefácios, Communicantes, Asperges, Último Evangelho). |
+| `la-tempora.json`, `la-sancti.json`, `la-ordo.json`, `kalendarium.json` | Gerados por `tools/missal/gerar_missal.py`. |
+| `pt-tempora.json`, `pt-sancti.json` | Gerados por `tools/missal/compilar_traducao.py` a partir de `data/missal/traducao/*.txt`. |
+
+**Formato das linhas** (`"x|texto"`): `h` título da leitura, `c` citação, `r` rubrica, `t` texto,
+`V`/`R` ℣ ℟, `k` chave de texto fixo, `s` separador. Férias que repetem o domingo têm `ref`.
+
+**Formato da tradução** (`traducao/*.txt`): `=== T:Chave` (Tempo) ou `=== S:MM-DD` (Santos), `# Parte`,
+uma linha portuguesa para cada linha latina `h/t/V/R`, na mesma ordem. Atalhos: `=n` repete a n-ésima
+linha da mesma parte; `=Parte:n` repete a linha de outra parte da mesma Missa; `@T:Chave` sozinho numa
+parte copia a parte inteira de outra Missa. O compilador recusa contagens diferentes do latim.
+
+Comandos:
+
+```
+python3 -I tools/missal/gerar_missal.py <pasta do Divinum Officium>   # regenera o latim
+python3 -I tools/missal/compilar_traducao.py                          # compila e valida o português
+python3 -I tools/missal/compilar_traducao.py T:Pent24-0 S:12-08       # mostra o latim numerado para traduzir
+```
+
+Regras de 1962 aplicadas no gerador/app (não as do DO onde divergem): troca de prefácios posteriores
+(Advento → Trindade no domingo / Comum na féria; Santos, Dedicação, Batista → Comum; Sacramento → Natal);
+Gradual × Trato (Septuagésima a Semana Santa) × Gradual pascal; Sequência só quando a regra pede
+(sem Lauda Sion no 2º domingo depois de Pentecostes); Quinta-feira Santa = Missa *in Cena Domini*;
+Sexta-feira e Sábado Santo mostram só o rito próprio (`Prelude`), sem Ordinário; marcas internas do DO
+(`wait10`, `{…}`, `N.p`) são limpas; `!!!` (palavras da Consagração) é texto, não rubrica.
+
+**Tradução já feita:** todas as Missas de 1ª e 2ª classe do Tempo e dos Santos (domingos, oitavas de
+Páscoa e Pentecostes, Têmporas de Pentecostes, Semana Santa inteira com as Paixões, Vigília Pascal).
+Faltam as de 3ª e 4ª classe (férias da Quaresma, Santos de 3ª classe): o app avisa "só em latim".
+
 ---
 
 ## 4. Limitações conhecidas (corrigir no app real)
@@ -138,8 +183,10 @@ Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
   Casos a revisar: domingos "retomados" da Epifania depois do 23º domingo depois de Pentecostes,
   transferências (São José e Anunciação na Semana Santa), Têmporas × festas de 2ª classe.
 - **Santoral** cobre as festas principais de cada mês, não todas as comemorações.
-- **Próprio da Missa** ainda não está no app: há link para o Divinum Officium. Para embutir os textos,
-  usar o latim (domínio público) e verificar a licença de qualquer tradução em português.
+- **Missal:** a tradução de apoio cobre só as Missas de 1ª e 2ª classe; o resto está em latim.
+  A Quinta-feira Santa não traz o Lava-pés nem a trasladação do Santíssimo (seções `Maundi` e
+  `Post Missam` do DO); a Apresentação do Senhor não traz a bênção das velas. Comemorações
+  (2ª oração) ainda não são acrescentadas automaticamente.
 - **Imitação de Cristo**: o app indica livro e capítulo, mas não traz o texto. Usar tradução em domínio público.
 - **Notificações do Angelus** não funcionam no protótipo (o navegador bloqueia). No app real, usar notificação push.
 - **Dados ficam no navegador** (`localStorage`). Se limpar os dados do navegador, as anotações somem.
@@ -154,7 +201,8 @@ Cores: `v` violeta, `w` branco, `g` verde, `r` vermelho, `p` rosa, `n` preto.
 2. **Separar dados em arquivos JSON** (`data/santoral.json`, `data/oracoes.json`, `data/temas.json`)
    para facilitar revisão.
 3. **Santoral completo de 1962** e precedência exata, com testes (ver seção 6).
-4. **Próprio da Missa** de domingos e festas (latim + português).
+4. **Missal** — feito para domingos e festas de 1ª/2ª classe. Falta: tradução das Missas de 3ª/4ª classe,
+   comemorações, Lava-pés e bênção das velas.
 5. **Catecismos em perguntas e respostas** (São Pio X; Romano de Trento), com busca.
 6. **Exercícios Espirituais de Santo Inácio**: roteiro de meditação (preparação, pontos, colóquio).
 7. **Novenas** e plano de leitura bíblica (como no Mapa do Católico), na tradução que o usuário escolher.
