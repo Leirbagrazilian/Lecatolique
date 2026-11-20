@@ -102,7 +102,7 @@ def converter(texto):
         if not ln.strip():
             continue
         s = ln.strip()
-        if s == '_':
+        if s == '_' or re.fullmatch(r'_\s*`', s):
             out.append('s|')
             continue
         if s.startswith('#'):
@@ -246,6 +246,32 @@ def montar(d, nome, ctx, domingo_fallback=None):
     }
 
 
+
+# Sexta-feira Santa: o Divinum Officium põe, sob as rubricas de 1960, a oração pelos judeus
+# reescrita em 2008. O Missal de 1962 (o que a FSSPX usa) traz o texto de João XXIII (1959).
+JUDEUS_1962 = [
+    ('Orémus et pro Iudǽis. Ut Deus',
+     'Orémus et pro Judǽis: ut Deus et Dóminus noster áuferat velámen de córdibus eórum; '
+     'ut et ipsi agnóscant Jesum Christum, Dóminum nostrum.'),
+    ('Omnípotens sempitérne Deus, qui vis ut omnes hómines salvi fiant et ad agnitiónem',
+     'Omnípotens sempitérne Deus, qui Judǽos étiam a tua misericórdia non repéllis: exáudi preces '
+     'nostras, quas pro illíus pópuli obcæcatióne deférimus; ut, ágnita veritátis tuæ luce, quæ '
+     'Christus est, a suis ténebris eruántur. Per eúndem Dóminum nostrum Jesum Christum, Fílium tuum: '
+     'qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum.'),
+]
+
+
+def oracao_judeus_1962(missa):
+    trocas = 0
+    for parte, linhas in missa['p'].items():
+        for i, ln in enumerate(linhas):
+            for inicio, texto in JUDEUS_1962:
+                if ln[2:].startswith(inicio):
+                    linhas[i] = ln[:2] + texto
+                    trocas += 1
+    if trocas != len(JUDEUS_1962):
+        raise SystemExit('Sexta-feira Santa: oração pelos judeus não encontrada (%d trocas)' % trocas)
+
 def gerar(raiz_do):
     d = Divinum(raiz_do)
     os.makedirs(SAIDA, exist_ok=True)
@@ -266,10 +292,13 @@ def gerar(raiz_do):
         m = re.match(r'^(.*)-(\d)$', base)
         feria = str(int(m.group(2)) + 1) if m else ''
         dom = None
-        if m and m.group(2) != '0':
+        # Sexta-feira e Sábado Santo: o rito inteiro está no [Prelude]; nada se herda do domingo.
+        if m and m.group(2) != '0' and base not in ('Quad6-5', 'Quad6-6'):
             dom = d.arquivo_versao('Tempora/' + m.group(1) + '-0')
         ctx = Contexto(tempus=tempus_de(chave), feria=feria)
         missa = montar(d, arq, ctx, dom)
+        if base == 'Quad6-5' and missa:
+            oracao_judeus_1962(missa)
         if missa and missa['p']:
             missa['arq'] = arq
             tempora[base] = missa

@@ -324,8 +324,10 @@ function renderMissa() {
   const c = contexto(dt, m);
   const temPT = !!MISSAL.pt[m.f][m.kp];
   const hoje = HOJE(), proxDom = add(hoje, (7 - hoje.getDay()) % 7);
-  const corpo = (mModo === 'proprio' || c.triduo) ? soProprioHTML(m, c) : MISSAL.ordo.blocos.map(b => blocoHTML(b, m, c)).join('');
-  const indice = (mModo === 'proprio' || c.triduo)
+  const tituloRito = m.k === 'Quad6-5' ? 'Ação litúrgica da Paixão' : 'Vigília Pascal';
+  const corpo = c.triduo ? '' : mModo === 'proprio' ? soProprioHTML(m, c) : MISSAL.ordo.blocos.map(b => blocoHTML(b, m, c)).join('');
+  const indice = c.triduo ? [['m-rito', tituloRito]]
+    : mModo === 'proprio'
     ? PARTES_PROPRIO.filter(([p]) => p === '_prefacio' || m.p[p]).map(([p, t]) => [`m-p-${p}`, t])
     : [['m-introito', 'Intróito'], ['m-coleta', 'Coleta'], ['m-epistola', 'Epístola'], ['m-evangelho', 'Evangelho'], ['m-ofertorio', 'Ofertório'], ['m-prefacio', 'Prefácio'], ['m-canon', 'Cânon'], ['m-comunhao', 'Comunhão'], ['m-conclusao', 'Conclusão']];
 
@@ -355,12 +357,12 @@ function renderMissa() {
         <div class="seg" role="group" aria-label="O que mostrar" id="mModo">${[['completa', 'Missa inteira'], ['proprio', 'Só o Próprio']].map(([v, l]) => `<button type="button" data-v="${v}" aria-pressed="${mModo === v}">${l}</button>`).join('')}</div>
         <button class="btn" type="button" id="mRub" aria-pressed="${mRub}">${mRub ? 'Rubricas: sim' : 'Rubricas: não'}</button>
       </div>
-      <p class="small muted">${esc(MISSAL.ordo.aviso)}${temPT ? '' : ' <span class="rub">O Próprio desta Missa ainda está só em latim.</span>'}${c.triduo ? ' Liturgia própria do Tríduo Sacro: siga o texto na ordem.' : ''}</p>
+      <p class="small muted">${esc(MISSAL.ordo.aviso)}${temPT ? '' : ' <span class="rub">O Próprio desta Missa ainda está só em latim.</span>'}${c.triduo ? ' Neste dia a liturgia é própria e vem inteira abaixo, na ordem: não se usa o Ordinário.' : ''}</p>
     </div>
 
     <nav class="chips" aria-label="Partes da Missa">${indice.map(([id, t]) => `<a href="#missa" data-alvo="${id}">${t}</a>`).join('')}</nav>
 
-    ${m.p.Prelude ? `<section class="folio mbloco"><div class="mcab"><h2>Antes da Missa</h2><span class="mla">Ritus</span></div>${linhasHTML(m.p.Prelude, ptParte(m, 'Prelude'))}</section>` : ''}
+    ${m.p.Prelude ? `<section class="folio mbloco" id="m-rito"><div class="mcab"><h2>${c.triduo ? tituloRito : 'Antes da Missa'}</h2><span class="mla">Ritus</span></div>${linhasHTML(m.p.Prelude, ptParte(m, 'Prelude'))}</section>` : ''}
     ${corpo}
 
     ${emCasaHTML(dt)}
