@@ -234,6 +234,43 @@ dialog.sheet li:last-child a{border-bottom:0}
 dialog.sheet li a span{grid-column:1;font-family:var(--f-display);font-style:italic;text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--muted)}
 dialog.sheet li a[aria-current="page"]{color:var(--gold-hi)}
 dialog.sheet li a::after{content:"✠";color:var(--rubric);font-size:.7rem;grid-column:2;grid-row:1/span 2}
+
+/* Missal */
+.mlatim{color:var(--muted);font-family:var(--f-display);font-size:1.1rem}
+.mnav{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+.mnav input{text-align:center}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin:-8px 0}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;font-family:var(--f-caps);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);border:1px solid var(--line-gold);padding:.55em .8em}
+.chips a:active{color:var(--gold-hi);border-color:var(--gold)}
+.mbloco{display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.mcab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:2px}
+.mcab h2{font-size:1.4rem;color:var(--gold-hi)}
+.mla{font-family:var(--f-caps);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rubric)}
+.mpos{font-family:var(--f-caps);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mparte{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rubric);margin-top:6px}
+.mlin{line-height:1.55}
+.mlin.par{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mlin.par>*{min-width:0}
+.ml{font-style:italic;color:#ddd3bc}
+.mlin:not(.par) .ml{font-style:normal;color:var(--ink)}
+.mp{color:var(--ink)}
+.mlin.sem .ml{color:var(--muted)}
+.ml-h{font-family:var(--f-caps);font-style:normal!important;font-size:.82rem;letter-spacing:.08em;color:var(--gold)!important}
+.ml-c{font-family:var(--f-caps);font-style:normal!important;font-weight:700;letter-spacing:.06em;color:var(--gold-hi)!important;text-align:center;padding:8px 0}
+.quem{color:var(--rubric);font-style:normal;font-weight:500}
+.cruz{color:var(--rubric);font-style:normal}
+.rub-i{color:var(--rubric);font-style:italic;font-size:.88em}
+.mrub{color:var(--rubric);font-style:italic;font-size:.9rem;line-height:1.45}
+.mrub.costume::before{content:"Costume · ";font-style:normal;font-family:var(--f-caps);font-size:.7rem;letter-spacing:.1em}
+.mcit{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.08em;color:var(--muted);margin-top:4px}
+.msep{height:6px}
+.mesp{border-left:2px solid var(--gold);padding:6px 0 6px 14px;margin:6px 0}
+@media (max-width:620px){
+  .mlin.par{grid-template-columns:1fr;gap:3px}
+  .mlin.par .ml{color:#cfc5ae}
+  .mlin.par .mp{color:var(--ink);padding-bottom:4px}
+}
 </style>
 </head>
 <body>
@@ -322,6 +359,7 @@ dialog.sheet li a::after{content:"✠";color:var(--rubric);font-size:.7rem;grid-
   </ul>
 </dialog>
 
+<script src="missal.js"></script>
 <script>
 /* =====================================================================
    SUB TUUM PRAESIDIUM — app pessoal de vida católica tradicional
@@ -1184,57 +1222,7 @@ function renderHoje() {
   });
 }
 
-function renderMissa() {
-  const dt = HOJE();
-  const dom = dt.getDay() === 0 ? dt : add(dt, 7 - dt.getDay());
-  const L = diaLiturgico(dom);
-  const ultConf = store.get('ultimaConfissao', '');
-  const dias = ultConf ? diff(fromIso(ultConf), dt) : null;
-  const domMarc = store.get('domingo:' + iso(dom), {});
-  $('#v-missa').innerHTML = `
-  <div class="stack-lg">
-    <div class="stack">
-      <span class="rubrica">A Missa de sempre</span>
-      <h1>${dt.getDay() === 0 ? 'Hoje' : 'Próximo domingo'}: ${esc(L.titulo)}</h1>
-      <div class="row"><span class="pill">${swatch(L.cor)} ${CORES[L.cor]}</span><span class="pill">${dataCurta(dom)}</span></div>
-    </div>
-
-    <div class="folio">
-      <span class="rubrica">Domingo sem Missa tradicional por perto</span>
-      <div class="stack">
-        <p>Vá à Missa com o seu pároco e, em casa, una-se à liturgia tradicional do dia.</p>
-        <div class="check" id="domCheck">
-          ${[['missa', 'Missa com o seu pároco.'], ['proprio', 'Ler o Próprio da Missa de 1962 do dia (Intróito, Coleta, Epístola, Evangelho, Ofertório, Comunhão).'], ['comunhao', 'Comunhão espiritual, sobretudo se não puder comungar sacramentalmente.'], ['terco', 'Terço em família.'], ['evangelho', 'Evangelho do domingo com um bom comentário.']].map(([id, t]) =>
-            `<label for="d-${id}"><input type="checkbox" id="d-${id}" data-id="${id}" ${domMarc[id] ? 'checked' : ''}><span class="t">${esc(t)}</span></label>`).join('')}
-        </div>
-        <div class="row"><a class="btn" href="https://www.divinumofficium.com/" target="_blank" rel="noopener">Abrir o Divinum Officium</a></div>
-        <p class="small muted">No Divinum Officium, escolha "Missa" e a versão "Rubrics 1960" para ver o Próprio em latim com tradução.</p>
-      </div>
-    </div>
-
-    <div class="folio">${oracaoHTML('comunhao')}</div>
-
-    <div class="grid2">
-      <div class="folio stack">
-        <span class="rubrica">Missa tradicional mais próxima</span>
-        <label class="field" for="tlm"><span>Local, horário e distância</span>
-          <textarea id="tlm" placeholder="Ex.: Capela de ..., 1º domingo do mês, 10h. 2h de viagem.">${esc(store.get('tlm', ''))}</textarea></label>
-        <p class="small muted">Programe-se para ir de tempos em tempos e aproveite para se confessar.</p>
-      </div>
-      <div class="folio stack">
-        <span class="rubrica">Confissão</span>
-        <label class="field" for="conf"><span>Última confissão</span><input type="date" id="conf" value="${esc(ultConf)}"></label>
-        <p id="confInfo" class="${dias != null && dias > 30 ? 'rub' : 'muted'}">${dias == null ? 'Anote a data para acompanhar.' : dias === 0 ? 'Hoje. Deo gratias!' : 'Há ' + dias + ' dias.' + (dias > 30 ? ' Que tal marcar com o seu pároco?' : '')}</p>
-      </div>
-    </div>
-  </div>`;
-  $('#domCheck').addEventListener('change', e => {
-    const id = e.target.dataset.id; if (!id) return;
-    const m = store.get('domingo:' + iso(dom), {}); m[id] = e.target.checked; store.set('domingo:' + iso(dom), m);
-  });
-  $('#tlm').addEventListener('input', e => store.set('tlm', e.target.value));
-  $('#conf').addEventListener('change', e => { store.set('ultimaConfissao', e.target.value); renderMissa(); });
-}
+/* renderMissa(): está em missal.js (Missal Romano de 1962) */
 
 let rosDia = null, guia = null;
 function passosTerco(set) {

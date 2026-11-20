@@ -1,0 +1,359 @@
+{
+  "aviso": "Latim: Missal Romano de 1962 (texto do projeto Divinum Officium, licença MIT). Português: tradução de apoio, não oficial, feita para ajudar a entender o latim. O texto que vale é o latino.",
+  "blocos": [
+    {
+      "id": "asperges", "titulo": "Aspersão da água benta", "la": "Asperges me", "cond": "domingo",
+      "nota": "Antes da Missa principal do domingo. No Tempo Pascal canta-se o Vidi aquam.",
+      "itens": [
+        { "x": "fixo", "k": "or:Asperges me", "cond": "naoPascal" },
+        { "x": "fixo", "k": "or:Vidi aquam", "cond": "pascal" }
+      ]
+    },
+    {
+      "id": "pe", "titulo": "Orações ao pé do altar", "la": "Ad pedem altaris", "pos": "De joelhos",
+      "itens": [
+        { "r": "O sacerdote, ao pé do altar, faz o sinal da cruz." },
+        { "w": "S", "la": "In nómine Patris, ✠ et Fílii, et Spíritus Sancti. Amen.", "pt": "Em nome do Pai, ✠ e do Filho, e do Espírito Santo. Amém." },
+        { "w": "S", "la": "Introíbo ad altáre Dei.", "pt": "Subirei ao altar de Deus." },
+        { "w": "M", "la": "Ad Deum, qui lætíficat juventútem meam.", "pt": "A Deus, que alegra a minha juventude." },
+        { "r": "Salmo 42. Omite-se no Tempo da Paixão e nas Missas de defuntos.", "cond": "judica" },
+        { "w": "S", "cond": "judica", "la": "Júdica me, Deus, et discérne causam meam de gente non sancta: ab hómine iníquo et dolóso érue me.", "pt": "Julgai-me, ó Deus, e defendei a minha causa contra a gente ímpia; livrai-me do homem iníquo e enganador." },
+        { "w": "M", "cond": "judica", "la": "Quia tu es, Deus, fortitúdo mea: quare me repulísti, et quare tristis incédo, dum afflígit me inimícus?", "pt": "Pois vós, ó Deus, sois a minha fortaleza: por que me rejeitastes? E por que ando triste, enquanto o inimigo me aflige?" },
+        { "w": "S", "cond": "judica", "la": "Emítte lucem tuam et veritátem tuam: ipsa me deduxérunt, et adduxérunt in montem sanctum tuum et in tabernácula tua.", "pt": "Enviai a vossa luz e a vossa verdade: elas me guiaram e me conduziram ao vosso monte santo e aos vossos tabernáculos." },
+        { "w": "M", "cond": "judica", "la": "Et introíbo ad altáre Dei: ad Deum, qui lætíficat juventútem meam.", "pt": "E subirei ao altar de Deus, a Deus, que alegra a minha juventude." },
+        { "w": "S", "cond": "judica", "la": "Confitébor tibi in cíthara, Deus, Deus meus: quare tristis es, ánima mea, et quare contúrbas me?", "pt": "Ao som da cítara vos louvarei, ó Deus, meu Deus. Por que estás triste, minha alma, e por que me perturbas?" },
+        { "w": "M", "cond": "judica", "la": "Spera in Deo, quóniam adhuc confitébor illi: salutáre vultus mei, et Deus meus.", "pt": "Espera em Deus, porque ainda o louvarei: ele é a salvação da minha face e o meu Deus." },
+        { "w": "S", "cond": "judica", "la": "Glória Patri, et Fílio, et Spirítui Sancto.", "pt": "Glória ao Pai, e ao Filho, e ao Espírito Santo." },
+        { "w": "M", "cond": "judica", "la": "Sicut erat in princípio, et nunc, et semper: et in sǽcula sæculórum. Amen.", "pt": "Assim como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém." },
+        { "w": "S", "cond": "judica", "la": "Introíbo ad altáre Dei.", "pt": "Subirei ao altar de Deus." },
+        { "w": "M", "cond": "judica", "la": "Ad Deum, qui lætíficat juventútem meam.", "pt": "A Deus, que alegra a minha juventude." },
+        { "w": "V", "la": "Adjutórium nostrum ✠ in nómine Dómini.", "pt": "O nosso auxílio ✠ está no nome do Senhor." },
+        { "w": "R", "la": "Qui fecit cælum et terram.", "pt": "Que fez o céu e a terra." },
+        { "r": "Profundamente inclinado, o sacerdote reza o Confiteor." },
+        { "w": "S", "la": "Confíteor Deo omnipoténti, beátæ Maríæ semper Vírgini, beáto Michaéli Archángelo, beáto Joánni Baptístæ, sanctis Apóstolis Petro et Paulo, ómnibus Sanctis, et vobis, fratres: quia peccávi nimis cogitatióne, verbo et ópere: mea culpa, mea culpa, mea máxima culpa. Ideo precor beátam Maríam semper Vírginem, beátum Michaélem Archángelum, beátum Joánnem Baptístam, sanctos Apóstolos Petrum et Paulum, omnes Sanctos, et vos, fratres, oráre pro me ad Dóminum, Deum nostrum.", "pt": "Confesso a Deus todo-poderoso, à bem-aventurada sempre Virgem Maria, ao bem-aventurado São Miguel Arcanjo, ao bem-aventurado São João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, irmãos, que pequei muitas vezes por pensamentos, palavras e obras, por minha culpa, minha culpa, minha máxima culpa. Por isso peço à bem-aventurada sempre Virgem Maria, ao bem-aventurado São Miguel Arcanjo, ao bem-aventurado São João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, irmãos, que rogueis por mim a Deus Nosso Senhor." },
+        { "w": "M", "la": "Misereátur tui omnípotens Deus, et, dimíssis peccátis tuis, perdúcat te ad vitam ætérnam.", "pt": "Deus todo-poderoso tenha misericórdia de ti, perdoe os teus pecados e te conduza à vida eterna." },
+        { "w": "S", "la": "Amen.", "pt": "Amém." },
+        { "r": "Os fiéis (ou o ministro) rezam por sua vez o Confiteor." },
+        { "w": "M", "la": "Confíteor Deo omnipoténti, beátæ Maríæ semper Vírgini, beáto Michaéli Archángelo, beáto Joánni Baptístæ, sanctis Apóstolis Petro et Paulo, ómnibus Sanctis, et tibi, pater: quia peccávi nimis cogitatióne, verbo et ópere: mea culpa, mea culpa, mea máxima culpa. Ideo precor beátam Maríam semper Vírginem, beátum Michaélem Archángelum, beátum Joánnem Baptístam, sanctos Apóstolos Petrum et Paulum, omnes Sanctos, et te, pater, oráre pro me ad Dóminum, Deum nostrum.", "pt": "Confesso a Deus todo-poderoso, à bem-aventurada sempre Virgem Maria, ao bem-aventurado São Miguel Arcanjo, ao bem-aventurado São João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, padre, que pequei muitas vezes por pensamentos, palavras e obras, por minha culpa, minha culpa, minha máxima culpa. Por isso peço à bem-aventurada sempre Virgem Maria, ao bem-aventurado São Miguel Arcanjo, ao bem-aventurado São João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, padre, que rogueis por mim a Deus Nosso Senhor." },
+        { "w": "S", "la": "Misereátur vestri omnípotens Deus, et, dimíssis peccátis vestris, perdúcat vos ad vitam ætérnam.", "pt": "Deus todo-poderoso tenha misericórdia de vós, perdoe os vossos pecados e vos conduza à vida eterna." },
+        { "w": "R", "la": "Amen.", "pt": "Amém." },
+        { "w": "S", "la": "Indulgéntiam, ✠ absolutiónem et remissiónem peccatórum nostrórum tríbuat nobis omnípotens et miséricors Dóminus.", "pt": "O Senhor todo-poderoso e misericordioso nos conceda o perdão, ✠ a absolvição e a remissão dos nossos pecados." },
+        { "w": "R", "la": "Amen.", "pt": "Amém." },
+        { "w": "V", "la": "Deus, tu convérsus vivificábis nos.", "pt": "Ó Deus, voltando-vos para nós, nos dareis a vida." },
+        { "w": "R", "la": "Et plebs tua lætábitur in te.", "pt": "E o vosso povo se alegrará em vós." },
+        { "w": "V", "la": "Osténde nobis, Dómine, misericórdiam tuam.", "pt": "Mostrai-nos, Senhor, a vossa misericórdia." },
+        { "w": "R", "la": "Et salutáre tuum da nobis.", "pt": "E dai-nos a vossa salvação." },
+        { "w": "V", "la": "Dómine, exáudi oratiónem meam.", "pt": "Senhor, ouvi a minha oração." },
+        { "w": "R", "la": "Et clamor meus ad te véniat.", "pt": "E chegue a vós o meu clamor." },
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "r": "Subindo ao altar, o sacerdote reza em silêncio:" },
+        { "w": "S", "la": "Orémus. Aufer a nobis, quǽsumus, Dómine, iniquitátes nostras: ut ad Sancta sanctórum puris mereámur méntibus introíre. Per Christum, Dóminum nostrum. Amen.", "pt": "Oremos. Tirai de nós, Senhor, nós vos pedimos, as nossas iniquidades, para que mereçamos entrar com alma pura no Santo dos Santos. Por Cristo, Nosso Senhor. Amém." },
+        { "r": "Inclinado sobre o altar, beija-o no lugar das relíquias:" },
+        { "w": "S", "la": "Orámus te, Dómine, per mérita Sanctórum tuórum, quorum relíquiæ hic sunt, et ómnium Sanctórum: ut indulgére dignéris ómnia peccáta mea. Amen.", "pt": "Nós vos rogamos, Senhor, pelos méritos dos vossos Santos cujas relíquias aqui estão, e de todos os Santos, que vos digneis perdoar todos os meus pecados. Amém." }
+      ]
+    },
+    {
+      "id": "introito", "titulo": "Intróito", "la": "Introitus",
+      "itens": [
+        { "r": "O sacerdote faz o sinal da cruz e lê o Intróito do dia, ao lado da Epístola." },
+        { "x": "proprio", "p": "Introitus" }
+      ]
+    },
+    {
+      "id": "kyrie", "titulo": "Kyrie", "la": "Kyrie eleison",
+      "itens": [
+        { "w": "S", "la": "Kýrie, eléison.", "pt": "Senhor, tende piedade." },
+        { "w": "M", "la": "Kýrie, eléison.", "pt": "Senhor, tende piedade." },
+        { "w": "S", "la": "Kýrie, eléison.", "pt": "Senhor, tende piedade." },
+        { "w": "M", "la": "Christe, eléison.", "pt": "Cristo, tende piedade." },
+        { "w": "S", "la": "Christe, eléison.", "pt": "Cristo, tende piedade." },
+        { "w": "M", "la": "Christe, eléison.", "pt": "Cristo, tende piedade." },
+        { "w": "S", "la": "Kýrie, eléison.", "pt": "Senhor, tende piedade." },
+        { "w": "M", "la": "Kýrie, eléison.", "pt": "Senhor, tende piedade." },
+        { "w": "S", "la": "Kýrie, eléison.", "pt": "Senhor, tende piedade." }
+      ]
+    },
+    {
+      "id": "gloria", "titulo": "Glória", "la": "Gloria in excelsis", "cond": "gloria",
+      "itens": [
+        { "r": "No meio do altar, o sacerdote eleva e junta as mãos. Inclina a cabeça em Adorámus te, Grátias ágimus tibi, Jesu Christe e Súscipe deprecatiónem." },
+        { "w": "S", "la": "Glória in excélsis Deo. Et in terra pax homínibus bonæ voluntátis. Laudámus te. Benedícimus te. Adorámus te. Glorificámus te. Grátias ágimus tibi propter magnam glóriam tuam. Dómine Deus, Rex cæléstis, Deus Pater omnípotens. Dómine Fili unigénite, Jesu Christe. Dómine Deus, Agnus Dei, Fílius Patris. Qui tollis peccáta mundi, miserére nobis. Qui tollis peccáta mundi, súscipe deprecatiónem nostram. Qui sedes ad déxteram Patris, miserére nobis. Quóniam tu solus Sanctus. Tu solus Dóminus. Tu solus Altíssimus, Jesu Christe. Cum Sancto Spíritu ✠ in glória Dei Patris. Amen.", "pt": "Glória a Deus nas alturas, e na terra paz aos homens de boa vontade. Nós vos louvamos. Nós vos bendizemos. Nós vos adoramos. Nós vos glorificamos. Nós vos damos graças por vossa imensa glória. Senhor Deus, Rei dos céus, Deus Pai todo-poderoso. Senhor Filho unigênito, Jesus Cristo. Senhor Deus, Cordeiro de Deus, Filho do Pai. Vós que tirais os pecados do mundo, tende piedade de nós. Vós que tirais os pecados do mundo, acolhei a nossa súplica. Vós que estais sentado à direita do Pai, tende piedade de nós. Porque só vós sois o Santo. Só vós o Senhor. Só vós o Altíssimo, Jesus Cristo. Com o Espírito Santo ✠ na glória de Deus Pai. Amém." }
+      ]
+    },
+    {
+      "id": "coleta", "titulo": "Coleta", "la": "Oratio", "pos": "De joelhos",
+      "itens": [
+        { "r": "O sacerdote beija o altar e volta-se para o povo." },
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "w": "S", "la": "Orémus.", "pt": "Oremos." },
+        { "x": "proprio", "p": "Oratio" }
+      ]
+    },
+    {
+      "id": "epistola", "titulo": "Epístola", "la": "Lectio", "pos": "Sentados",
+      "itens": [
+        { "x": "proprio", "p": "Lectio" },
+        { "w": "R", "la": "Deo grátias.", "pt": "Graças a Deus." }
+      ]
+    },
+    {
+      "id": "gradual", "titulo": "Gradual", "la": "Graduale",
+      "nota": "Da Septuagésima à Quaresma, o Tracto; no Tempo Pascal, o Aleluia pascal.",
+      "itens": [ { "x": "proprio", "p": "Graduale" } ]
+    },
+    {
+      "id": "evangelho", "titulo": "Evangelho", "la": "Evangelium", "pos": "De pé",
+      "itens": [
+        { "r": "O missal passa para o lado do Evangelho. Inclinado no meio do altar, o sacerdote reza:" },
+        { "w": "S", "la": "Munda cor meum ac lábia mea, omnípotens Deus, qui lábia Isaíæ Prophétæ cálculo mundásti igníto: ita me tua grata miseratióne dignáre mundáre, ut sanctum Evangélium tuum digne váleam nuntiáre. Per Christum, Dóminum nostrum. Amen.", "pt": "Purificai o meu coração e os meus lábios, Deus todo-poderoso, que purificastes com um carvão ardente os lábios do profeta Isaías; dignai-vos, pela vossa bondosa misericórdia, purificar-me também, para que eu possa anunciar dignamente o vosso santo Evangelho. Por Cristo, Nosso Senhor. Amém." },
+        { "w": "S", "cond": "naoDefuntos", "la": "Jube, Dómine, benedícere. Dóminus sit in corde meo et in lábiis meis: ut digne et competénter annúntiem Evangélium suum. Amen.", "pt": "Dignai-vos, Senhor, abençoar-me. O Senhor esteja no meu coração e nos meus lábios, para que eu anuncie digna e convenientemente o seu Evangelho. Amém." },
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "r": "O sacerdote anuncia o Evangelho e faz o sinal da cruz no livro, na fronte, na boca e no peito. Os fiéis fazem o mesmo." },
+        { "w": "R", "la": "Glória tibi, Dómine.", "pt": "Glória a vós, Senhor." },
+        { "x": "proprio", "p": "Evangelium" },
+        { "w": "R", "la": "Laus tibi, Christe.", "pt": "Louvor a vós, ó Cristo." },
+        { "r": "O sacerdote beija o Evangelho:", "cond": "naoDefuntos" },
+        { "w": "S", "cond": "naoDefuntos", "la": "Per evangélica dicta deleántur nostra delícta.", "pt": "Pelas palavras do Evangelho sejam apagados os nossos pecados." },
+        { "r": "Segue-se, aos domingos e festas, o sermão." }
+      ]
+    },
+    {
+      "id": "credo", "titulo": "Credo", "la": "Credo", "cond": "credo", "pos": "De pé (de joelhos no Et incarnátus est)",
+      "itens": [
+        { "r": "Todos se ajoelham em Et incarnátus est até Et homo factus est." },
+        { "w": "S", "la": "Credo in unum Deum, Patrem omnipoténtem, factórem cæli et terræ, visibílium ómnium et invisibílium. Et in unum Dóminum Jesum Christum, Fílium Dei unigénitum. Et ex Patre natum ante ómnia sǽcula. Deum de Deo, lumen de lúmine, Deum verum de Deo vero. Génitum, non factum, consubstantiálem Patri: per quem ómnia facta sunt. Qui propter nos hómines et propter nostram salútem descéndit de cælis. Et incarnátus est de Spíritu Sancto ex María Vírgine: et homo factus est. Crucifíxus étiam pro nobis: sub Póntio Piláto passus, et sepúltus est. Et resurréxit tértia die, secúndum Scriptúras. Et ascéndit in cælum: sedet ad déxteram Patris. Et íterum ventúrus est cum glória judicáre vivos et mórtuos: cujus regni non erit finis. Et in Spíritum Sanctum, Dóminum et vivificántem: qui ex Patre Filióque procédit. Qui cum Patre et Fílio simul adorátur et conglorificátur: qui locútus est per Prophétas. Et unam sanctam cathólicam et apostólicam Ecclésiam. Confíteor unum baptísma in remissiónem peccatórum. Et exspécto resurrectiónem mortuórum. Et vitam ventúri sǽculi. Amen.", "pt": "Creio em um só Deus, Pai todo-poderoso, criador do céu e da terra, de todas as coisas visíveis e invisíveis. E em um só Senhor, Jesus Cristo, Filho unigênito de Deus, nascido do Pai antes de todos os séculos. Deus de Deus, luz da luz, Deus verdadeiro de Deus verdadeiro. Gerado, não feito, consubstancial ao Pai: por ele todas as coisas foram feitas. Por nós, homens, e para a nossa salvação, desceu dos céus. E encarnou pelo Espírito Santo, no seio da Virgem Maria, e se fez homem. Também por nós foi crucificado sob Pôncio Pilatos, padeceu e foi sepultado. Ressuscitou ao terceiro dia, conforme as Escrituras. E subiu aos céus, e está sentado à direita do Pai. E de novo há de vir em sua glória para julgar os vivos e os mortos, e o seu reino não terá fim. Creio no Espírito Santo, Senhor que dá a vida, e procede do Pai e do Filho. Com o Pai e o Filho é adorado e glorificado: ele que falou pelos Profetas. Creio na Igreja una, santa, católica e apostólica. Professo um só batismo para a remissão dos pecados. E espero a ressurreição dos mortos e a vida do século que há de vir. Amém." }
+      ]
+    },
+    {
+      "id": "ofertorio", "titulo": "Ofertório", "la": "Offertorium", "pos": "Sentados",
+      "itens": [
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "w": "S", "la": "Orémus.", "pt": "Oremos." },
+        { "x": "proprio", "p": "Offertorium" },
+        { "r": "O sacerdote oferece a hóstia sobre a patena:" },
+        { "w": "S", "la": "Súscipe, sancte Pater, omnípotens ætérne Deus, hanc immaculátam hóstiam, quam ego indígnus fámulus tuus óffero tibi Deo meo vivo et vero, pro innumerabílibus peccátis, et offensiónibus, et neglegéntiis meis, et pro ómnibus circumstántibus, sed et pro ómnibus fidélibus christiánis vivis atque defúnctis: ut mihi, et illis profíciat ad salútem in vitam ætérnam. Amen.", "pt": "Recebei, Pai santo, Deus eterno e todo-poderoso, esta hóstia imaculada que eu, vosso indigno servo, vos ofereço, a vós, meu Deus vivo e verdadeiro, pelos meus inumeráveis pecados, ofensas e negligências, por todos os que aqui estão presentes e também por todos os fiéis cristãos, vivos e defuntos, para que a mim e a eles aproveite para a salvação na vida eterna. Amém." },
+        { "r": "Põe vinho e um pouco de água no cálice, abençoando a água (exceto nas Missas de defuntos):" },
+        { "w": "S", "la": "Deus, ✠ qui humánæ substántiæ dignitátem mirabíliter condidísti, et mirabílius reformásti: da nobis per hujus aquæ et vini mystérium, ejus divinitátis esse consórtes, qui humanitátis nostræ fíeri dignátus est párticeps, Jesus Christus, Fílius tuus, Dóminus noster: Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus: per ómnia sǽcula sæculórum. Amen.", "pt": "Ó Deus, ✠ que de modo admirável criastes a dignidade da natureza humana e de modo mais admirável ainda a restaurastes, concedei-nos, pelo mistério desta água e deste vinho, participar da divindade daquele que se dignou participar da nossa humanidade, Jesus Cristo, vosso Filho, Nosso Senhor, que convosco vive e reina, na unidade do Espírito Santo, Deus, por todos os séculos dos séculos. Amém." },
+        { "r": "Oferece o cálice:" },
+        { "w": "S", "la": "Offérimus tibi, Dómine, cálicem salutáris, tuam deprecántes cleméntiam: ut in conspéctu divínæ majestátis tuæ, pro nostra et totíus mundi salúte, cum odóre suavitátis ascéndat. Amen.", "pt": "Nós vos oferecemos, Senhor, o cálice da salvação, suplicando a vossa clemência que ele suba como suave perfume à presença da vossa divina majestade, pela nossa salvação e pela do mundo inteiro. Amém." },
+        { "w": "S", "la": "In spíritu humilitátis et in ánimo contríto suscipiámur a te, Dómine: et sic fiat sacrifícium nostrum in conspéctu tuo hódie, ut pláceat tibi, Dómine Deus.", "pt": "Em espírito de humildade e com o coração contrito, sejamos por vós acolhidos, Senhor; e assim se realize hoje o nosso sacrifício em vossa presença, de modo que vos agrade, Senhor Deus." },
+        { "r": "Elevando os olhos, abençoa as oblatas:" },
+        { "w": "S", "la": "Veni, sanctificátor omnípotens ætérne Deus: et béne ✠ dic hoc sacrifícium, tuo sancto nómini præparátum.", "pt": "Vinde, santificador, Deus eterno e todo-poderoso, e abençoai ✠ este sacrifício preparado para o vosso santo nome." },
+        { "r": "O sacerdote lava as mãos (Salmo 25):" },
+        { "w": "S", "la": "Lavábo inter innocéntes manus meas: et circúmdabo altáre tuum, Dómine: Ut áudiam vocem laudis, et enárrem univérsa mirabília tua. Dómine, diléxi decórem domus tuæ et locum habitatiónis glóriæ tuæ. Ne perdas cum ímpiis, Deus, ánimam meam, et cum viris sánguinum vitam meam: In quorum mánibus iniquitátes sunt: déxtera eórum repléta est munéribus. Ego autem in innocéntia mea ingréssus sum: rédime me et miserére mei. Pes meus stetit in dirécto: in ecclésiis benedícam te, Dómine.", "pt": "Lavarei as minhas mãos entre os inocentes e andarei em torno do vosso altar, Senhor, para ouvir o cântico de louvor e narrar todas as vossas maravilhas. Senhor, amei a beleza da vossa casa e o lugar onde habita a vossa glória. Não percais, ó Deus, a minha alma com os ímpios, nem a minha vida com os homens sanguinários, em cujas mãos está a iniquidade e cuja direita está cheia de subornos. Eu, porém, caminhei na minha inocência: resgatai-me e tende piedade de mim. O meu pé está firme no caminho reto: nas assembleias vos bendirei, Senhor." },
+        { "w": "S", "cond": "judica", "la": "Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper: et in sǽcula sæculórum. Amen.", "pt": "Glória ao Pai, e ao Filho, e ao Espírito Santo. Assim como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém." },
+        { "r": "Inclinado no meio do altar:" },
+        { "w": "S", "la": "Súscipe, sancta Trínitas, hanc oblatiónem, quam tibi offérimus ob memóriam passiónis, resurrectiónis, et ascensiónis Jesu Christi, Dómini nostri: et in honórem beátæ Maríæ semper Vírginis, et beáti Joannis Baptistæ, et sanctórum Apostolórum Petri et Pauli, et istórum et ómnium Sanctórum: ut illis profíciat ad honórem, nobis autem ad salútem: et illi pro nobis intercédere dignéntur in cælis, quorum memóriam ágimus in terris. Per eúndem Christum, Dóminum nostrum. Amen.", "pt": "Recebei, Trindade santa, esta oblação que vos oferecemos em memória da paixão, ressurreição e ascensão de Jesus Cristo, Nosso Senhor, e em honra da bem-aventurada sempre Virgem Maria, de São João Batista, dos santos Apóstolos Pedro e Paulo, destes e de todos os Santos, para que a eles sirva de honra e a nós de salvação, e se dignem interceder por nós no céu aqueles cuja memória celebramos na terra. Pelo mesmo Cristo, Nosso Senhor. Amém." },
+        { "r": "Volta-se para o povo:" },
+        { "w": "S", "la": "Oráte, fratres: ut meum ac vestrum sacrifícium acceptábile fiat apud Deum Patrem omnipoténtem.", "pt": "Orai, irmãos, para que o meu e o vosso sacrifício seja aceito por Deus Pai todo-poderoso." },
+        { "w": "M", "la": "Suscípiat Dóminus sacrifícium de mánibus tuis ad laudem et glóriam nóminis sui, ad utilitátem quoque nostram, totiúsque Ecclésiæ suæ sanctæ.", "pt": "Receba o Senhor de tuas mãos este sacrifício, para louvor e glória do seu nome, para nosso bem e de toda a sua santa Igreja." },
+        { "w": "S", "la": "Amen.", "pt": "Amém." },
+        { "r": "Em voz baixa, a Secreta do dia:" },
+        { "x": "proprio", "p": "Secreta" }
+      ]
+    },
+    {
+      "id": "prefacio", "titulo": "Prefácio", "la": "Præfatio", "pos": "De joelhos (de pé na Missa cantada)",
+      "itens": [
+        { "w": "V", "la": "Per ómnia sǽcula sæculórum.", "pt": "Por todos os séculos dos séculos." },
+        { "w": "R", "la": "Amen.", "pt": "Amém." },
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "w": "V", "la": "Sursum corda.", "pt": "Corações ao alto." },
+        { "w": "R", "la": "Habémus ad Dóminum.", "pt": "Já os temos no Senhor." },
+        { "w": "V", "la": "Grátias agámus Dómino, Deo nostro.", "pt": "Demos graças ao Senhor, nosso Deus." },
+        { "w": "R", "la": "Dignum et justum est.", "pt": "É digno e justo." },
+        { "x": "prefacio" },
+        { "r": "A campainha toca três vezes." },
+        { "w": "S", "la": "Sanctus, Sanctus, Sanctus Dóminus, Deus Sábaoth. Pleni sunt cæli et terra glória tua. Hosánna in excélsis. ✠ Benedíctus, qui venit in nómine Dómini. Hosánna in excélsis.", "pt": "Santo, Santo, Santo é o Senhor, Deus dos exércitos. O céu e a terra estão cheios da vossa glória. Hosana nas alturas. ✠ Bendito o que vem em nome do Senhor. Hosana nas alturas." }
+      ]
+    },
+    {
+      "id": "canon", "titulo": "Cânon da Missa", "la": "Canon Missæ", "pos": "De joelhos",
+      "nota": "O Cânon é rezado pelo sacerdote em silêncio.",
+      "itens": [
+        { "w": "S", "la": "Te ígitur, clementíssime Pater, per Jesum Christum, Fílium tuum, Dóminum nostrum, súpplices rogámus, ac pétimus, uti accépta hábeas et benedícas, hæc ✠ dona, hæc ✠ múnera, hæc ✠ sancta sacrifícia illibáta, in primis, quæ tibi offérimus pro Ecclésia tua sancta cathólica: quam pacificáre, custodíre, adunáre et régere dignéris toto orbe terrárum: una cum fámulo tuo Papa nostro N. et Antístite nostro N. et ómnibus orthodóxis, atque cathólicæ et apostólicæ fídei cultóribus.", "pt": "A vós, pois, Pai clementíssimo, por Jesus Cristo, vosso Filho, Nosso Senhor, humildemente rogamos e pedimos que aceiteis e abençoeis estes ✠ dons, estas ✠ ofertas, estes ✠ santos sacrifícios imaculados, que vos oferecemos, primeiramente, pela vossa santa Igreja católica: dignai-vos dar-lhe a paz, guardá-la, uni-la e governá-la por toda a terra, juntamente com o vosso servo, o nosso Papa N., o nosso Bispo N., e todos os ortodoxos que professam a fé católica e apostólica." },
+        { "r": "Memento dos vivos. O sacerdote reza em silêncio por aqueles que quer recomendar." },
+        { "w": "S", "la": "Meménto, Dómine, famulórum famularúmque tuárum N. et N. et ómnium circumstántium, quorum tibi fides cógnita est et nota devótio, pro quibus tibi offérimus: vel qui tibi ófferunt hoc sacrifícium laudis, pro se suísque ómnibus: pro redemptióne animárum suárum, pro spe salútis et incolumitátis suæ: tibíque reddunt vota sua ætérno Deo, vivo et vero.", "pt": "Lembrai-vos, Senhor, dos vossos servos e servas N. e N., e de todos os aqui presentes, cuja fé conheceis e cuja devoção vos é manifesta, pelos quais vos oferecemos, ou que vos oferecem, este sacrifício de louvor, por si e por todos os seus, pela redenção das suas almas, pela esperança da sua salvação e incolumidade, e que vos apresentam os seus votos, a vós, Deus eterno, vivo e verdadeiro." },
+        { "x": "communicantes" },
+        { "w": "S", "la": "et beatórum Apostolórum ac Mártyrum tuórum, Petri et Pauli, Andréæ, Jacóbi, Joánnis, Thomæ, Jacóbi, Philíppi, Bartholomǽi, Matthǽi, Simónis et Thaddǽi: Lini, Cleti, Cleméntis, Xysti, Cornélii, Cypriáni, Lauréntii, Chrysógoni, Joánnis et Pauli, Cosmæ et Damiáni: et ómnium Sanctórum tuórum; quorum méritis precibúsque concédas, ut in ómnibus protectiónis tuæ muniámur auxílio. Per eúndem Christum, Dóminum nostrum. Amen.", "pt": "e dos vossos bem-aventurados Apóstolos e Mártires Pedro e Paulo, André, Tiago, João, Tomé, Tiago, Filipe, Bartolomeu, Mateus, Simão e Tadeu; Lino, Cleto, Clemente, Sisto, Cornélio, Cipriano, Lourenço, Crisógono, João e Paulo, Cosme e Damião, e de todos os vossos Santos; por seus méritos e preces, concedei-nos que em tudo sejamos fortalecidos com o auxílio da vossa proteção. Pelo mesmo Cristo, Nosso Senhor. Amém." },
+        { "r": "Com as mãos estendidas sobre as oblatas (a campainha toca uma vez):" },
+        { "w": "S", "la": "Hanc ígitur oblatiónem servitútis nostræ, sed et cunctæ famíliæ tuæ,", "pt": "Esta oblação, pois, da nossa servidão e também de toda a vossa família," },
+        { "x": "hancigitur" },
+        { "w": "S", "la": "quǽsumus, Dómine, ut placátus accípias: diésque nostros in tua pace dispónas, atque ab ætérna damnatióne nos éripi, et in electórum tuórum júbeas grege numerári. Per Christum, Dóminum nostrum. Amen.", "pt": "nós vos pedimos, Senhor, que a aceiteis favoravelmente; disponde os nossos dias na vossa paz, livrai-nos da condenação eterna e mandai que sejamos contados no rebanho dos vossos eleitos. Por Cristo, Nosso Senhor. Amém." },
+        { "w": "S", "la": "Quam oblatiónem tu, Deus, in ómnibus, quǽsumus, bene ✠ díctam, adscríp ✠ tam, ra ✠ tam, rationábilem, acceptabilémque fácere dignéris: ut nobis Cor ✠ pus, et San ✠ guis fiat dilectíssimi Fílii tui, Dómini nostri Jesu Christi.", "pt": "Esta oblação, ó Deus, nós vos pedimos, dignai-vos torná-la em tudo aben ✠ çoada, apro ✠ vada, ratifi ✠ cada, digna e agradável, para que se torne para nós o Cor ✠ po e o San ✠ gue do vosso diletíssimo Filho, Nosso Senhor Jesus Cristo." },
+        { "w": "S", "la": "Qui prídie quam paterétur, accépit panem in sanctas ac venerábiles manus suas, et elevátis óculis in cælum ad te Deum, Patrem suum omnipoténtem, tibi grátias agens, bene ✠ díxit, fregit, dedítque discípulis suis, dicens: Accípite, et manducáte ex hoc omnes.", "pt": "Ele, na véspera da sua paixão, tomou o pão em suas santas e veneráveis mãos e, elevando os olhos ao céu, a vós, Deus, seu Pai todo-poderoso, dando-vos graças, aben ✠ çoou-o, partiu-o e deu-o aos seus discípulos, dizendo: Tomai e comei todos dele." },
+        { "r": "Consagração do pão." },
+        { "w": "C", "la": "HOC EST ENIM CORPUS MEUM.", "pt": "ISTO É O MEU CORPO." },
+        { "r": "O sacerdote genuflete, eleva a Hóstia para que o povo a adore e genuflete de novo. A campainha toca. Olhe para a Hóstia e diga em silêncio: Meu Senhor e meu Deus." },
+        { "w": "S", "la": "Símili modo postquam cenátum est, accípiens et hunc præclárum Cálicem in sanctas ac venerábiles manus suas: item tibi grátias agens, bene ✠ díxit, dedítque discípulis suis, dicens: Accípite, et bíbite ex eo omnes.", "pt": "Do mesmo modo, depois da ceia, tomando também este precioso cálice em suas santas e veneráveis mãos, dando-vos graças de novo, aben ✠ çoou-o e deu-o aos seus discípulos, dizendo: Tomai e bebei todos dele." },
+        { "r": "Consagração do vinho." },
+        { "w": "C", "la": "HIC EST ENIM CALIX SANGUINIS MEI, NOVI ET ÆTERNI TESTAMENTI: MYSTERIUM FIDEI: QUI PRO VOBIS ET PRO MULTIS EFFUNDETUR IN REMISSIONEM PECCATORUM.", "pt": "ESTE É O CÁLICE DO MEU SANGUE, DO NOVO E ETERNO TESTAMENTO, MISTÉRIO DA FÉ, QUE SERÁ DERRAMADO POR VÓS E POR MUITOS, PARA A REMISSÃO DOS PECADOS." },
+        { "w": "S", "la": "Hæc quotiescúmque fecéritis, in mei memóriam faciétis.", "pt": "Todas as vezes que fizerdes isto, fazei-o em memória de mim." },
+        { "r": "Elevação do Cálice, com as genuflexões. A campainha toca." },
+        { "w": "S", "la": "Unde et mémores, Dómine, nos servi tui, sed et plebs tua sancta, ejúsdem Christi Fílii tui, Dómini nostri, tam beátæ passiónis, nec non et ab ínferis resurrectiónis, sed et in cælos gloriósæ ascensiónis: offérimus præcláræ majestáti tuæ de tuis donis ac datis, Hóstiam ✠ puram, Hóstiam ✠ sanctam, Hóstiam ✠ immaculátam, Panem ✠ sanctum vitæ ætérnæ, et Cálicem ✠ salútis perpétuæ.", "pt": "Por isso, Senhor, nós, vossos servos, e também o vosso povo santo, lembrando-nos da bem-aventurada paixão do mesmo Cristo, vosso Filho, Nosso Senhor, de sua ressurreição dos infernos e de sua gloriosa ascensão aos céus, oferecemos à vossa excelsa majestade, dos vossos dons e benefícios, a Hóstia ✠ pura, a Hóstia ✠ santa, a Hóstia ✠ imaculada, o Pão ✠ santo da vida eterna e o Cálice ✠ da salvação perpétua." },
+        { "w": "S", "la": "Supra quæ propítio ac seréno vultu respícere dignéris: et accépta habére, sicúti accépta habére dignátus es múnera púeri tui justi Abel, et sacrifícium Patriárchæ nostri Abrahæ: et quod tibi óbtulit summus sacérdos tuus Melchísedech, sanctum sacrifícium, immaculátam hóstiam.", "pt": "Sobre estes dons dignai-vos olhar com rosto propício e sereno, e aceitá-los, como vos dignastes aceitar os dons do vosso servo, o justo Abel, o sacrifício do nosso patriarca Abraão e o que vos ofereceu o vosso sumo sacerdote Melquisedeque, sacrifício santo, hóstia imaculada." },
+        { "w": "S", "la": "Súpplices te rogámus, omnípotens Deus: jube hæc perférri per manus sancti Angeli tui in sublíme altáre tuum, in conspéctu divínæ majestátis tuæ: ut, quotquot ex hac altáris participatióne sacrosánctum Fílii tui Cor ✠ pus, et Sán ✠ guinem sumpsérimus, omni benedictióne cælésti et grátia repleámur. Per eúndem Christum, Dóminum nostrum. Amen.", "pt": "Humildemente vos suplicamos, Deus todo-poderoso: mandai que estes dons sejam levados pelas mãos do vosso santo Anjo ao vosso altar sublime, diante da vossa divina majestade, para que todos nós que, participando deste altar, recebermos o sacrossanto Cor ✠ po e San ✠ gue do vosso Filho, sejamos repletos de toda bênção celeste e graça. Pelo mesmo Cristo, Nosso Senhor. Amém." },
+        { "r": "Memento dos defuntos. O sacerdote reza em silêncio pelos mortos que quer recomendar." },
+        { "w": "S", "la": "Meménto étiam, Dómine, famulórum famularúmque tuárum N. et N., qui nos præcessérunt cum signo fídei, et dórmiunt in somno pacis. Ipsis, Dómine, et ómnibus in Christo quiescéntibus locum refrigérii, lucis, et pacis, ut indúlgeas, deprecámur. Per eúndem Christum, Dóminum nostrum. Amen.", "pt": "Lembrai-vos também, Senhor, dos vossos servos e servas N. e N., que nos precederam com o sinal da fé e dormem o sono da paz. A eles, Senhor, e a todos os que descansam em Cristo, nós vos suplicamos que concedais o lugar do refrigério, da luz e da paz. Pelo mesmo Cristo, Nosso Senhor. Amém." },
+        { "r": "Batendo no peito, em voz um pouco mais alta:" },
+        { "w": "S", "la": "Nobis quoque peccatóribus fámulis tuis, de multitúdine miseratiónum tuárum sperántibus, partem áliquam et societátem donáre dignéris, cum tuis sanctis Apóstolis et Martýribus: cum Joánne, Stéphano, Matthía, Bárnaba, Ignátio, Alexándro, Marcellíno, Petro, Felicitáte, Perpétua, Agatha, Lúcia, Agnéte, Cæcília, Anastásia, et ómnibus Sanctis tuis: intra quorum nos consórtium, non æstimátor mériti, sed véniæ, quǽsumus, largítor admítte. Per Christum, Dóminum nostrum.", "pt": "Também a nós, pecadores, vossos servos, que esperamos na multidão das vossas misericórdias, dignai-vos dar alguma parte e sociedade com os vossos santos Apóstolos e Mártires: com João, Estêvão, Matias, Barnabé, Inácio, Alexandre, Marcelino, Pedro, Felicidade, Perpétua, Águeda, Luzia, Inês, Cecília, Anastácia e todos os vossos Santos; em cuja companhia vos pedimos que nos recebais, não pesando os nossos méritos, mas concedendo-nos o perdão. Por Cristo, Nosso Senhor." },
+        { "w": "S", "la": "Per quem hæc ómnia, Dómine, semper bona creas, sancti ✠ ficas, vivi ✠ ficas, bene ✠ dícis et præstas nobis.", "pt": "Por ele, Senhor, criais sempre todos estes bens, os santi ✠ ficais, vivi ✠ ficais, aben ✠ çoais e no-los concedeis." },
+        { "w": "S", "la": "Per Ip ✠ sum, et cum Ip ✠ so, et in Ip ✠ so, est tibi Deo Patri ✠ omnipoténti, in unitáte Spíritus ✠ Sancti, omnis honor, et glória.", "pt": "Por ✠ ele, com ✠ ele e nele ✠ é dada a vós, Deus Pai ✠ todo-poderoso, na unidade do Espírito ✠ Santo, toda honra e glória." },
+        { "w": "V", "la": "Per ómnia sǽcula sæculórum.", "pt": "Por todos os séculos dos séculos." },
+        { "w": "R", "la": "Amen.", "pt": "Amém." }
+      ]
+    },
+    {
+      "id": "pater", "titulo": "Pai-Nosso e fração", "la": "Pater noster", "pos": "De joelhos",
+      "itens": [
+        { "w": "S", "la": "Orémus: Præcéptis salutáribus móniti, et divína institutióne formáti audémus dícere:", "pt": "Oremos. Advertidos por preceitos salutares e formados pela instrução divina, ousamos dizer:" },
+        { "w": "S", "la": "Pater noster, qui es in cælis, sanctificétur nomen tuum. Advéniat regnum tuum. Fiat volúntas tua, sicut in cælo et in terra. Panem nostrum quotidiánum da nobis hódie. Et dimítte nobis débita nostra, sicut et nos dimíttimus debitóribus nostris. Et ne nos indúcas in tentatiónem.", "pt": "Pai nosso, que estais nos céus, santificado seja o vosso nome. Venha a nós o vosso reino. Seja feita a vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje. Perdoai-nos as nossas dívidas, assim como nós perdoamos aos nossos devedores. E não nos deixeis cair em tentação." },
+        { "w": "R", "la": "Sed líbera nos a malo.", "pt": "Mas livrai-nos do mal." },
+        { "w": "S", "la": "Amen.", "pt": "Amém." },
+        { "w": "S", "la": "Líbera nos, quǽsumus, Dómine, ab ómnibus malis, prætéritis, præséntibus et futúris: et intercedénte beáta et gloriósa semper Vírgine Dei Genetríce María, cum beátis Apóstolis tuis Petro et Paulo, atque Andréa, et ómnibus Sanctis, da propítius pacem in diébus nostris: ut, ope misericórdiæ tuæ adjúti, et a peccáto simus semper líberi et ab omni perturbatióne secúri. Per eúndem Dóminum nostrum Jesum Christum, Fílium tuum. Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus.", "pt": "Livrai-nos, Senhor, nós vos pedimos, de todos os males passados, presentes e futuros; e, pela intercessão da bem-aventurada e gloriosa sempre Virgem Maria, Mãe de Deus, dos vossos bem-aventurados Apóstolos Pedro e Paulo, de André e de todos os Santos, dai-nos propício a paz em nossos dias, para que, ajudados pela vossa misericórdia, sejamos sempre livres do pecado e protegidos de toda perturbação. Pelo mesmo Nosso Senhor Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do Espírito Santo, Deus." },
+        { "w": "V", "la": "Per ómnia sǽcula sæculórum.", "pt": "Por todos os séculos dos séculos." },
+        { "w": "R", "la": "Amen.", "pt": "Amém." },
+        { "w": "V", "la": "Pax ✠ Dómini sit ✠ semper vobís ✠ cum.", "pt": "A paz ✠ do Senhor esteja ✠ sempre con ✠ vosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "r": "O sacerdote deixa cair no cálice uma partícula da Hóstia:" },
+        { "w": "S", "la": "Hæc commíxtio, et consecrátio Córporis et Sánguinis Dómini nostri Jesu Christi, fiat accipiéntibus nobis in vitam ætérnam. Amen.", "pt": "Esta mistura e consagração do Corpo e do Sangue de Nosso Senhor Jesus Cristo seja, para nós que os recebemos, para a vida eterna. Amém." }
+      ]
+    },
+    {
+      "id": "agnus", "titulo": "Agnus Dei", "la": "Agnus Dei",
+      "itens": [
+        { "r": "Batendo três vezes no peito:" },
+        { "w": "S", "cond": "naoDefuntos", "la": "Agnus Dei, qui tollis peccáta mundi: miserére nobis.", "pt": "Cordeiro de Deus, que tirais os pecados do mundo, tende piedade de nós." },
+        { "w": "S", "cond": "naoDefuntos", "la": "Agnus Dei, qui tollis peccáta mundi: miserére nobis.", "pt": "Cordeiro de Deus, que tirais os pecados do mundo, tende piedade de nós." },
+        { "w": "S", "cond": "naoDefuntos", "la": "Agnus Dei, qui tollis peccáta mundi: dona nobis pacem.", "pt": "Cordeiro de Deus, que tirais os pecados do mundo, dai-nos a paz." },
+        { "w": "S", "cond": "defuntos", "la": "Agnus Dei, qui tollis peccáta mundi: dona eis réquiem.", "pt": "Cordeiro de Deus, que tirais os pecados do mundo, dai-lhes o descanso." },
+        { "w": "S", "cond": "defuntos", "la": "Agnus Dei, qui tollis peccáta mundi: dona eis réquiem.", "pt": "Cordeiro de Deus, que tirais os pecados do mundo, dai-lhes o descanso." },
+        { "w": "S", "cond": "defuntos", "la": "Agnus Dei, qui tollis peccáta mundi: dona eis réquiem sempitérnam.", "pt": "Cordeiro de Deus, que tirais os pecados do mundo, dai-lhes o descanso eterno." },
+        { "r": "Orações antes da Comunhão, em silêncio:" },
+        { "w": "S", "cond": "naoDefuntos", "la": "Dómine Jesu Christe, qui dixísti Apóstolis tuis: Pacem relínquo vobis, pacem meam do vobis: ne respícias peccáta mea, sed fidem Ecclésiæ tuæ; eámque secúndum voluntátem tuam pacificáre et coadunáre dignéris: Qui vivis et regnas Deus per ómnia sǽcula sæculórum. Amen.", "pt": "Senhor Jesus Cristo, que dissestes aos vossos Apóstolos: Deixo-vos a paz, dou-vos a minha paz; não olheis os meus pecados, mas a fé da vossa Igreja, e dignai-vos dar-lhe a paz e a unidade segundo a vossa vontade, vós que viveis e reinais, Deus, por todos os séculos dos séculos. Amém." },
+        { "w": "S", "la": "Dómine Jesu Christe, Fili Dei vivi, qui ex voluntáte Patris, cooperánte Spíritu Sancto, per mortem tuam mundum vivificásti: líbera me per hoc sacrosánctum Corpus et Sánguinem tuum ab ómnibus iniquitátibus meis, et univérsis malis: et fac me tuis semper inhærére mandátis, et a te numquam separári permíttas: Qui cum eódem Deo Patre et Spíritu Sancto vivis et regnas Deus in sǽcula sæculórum. Amen.", "pt": "Senhor Jesus Cristo, Filho de Deus vivo, que, por vontade do Pai e com a cooperação do Espírito Santo, destes pela vossa morte a vida ao mundo, livrai-me, por este sacrossanto Corpo e Sangue, de todas as minhas iniquidades e de todos os males; fazei que eu permaneça sempre fiel aos vossos mandamentos e não permitais que jamais me separe de vós, que com o mesmo Deus Pai e o Espírito Santo viveis e reinais, Deus, pelos séculos dos séculos. Amém." },
+        { "w": "S", "la": "Percéptio Córporis tui, Dómine Jesu Christe, quod ego indígnus súmere præsúmo, non mihi provéniat in judícium et condemnatiónem: sed pro tua pietáte prosit mihi ad tutaméntum mentis et córporis, et ad medélam percipiéndam: Qui vivis et regnas cum Deo Patre in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. Amen.", "pt": "A comunhão do vosso Corpo, Senhor Jesus Cristo, que eu, indigno, ouso receber, não se torne para mim causa de juízo e condenação; mas, pela vossa bondade, sirva de proteção à minha alma e ao meu corpo e de remédio para me curar, vós que viveis e reinais com Deus Pai, na unidade do Espírito Santo, Deus, por todos os séculos dos séculos. Amém." }
+      ]
+    },
+    {
+      "id": "comunhao", "titulo": "Comunhão", "la": "Communio", "pos": "De joelhos",
+      "itens": [
+        { "w": "S", "la": "Panem cæléstem accípiam, et nomen Dómini invocábo.", "pt": "Receberei o Pão do céu e invocarei o nome do Senhor." },
+        { "r": "Batendo no peito três vezes (a campainha toca):" },
+        { "w": "S", "la": "Dómine, non sum dignus, ut intres sub tectum meum: sed tantum dic verbo, et sanábitur ánima mea.", "pt": "Senhor, eu não sou digno de que entreis em minha morada, mas dizei uma só palavra e a minha alma será salva.", "vezes": 3 },
+        { "w": "S", "la": "Corpus Dómini nostri Jesu Christi custódiat ánimam meam in vitam ætérnam. Amen.", "pt": "O Corpo de Nosso Senhor Jesus Cristo guarde a minha alma para a vida eterna. Amém." },
+        { "r": "O sacerdote comunga e recolhe-se um instante." },
+        { "w": "S", "la": "Quid retríbuam Dómino pro ómnibus, quæ retríbuit mihi? Cálicem salutáris accípiam, et nomen Dómini invocábo. Laudans invocábo Dóminum, et ab inimícis meis salvus ero.", "pt": "Que retribuirei ao Senhor por tudo o que me deu? Tomarei o cálice da salvação e invocarei o nome do Senhor. Louvando invocarei o Senhor e serei salvo dos meus inimigos." },
+        { "w": "S", "la": "Sanguis Dómini nostri Jesu Christi custódiat ánimam meam in vitam ætérnam. Amen.", "pt": "O Sangue de Nosso Senhor Jesus Cristo guarde a minha alma para a vida eterna. Amém." },
+        { "r": "Comunhão dos fiéis. Comunga-se de joelhos e na língua." },
+        { "r": "Costume de muitas capelas tradicionais: reza-se antes o terceiro Confiteor (as rubricas de 1962 o suprimiram).", "cond": "costume" },
+        { "w": "M", "cond": "costume", "la": "Confíteor Deo omnipoténti, beátæ Maríæ semper Vírgini, beáto Michaéli Archángelo, beáto Joánni Baptístæ, sanctis Apóstolis Petro et Paulo, ómnibus Sanctis, et tibi, pater: quia peccávi nimis cogitatióne, verbo et ópere: mea culpa, mea culpa, mea máxima culpa. Ideo precor beátam Maríam semper Vírginem, beátum Michaélem Archángelum, beátum Joánnem Baptístam, sanctos Apóstolos Petrum et Paulum, omnes Sanctos, et te, pater, oráre pro me ad Dóminum, Deum nostrum.", "pt": "Confesso a Deus todo-poderoso, à bem-aventurada sempre Virgem Maria, ao bem-aventurado São Miguel Arcanjo, ao bem-aventurado São João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, padre, que pequei muitas vezes por pensamentos, palavras e obras, por minha culpa, minha culpa, minha máxima culpa. Por isso peço à bem-aventurada sempre Virgem Maria, ao bem-aventurado São Miguel Arcanjo, ao bem-aventurado São João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, padre, que rogueis por mim a Deus Nosso Senhor." },
+        { "w": "S", "cond": "costume", "la": "Misereátur vestri omnípotens Deus, et, dimíssis peccátis vestris, perdúcat vos ad vitam ætérnam.", "pt": "Deus todo-poderoso tenha misericórdia de vós, perdoe os vossos pecados e vos conduza à vida eterna." },
+        { "w": "R", "cond": "costume", "la": "Amen.", "pt": "Amém." },
+        { "w": "S", "cond": "costume", "la": "Indulgéntiam, ✠ absolutiónem et remissiónem peccatórum vestrórum tríbuat vobis omnípotens et miséricors Dóminus.", "pt": "O Senhor todo-poderoso e misericordioso vos conceda o perdão, ✠ a absolvição e a remissão dos vossos pecados." },
+        { "w": "R", "cond": "costume", "la": "Amen.", "pt": "Amém." },
+        { "r": "O sacerdote mostra a Hóstia aos fiéis:" },
+        { "w": "S", "la": "Ecce Agnus Dei, ecce qui tollit peccáta mundi.", "pt": "Eis o Cordeiro de Deus, eis aquele que tira os pecados do mundo." },
+        { "w": "M", "la": "Dómine, non sum dignus, ut intres sub tectum meum: sed tantum dic verbo, et sanábitur ánima mea.", "pt": "Senhor, eu não sou digno de que entreis em minha morada, mas dizei uma só palavra e a minha alma será salva.", "vezes": 3 },
+        { "r": "A cada um que comunga:" },
+        { "w": "S", "la": "Corpus Dómini nostri Jesu Christi custódiat ánimam tuam in vitam ætérnam. Amen.", "pt": "O Corpo de Nosso Senhor Jesus Cristo guarde a tua alma para a vida eterna. Amém." },
+        { "x": "comunhaoEspiritual" },
+        { "r": "Purificação do cálice:" },
+        { "w": "S", "la": "Quod ore súmpsimus, Dómine, pura mente capiámus: et de múnere temporáli fiat nobis remédium sempitérnum.", "pt": "O que recebemos com a boca, Senhor, acolhamos com alma pura; e este dom temporal se torne para nós remédio eterno." },
+        { "w": "S", "la": "Corpus tuum, Dómine, quod sumpsi, et Sanguis, quem potávi, adhǽreat viscéribus meis: et præsta; ut in me non remáneat scélerum mácula, quem pura et sancta refecérunt sacraménta: Qui vivis et regnas in sǽcula sæculórum. Amen.", "pt": "O vosso Corpo, Senhor, que recebi, e o vosso Sangue, que bebi, se unam ao íntimo do meu ser; e concedei que não fique em mim mancha alguma de pecado, a mim que fui alimentado por sacramentos tão puros e santos, vós que viveis e reinais pelos séculos dos séculos. Amém." }
+      ]
+    },
+    {
+      "id": "poscomunhao", "titulo": "Antífona da Comunhão e Pós-Comunhão", "la": "Communio · Postcommunio",
+      "itens": [
+        { "x": "proprio", "p": "Communio" },
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "w": "S", "la": "Orémus.", "pt": "Oremos." },
+        { "x": "proprio", "p": "Postcommunio" }
+      ]
+    },
+    {
+      "id": "conclusao", "titulo": "Conclusão", "la": "Conclusio",
+      "itens": [
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "w": "V", "cond": "iteComum", "la": "Ite, Missa est.", "pt": "Ide, a Missa terminou." },
+        { "w": "R", "cond": "iteComum", "la": "Deo grátias.", "pt": "Graças a Deus." },
+        { "w": "V", "cond": "iteAleluia", "la": "Ite, Missa est, allelúja, allelúja.", "pt": "Ide, a Missa terminou, aleluia, aleluia." },
+        { "w": "R", "cond": "iteAleluia", "la": "Deo grátias, allelúja, allelúja.", "pt": "Graças a Deus, aleluia, aleluia." },
+        { "w": "V", "cond": "defuntos", "la": "Requiéscant in pace.", "pt": "Descansem em paz." },
+        { "w": "R", "cond": "defuntos", "la": "Amen.", "pt": "Amém." },
+        { "r": "Inclinado diante do altar:" },
+        { "w": "S", "la": "Pláceat tibi, sancta Trínitas, obséquium servitútis meæ: et præsta; ut sacrifícium, quod óculis tuæ majestátis indígnus óbtuli, tibi sit acceptábile, mihíque et ómnibus, pro quibus illud óbtuli, sit, te miseránte, propitiábile. Per Christum, Dóminum nostrum. Amen.", "pt": "Seja-vos agradável, Trindade santa, a homenagem da minha servidão; e concedei que o sacrifício que eu, indigno, ofereci aos olhos da vossa majestade vos seja aceito e, pela vossa misericórdia, alcance o perdão para mim e para todos aqueles por quem o ofereci. Por Cristo, Nosso Senhor. Amém." },
+        { "r": "Bênção (não se dá nas Missas de defuntos). Os fiéis, de joelhos, fazem o sinal da cruz.", "cond": "naoDefuntos" },
+        { "w": "S", "cond": "naoDefuntos", "la": "Benedícat vos omnípotens Deus, Pater, et Fílius, ✠ et Spíritus Sanctus.", "pt": "Abençoe-vos Deus todo-poderoso, Pai, e Filho, ✠ e Espírito Santo." },
+        { "w": "R", "cond": "naoDefuntos", "la": "Amen.", "pt": "Amém." },
+        { "r": "Último Evangelho, de pé. Ajoelha-se em Et Verbum caro factum est." },
+        { "w": "V", "la": "Dóminus vobíscum.", "pt": "O Senhor esteja convosco." },
+        { "w": "R", "la": "Et cum spíritu tuo.", "pt": "E com o vosso espírito." },
+        { "x": "fixo", "k": "or:Ultima Evangelium" },
+        { "w": "R", "la": "Deo grátias.", "pt": "Graças a Deus." }
+      ]
+    },
+    {
+      "id": "leoninas", "titulo": "Orações depois da Missa rezada", "la": "Preces Leonis XIII", "pos": "De joelhos",
+      "nota": "Prescritas por Leão XIII e rezadas pela FSSPX depois das Missas rezadas.",
+      "itens": [
+        { "w": "S", "la": "Ave María, grátia plena, Dóminus tecum, benedícta tu in muliéribus et benedíctus fructus ventris tui, Jesus.", "pt": "Ave Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus.", "vezes": 3 },
+        { "w": "M", "la": "Sancta María, Mater Dei, ora pro nobis peccatóribus, nunc et in hora mortis nostræ. Amen.", "pt": "Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.", "vezes": 3 },
+        { "w": "M", "la": "Salve Regína, Mater misericórdiæ, vita, dulcédo, et spes nostra, salve. Ad te clamámus, éxsules fílii Evæ. Ad te suspirámus geméntes et flentes in hac lacrymárum valle. Eia ergo, Advocáta nostra, illos tuos misericórdes óculos ad nos convérte. Et Jesum, benedíctum fructum ventris tui, nobis, post hoc exílium, osténde. O clemens, o pia, o dulcis Virgo María.", "pt": "Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva. A vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro mostrai-nos Jesus, bendito fruto do vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria." },
+        { "w": "V", "la": "Ora pro nobis, sancta Dei Génitrix.", "pt": "Rogai por nós, santa Mãe de Deus." },
+        { "w": "R", "la": "Ut digni efficiámur promissiónibus Christi.", "pt": "Para que sejamos dignos das promessas de Cristo." },
+        { "w": "S", "la": "Orémus. Deus, refúgium nostrum et virtus, pópulum ad te clamántem propítius réspice; et intercedénte gloriósa, et immaculáta Vírgine Dei Genitríce María, cum beáto Joseph, ejus Sponso, ac beátis Apóstolis tuis Petro et Paulo, et ómnibus Sanctis, quas pro conversióne peccatórum, pro libertáte et exaltatióne sanctæ Matris Ecclésiæ, preces effúndimus, miséricors et benígnus exáudi. Per eúndem Christum Dóminum nostrum. Amen.", "pt": "Oremos. Ó Deus, nosso refúgio e nossa força, olhai propício para o povo que vos invoca; e, pela intercessão da gloriosa e imaculada Virgem Maria, Mãe de Deus, de São José, seu esposo, dos vossos bem-aventurados Apóstolos Pedro e Paulo e de todos os Santos, ouvi misericordioso e benigno as preces que derramamos pela conversão dos pecadores e pela liberdade e exaltação da santa Mãe Igreja. Pelo mesmo Cristo, Nosso Senhor. Amém." },
+        { "w": "M", "la": "Sancte Míchaël Archángele, defénde nos in prǽlio; contra nequítiam et insídias diáboli esto præsídium. Imperet illi Deus, súpplices deprecámur: tuque, Princeps milítiæ cæléstis, sátanam aliósque spíritus malígnos, qui ad perditiónem animárum pervagántur in mundo, divína virtúte in inférnum detrúde. Amen.", "pt": "São Miguel Arcanjo, defendei-nos no combate; sede o nosso amparo contra a maldade e as ciladas do demônio. Ordene-lhe Deus, instantemente o pedimos; e vós, Príncipe da milícia celeste, pela virtude divina, precipitai no inferno a Satanás e aos outros espíritos malignos que andam pelo mundo para perder as almas. Amém." },
+        { "w": "V", "la": "Cor Jesu sacratíssimum.", "pt": "Sacratíssimo Coração de Jesus.", "vezes": 3 },
+        { "w": "R", "la": "Miserére nobis.", "pt": "Tende piedade de nós.", "vezes": 3 }
+      ]
+    }
+  ],
+  "fixos": {
+    "or:Per Dominum": ["Por Nosso Senhor Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Per Dominum eiusdem": ["Por Nosso Senhor Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do mesmo Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Per eundem": ["Pelo mesmo Nosso Senhor Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Per eumdem": ["Pelo mesmo Nosso Senhor Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Qui vivis": ["Vós que viveis e reinais com Deus Pai, na unidade do Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Qui tecum": ["Que convosco vive e reina na unidade do Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Qui tecum eiusdem": ["Que convosco vive e reina na unidade do mesmo Espírito Santo, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Qui cum Patre": ["Vós que, com o Pai e o Espírito Santo, viveis e reinais, Deus, por todos os séculos dos séculos.", "Amém."],
+    "or:Gloria": ["Glória ao Pai, e ao Filho, e ao Espírito Santo.", "Assim como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém."],
+    "or:Deo gratias": ["Graças a Deus."],
+    "or:Dominus vobiscum": ["O Senhor esteja convosco.", "E com o vosso espírito."],
+    "or:Asperges me": ["Aspergi-me, Senhor, com o hissopo e serei purificado; lavai-me e ficarei mais branco que a neve.", "Tende piedade de mim, ó Deus, segundo a vossa grande misericórdia.", "=1", "Mostrai-nos, Senhor, a vossa misericórdia.", "E dai-nos a vossa salvação.", "Senhor, ouvi a minha oração.", "E chegue a vós o meu clamor.", "O Senhor esteja convosco.", "E com o vosso espírito.", "Oremos.", "Ouvi-nos, Senhor santo, Pai todo-poderoso, Deus eterno, e dignai-vos enviar do céu o vosso santo Anjo, que guarde, ampare, proteja, visite e defenda todos os que habitam nesta casa. Por Cristo, Nosso Senhor. Amém."],
+    "or:Vidi aquam": ["Vi a água que saía do templo, do lado direito, aleluia; e todos aqueles a quem chegou esta água foram salvos e dirão: aleluia, aleluia.", "Louvai o Senhor, porque ele é bom, porque eterna é a sua misericórdia.", "=1", "Mostrai-nos, Senhor, a vossa misericórdia, aleluia.", "E dai-nos a vossa salvação, aleluia.", "Senhor, ouvi a minha oração.", "E chegue a vós o meu clamor.", "O Senhor esteja convosco.", "E com o vosso espírito.", "Oremos.", "Ouvi-nos, Senhor santo, Pai todo-poderoso, Deus eterno, e dignai-vos enviar do céu o vosso santo Anjo, que guarde, ampare, proteja, visite e defenda todos os que habitam nesta casa. Por Cristo, Nosso Senhor. Amém."],
+    "or:Ultima Evangelium": ["Início do santo Evangelho segundo São João.", "No princípio era o Verbo, e o Verbo estava junto de Deus, e o Verbo era Deus. Ele estava no princípio junto de Deus. Todas as coisas foram feitas por ele, e sem ele nada foi feito do que foi feito. Nele estava a vida, e a vida era a luz dos homens; e a luz brilha nas trevas, e as trevas não a compreenderam.", "Houve um homem enviado por Deus, cujo nome era João. Ele veio como testemunha, para dar testemunho da luz, a fim de que todos cressem por meio dele. Ele não era a luz, mas veio para dar testemunho da luz.", "Era a luz verdadeira, que ilumina todo homem que vem a este mundo. Estava no mundo, e o mundo foi feito por ele, e o mundo não o conheceu. Veio para o que era seu, e os seus não o receberam. Mas a todos os que o receberam deu o poder de se tornarem filhos de Deus, aos que creem no seu nome; os quais não nasceram do sangue, nem da vontade da carne, nem da vontade do homem, mas de Deus. (Genuflexão) E o Verbo se fez carne (levanta-se) e habitou entre nós; e vimos a sua glória, glória como do Unigênito do Pai, cheio de graça e de verdade."],
+    "pf:Nat": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Porque, pelo mistério do Verbo encarnado, brilhou aos olhos da nossa alma uma nova luz da vossa claridade, para que, conhecendo a Deus visivelmente, sejamos por ele arrebatados ao amor das coisas invisíveis. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Epi": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Porque, tendo o vosso Unigênito aparecido na substância da nossa mortalidade, restaurou-nos com a nova luz da sua imortalidade. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Quad": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Vós que, pelo jejum corporal, reprimis os vícios, elevais a alma e concedeis a virtude e a recompensa, por Cristo, Nosso Senhor. Por ele os Anjos louvam a vossa majestade, as Dominações a adoram, as Potestades tremem diante dela. Os céus, as Virtudes dos céus e os bem-aventurados Serafins a celebram com igual júbilo. Com eles, pedimos, mandai que sejam admitidas também as nossas vozes, dizendo em humilde louvor:"],
+    "pf:Quad5": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Vós que pusestes a salvação do gênero humano no lenho da Cruz, para que de onde nascia a morte, dali ressurgisse a vida, e quem pelo lenho vencia, pelo lenho também fosse vencido, por Cristo, Nosso Senhor. Por ele os Anjos louvam a vossa majestade, as Dominações a adoram, as Potestades tremem diante dela. Os céus, as Virtudes dos céus e os bem-aventurados Serafins a celebram com igual júbilo. Com eles, pedimos, mandai que sejam admitidas também as nossas vozes, dizendo em humilde louvor:"],
+    "pf:Pasch": ["É verdadeiramente digno e justo, razoável e salutar, glorificar-vos, Senhor, em todo tempo, mas sobretudo neste tempo, em que Cristo, nossa Páscoa, foi imolado. Pois ele é o verdadeiro Cordeiro que tirou os pecados do mundo; morrendo, destruiu a nossa morte e, ressuscitando, restaurou a vida. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:PaschDie": ["É verdadeiramente digno e justo, razoável e salutar, glorificar-vos, Senhor, em todo tempo, mas sobretudo neste dia, em que Cristo, nossa Páscoa, foi imolado. Pois ele é o verdadeiro Cordeiro que tirou os pecados do mundo; morrendo, destruiu a nossa morte e, ressuscitando, restaurou a vida. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Asc": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno, por Cristo, Nosso Senhor. O qual, depois da sua ressurreição, apareceu manifestamente a todos os seus discípulos e, à vista deles, foi elevado ao céu, para nos fazer participantes da sua divindade. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Cord": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Vós quisestes que o vosso Unigênito, pendente da Cruz, fosse traspassado pela lança do soldado, para que o Coração aberto, santuário da divina generosidade, derramasse sobre nós torrentes de misericórdia e de graça; e aquele Coração, que nunca deixou de arder de amor por nós, fosse repouso para os piedosos e refúgio de salvação aberto aos penitentes. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Regis": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Vós que ungistes com o óleo da alegria o vosso Filho unigênito, Nosso Senhor Jesus Cristo, Sacerdote eterno e Rei do universo, para que, oferecendo-se a si mesmo no altar da Cruz como hóstia imaculada e pacífica, realizasse os mistérios da redenção humana e, submetidas ao seu império todas as criaturas, entregasse à vossa imensa Majestade um reino eterno e universal: reino de verdade e de vida, reino de santidade e de graça, reino de justiça, de amor e de paz. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Spiritu": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno, por Cristo, Nosso Senhor. O qual, subindo acima de todos os céus e sentando-se à vossa direita, derramou *neste dia* o Espírito Santo prometido sobre os filhos de adoção. Por isso o mundo inteiro, por toda a terra, exulta em transbordante alegria. E também as Virtudes celestes e as Potestades angélicas cantam o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Trinitate": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno. Vós que, com o vosso Filho unigênito e o Espírito Santo, sois um só Deus, um só Senhor, não na singularidade de uma só pessoa, mas na trindade de uma só substância. Pois o que, por vossa revelação, cremos da vossa glória, isso mesmo, sem diferença alguma, cremos do vosso Filho e do Espírito Santo; de modo que, confessando a verdadeira e eterna Divindade, adoramos a propriedade nas pessoas, a unidade na essência e a igualdade na majestade. A qual louvam os Anjos e os Arcanjos, os Querubins e os Serafins, que não cessam de clamar todos os dias, dizendo a uma só voz:"],
+    "pf:Maria": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno, e que na *Festividade* da bem-aventurada sempre Virgem Maria vos louvemos, bendigamos e glorifiquemos. Ela concebeu o vosso Unigênito pela sombra do Espírito Santo e, permanecendo a glória da virgindade, deu ao mundo a luz eterna, Jesus Cristo, Nosso Senhor. Por ele os Anjos louvam a vossa majestade, as Dominações a adoram, as Potestades tremem diante dela. Os céus, as Virtudes dos céus e os bem-aventurados Serafins a celebram com igual júbilo. Com eles, pedimos, mandai que sejam admitidas também as nossas vozes, dizendo em humilde louvor:"],
+    "pf:Joseph": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno, e que na *Veneração* de São José vos engrandeçamos com os louvores devidos, vos bendigamos e glorifiquemos. Ele, homem justo, foi dado por vós como esposo à Virgem Mãe de Deus e, servo fiel e prudente, foi posto à frente da vossa Família, para guardar com cuidado de pai o vosso Unigênito, concebido pela sombra do Espírito Santo, Jesus Cristo, Nosso Senhor. Por ele os Anjos louvam a vossa majestade, as Dominações a adoram, as Potestades tremem diante dela. Os céus, as Virtudes dos céus e os bem-aventurados Serafins a celebram com igual júbilo. Com eles, pedimos, mandai que sejam admitidas também as nossas vozes, dizendo em humilde louvor:"],
+    "pf:Apostolis": ["É verdadeiramente digno e justo, razoável e salutar, suplicar-vos humildemente, Senhor, que não abandoneis o vosso rebanho, ó Pastor eterno, mas o guardeis com proteção contínua por meio dos vossos bem-aventurados Apóstolos, para que seja governado por aqueles mesmos chefes que pusestes à sua frente como pastores, vigários da vossa obra. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "pf:Communis": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno, por Cristo, Nosso Senhor. Por ele os Anjos louvam a vossa majestade, as Dominações a adoram, as Potestades tremem diante dela. Os céus, as Virtudes dos céus e os bem-aventurados Serafins a celebram com igual júbilo. Com eles, pedimos, mandai que sejam admitidas também as nossas vozes, dizendo em humilde louvor:"],
+    "pf:Defunctorum": ["É verdadeiramente digno e justo, razoável e salutar, que sempre e em toda parte vos demos graças, Senhor santo, Pai todo-poderoso, Deus eterno, por Cristo, Nosso Senhor. Nele brilhou para nós a esperança da feliz ressurreição, para que aqueles a quem entristece a certeza de morrer sejam consolados pela promessa da imortalidade futura. Pois para os vossos fiéis, Senhor, a vida não é tirada, mas transformada; e, desfeita a casa desta morada terrestre, é preparada nos céus uma habitação eterna. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino da vossa glória, dizendo sem cessar:"],
+    "C-common1962": ["Em comunhão com toda a Igreja, e venerando a memória, primeiramente, da gloriosa sempre Virgem Maria, Mãe de Deus e Senhor nosso Jesus Cristo, e também de São José, esposo da mesma Virgem,"],
+    "C-Nat1962": ["Em comunhão com toda a Igreja, e celebrando o dia santíssimo em que a virgindade intacta da bem-aventurada Maria deu ao mundo o Salvador, e venerando a memória, primeiramente, da mesma gloriosa sempre Virgem Maria, Mãe do mesmo Deus e Senhor nosso Jesus Cristo, e também de São José, esposo da mesma Virgem,"],
+    "C-Epi1962": ["Em comunhão com toda a Igreja, e celebrando o dia santíssimo em que o vosso Unigênito, coeterno convosco na vossa glória, apareceu visivelmente na verdade da nossa carne, e venerando a memória, primeiramente, da gloriosa sempre Virgem Maria, Mãe do mesmo Deus e Senhor nosso Jesus Cristo, e também de São José, esposo da mesma Virgem,"],
+    "C-Pasc1962": ["Em comunhão com toda a Igreja, e celebrando o dia santíssimo da Ressurreição de Nosso Senhor Jesus Cristo segundo a carne, e venerando a memória, primeiramente, da gloriosa sempre Virgem Maria, Mãe do mesmo Deus e Senhor nosso Jesus Cristo, e também de São José, esposo da mesma Virgem,"],
+    "C-Asc1962": ["Em comunhão com toda a Igreja, e celebrando o dia santíssimo em que Nosso Senhor, vosso Filho unigênito, colocou à direita da vossa glória a substância da nossa fragilidade que ele uniu a si, e venerando a memória, primeiramente, da gloriosa sempre Virgem Maria, Mãe do mesmo Deus e Senhor nosso Jesus Cristo, e também de São José, esposo da mesma Virgem,"],
+    "C-Pent1962": ["Em comunhão com toda a Igreja, e celebrando o dia santíssimo de Pentecostes, em que o Espírito Santo apareceu aos Apóstolos em inumeráveis línguas, e venerando a memória, primeiramente, da gloriosa sempre Virgem Maria, Mãe de Deus e Senhor nosso Jesus Cristo, e também de São José, esposo da mesma Virgem,"],
+    "H-Pent": ["que vos oferecemos também por aqueles que vos dignastes regenerar pela água e pelo Espírito Santo, concedendo-lhes a remissão de todos os pecados,"]
+  }
+}

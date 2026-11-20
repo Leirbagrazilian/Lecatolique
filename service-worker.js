@@ -1,8 +1,10 @@
 /* Sub Tuum Praesidium — service worker
    App: cache primeiro, com atualização em segundo plano. Fontes do Google: guardadas na primeira visita.
    Ao mudar qualquer arquivo do app, aumente VERSAO para forçar a atualização. */
-const VERSAO = 'stp-v4';
-const APP = ['./', './index.html', './manifest.json', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-180.png'];
+const VERSAO = 'stp-v5';
+const APP = ['./', './index.html', './missal.js', './manifest.json', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-180.png',
+  './data/missal/la-tempora.json', './data/missal/la-sancti.json', './data/missal/la-ordo.json',
+  './data/missal/kalendarium.json', './data/missal/ordinario.json', './data/missal/pt-tempora.json', './data/missal/pt-sancti.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSAO).then(c => c.addAll(APP)).then(() => self.skipWaiting()));
