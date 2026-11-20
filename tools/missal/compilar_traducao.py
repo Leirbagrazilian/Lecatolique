@@ -7,6 +7,7 @@ Formato dos arquivos de tradução:
     Diz o Senhor: Eu tenho pensamentos de paz...
     Abençoastes, Senhor, a vossa terra...
     =1                          (repete a 1ª linha traduzida desta parte)
+    =Graduale:1                 (repete a 1ª linha traduzida de outra parte da mesma Missa)
     # Oratio
     @T:Epi3-0                   (copia esta parte já traduzida de outra Missa)
     ...
@@ -83,10 +84,14 @@ def compilar(latim):
                     continue
                 final = []
                 for ln in linhas:
-                    mm = re.match(r'^=(\d+)$', ln)
+                    mm = re.match(r'^=(?:([^:]+):)?(\d+)$', ln)
                     if mm:
-                        idx = int(mm.group(1)) - 1
-                        final.append(final[idx] if 0 <= idx < len(final) else '')
+                        outra, idx = mm.group(1), int(mm.group(2)) - 1
+                        base = buf.get(outra, []) if outra else final
+                        txt = base[idx] if 0 <= idx < len(base) else ''
+                        if not txt or txt.startswith('='):
+                            erros.append('%s: %s [%s] referência inválida %s' % (nome, chave, p, ln))
+                        final.append(txt)
                     else:
                         final.append(ln)
                 if len(final) != len(lat):

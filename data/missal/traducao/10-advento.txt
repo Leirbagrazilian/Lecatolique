@@ -15,7 +15,7 @@ Todos os que esperam em vós não serão confundidos, Senhor.
 Senhor, mostrai-me os vossos caminhos e ensinai-me as vossas veredas. Aleluia, aleluia.
 Mostrai-nos, Senhor, a vossa misericórdia, e dai-nos a vossa salvação. Aleluia.
 # GradualeF
-=1
+=Graduale:1
 Senhor, mostrai-me os vossos caminhos e ensinai-me as vossas veredas.
 # Evangelium
 Continuação do santo Evangelho segundo São Lucas
@@ -44,7 +44,7 @@ De Sião brilha a sua formosura: Deus virá manifestamente.
 Reuni para ele os seus santos, que firmaram a sua aliança com sacrifícios. Aleluia, aleluia.
 Alegrei-me quando me disseram: Iremos à casa do Senhor. Aleluia.
 # GradualeF
-=1
+=Graduale:1
 Reuni para ele os seus santos, que firmaram a sua aliança com sacrifícios.
 # Evangelium
 Continuação do santo Evangelho segundo São Mateus
@@ -73,7 +73,7 @@ Vós que estais sentado sobre os Querubins, Senhor, despertai o vosso poder e vi
 Vós que governais Israel, escutai; vós que conduzis José como uma ovelha. Aleluia, aleluia.
 Despertai, Senhor, o vosso poder e vinde, para nos salvar. Aleluia.
 # GradualeF
-=1
+=Graduale:1
 Vós que governais Israel, escutai; vós que conduzis José como uma ovelha.
 # Evangelium
 Continuação do santo Evangelho segundo São João
@@ -102,7 +102,7 @@ O Senhor está perto de todos os que o invocam, de todos os que o invocam com si
 A minha boca anunciará o louvor do Senhor, e toda carne bendiga o seu santo nome. Aleluia, aleluia.
 Vinde, Senhor, e não tardeis; perdoai os delitos do vosso povo de Israel. Aleluia.
 # GradualeF
-=1
+=Graduale:1
 A minha boca anunciará o louvor do Senhor, e toda carne bendiga o seu santo nome.
 # Evangelium
 Continuação do santo Evangelho segundo São Lucas

@@ -18,7 +18,7 @@ Estejam os vossos ouvidos atentos à oração do vosso servo.
 Se tiverdes em conta as iniquidades, Senhor, Senhor, quem poderá subsistir?
 Mas em vós está o perdão, e por causa da vossa lei esperei em vós, Senhor.
 # GradualeF
-=1
+=Graduale:1
 Porque o pobre não será esquecido para sempre; a paciência dos pobres não perecerá eternamente. Levantai-vos, Senhor, não prevaleça o homem.
 # Evangelium
 Continuação do santo Evangelho segundo São Mateus
@@ -49,7 +49,7 @@ Abalastes, Senhor, a terra e a perturbastes.
 Curai as suas fendas, pois ela vacila.
 Para que fujam diante do arco, para que sejam libertados os vossos eleitos.
 # GradualeF
-=1
+=Graduale:1
 Meu Deus, tornai-os como a roda que gira, como a palha diante do vento.
 # Evangelium
 Continuação do santo Evangelho segundo São Lucas
@@ -80,7 +80,7 @@ Aclamai a Deus, terra inteira; servi ao Senhor com alegria.
 Entrai na sua presença com júbilo; sabei que o Senhor é Deus.
 Foi ele que nos fez, e não nós a nós mesmos; nós somos o seu povo e as ovelhas do seu rebanho.
 # GradualeF
-=1
+=Graduale:1
 Com o vosso braço libertastes o vosso povo, os filhos de Israel e de José.
 # Evangelium
 Continuação do santo Evangelho segundo São Lucas
